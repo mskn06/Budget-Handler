@@ -1,0 +1,24 @@
+.sidebar-left {
+  position: inherit;
+  width: 110px;
+  left: 0px;
+  top: 0px;
+
+  background: #fbf2e0;
+  box-shadow: 2px 4px 48px rgba(0, 0, 0, 0.04);
+  border-radius: 0px 40px 40px 0px;
+}
+
+.logo {
+  padding: 25px;
+}
+
+.action-btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.action-btns div {
+  padding-top: 20px;
+}

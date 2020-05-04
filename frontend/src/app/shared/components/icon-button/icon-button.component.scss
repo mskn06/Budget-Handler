@@ -15,3 +15,13 @@ button.raised {
   box-shadow: -2px -2px 3.68901px rgba(255, 255, 255, 0.6),
     3.68901px 3.68901px 3.68901px rgba(0, 0, 0, 0.1);
 }
+
+button.primary {
+  background: linear-gradient(
+    270deg,
+    #8a4b00 28.33%,
+    rgba(163, 97, 19, 0.64) 100%
+  );
+  box-shadow: -2px -2px 3.68901px rgba(255, 255, 255, 0.6),
+    3.68901px 3.68901px 3.68901px rgba(0, 0, 0, 0.1);
+}
