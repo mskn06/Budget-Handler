@@ -1,0 +1,17 @@
+button {
+  width: 60px;
+  height: 60px;
+
+  background: linear-gradient(270deg, #fff2d9 13.47%, #ffffff 100%);
+  border-radius: 12px;
+}
+
+button.pressed {
+  box-shadow: inset -2px -2px 3.68901px rgba(255, 255, 255, 0.6),
+    inset 3.68901px 3.68901px 3.68901px rgba(0, 0, 0, 0.1);
+}
+
+button.raised {
+  box-shadow: -2px -2px 3.68901px rgba(255, 255, 255, 0.6),
+    3.68901px 3.68901px 3.68901px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,28 @@
+button {
+  width: 540px;
+  height: 76px;
+
+  background: linear-gradient(
+    270deg,
+    #8a4b00 0%,
+    #e8b06d 99.99%,
+    rgba(138, 75, 0, 0) 100%
+  );
+  box-shadow: -7px -11px 22px rgba(255, 255, 255, 0.8),
+    7px 7px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+span {
+  width: 186px;
+  height: 51px;
+
+  font-family: Lora;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 51px;
+  letter-spacing: 0.08em;
+
+  color: #ffffff;
+}
