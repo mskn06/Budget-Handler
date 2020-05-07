@@ -1,0 +1,58 @@
+.head {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 25px;
+
+  &--lines {
+    align-self: center;
+  }
+
+  .first {
+    width: 150px;
+    padding-left: 56px;
+  }
+  .second {
+    padding-right: 56px;
+    width: 880px;
+  }
+}
+
+.toggle {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+
+  p {
+    color: #9f6a2a;
+    margin: 4px 0;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .form-fields {
+    padding-top: 24px;
+  }
+
+  .btn-primary {
+    padding-top: 40px;
+  }
+}
+
+ion-input {
+  height: 50px;
+
+  --padding-start: 24px;
+  font-size: 22px;
+  color: #d1b18b;
+
+  background: linear-gradient(90deg, #fff2d9 -1.28%, #fff9e4 103.08%);
+  box-shadow: inset -7px -5px 8px rgba(255, 255, 255, 0.5),
+    inset 5px 5px 16px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+}

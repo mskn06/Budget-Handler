@@ -1,9 +1,56 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content color="primary">
+  <!-- logo header -->
+  <div class="head">
+    <div class="head--lines first">
+      <app-line></app-line>
+    </div>
+    <img src="../../../assets/logo/logo_BH_full.png" alt="" />
+    <div class="head--lines second">
+      <app-line></app-line>
+    </div>
+  </div>
 
-<ion-content>
+  <!-- toggle -->
+  <div class="toggle">
+    <div>
+      <app-button [buttonName]="loginBtnName" [btnType]="loginBtn"></app-button>
+    </div>
+    <div>
+      <app-button
+        [buttonName]="signupBtnName"
+        [btnType]="signupBtn"
+      ></app-button>
+    </div>
+  </div>
+  <!-- signup form -->
+  <div class="body">
+    <div>
+      <form>
+        <!-- [formGroup]="userForm" -->
 
+        <div class="form-fields">
+          <p>USERNAME / EMAIL ID</p>
+          <ion-input
+            type="email"
+            placeholder="johndoe123@gmail.com"
+            required
+          ></ion-input>
+          <!-- formControlName="email" -->
+        </div>
+
+        <div class="form-fields">
+          <p>PASSWORD</p>
+          <ion-input type="password" placeholder="John@123" required>
+          </ion-input>
+
+          <!-- formControlName="password" -->
+        </div>
+
+        <div class="btn-primary">
+          <app-button [buttonName]="SIGNUP" [btnType]="primaryBtn"></app-button>
+          <!-- [disabled]="!userForm.valid" (click)="loginForm()"-->
+        </div>
+      </form>
+    </div>
+  </div>
 </ion-content>
