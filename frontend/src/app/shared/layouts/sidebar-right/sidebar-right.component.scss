@@ -1,9 +1,9 @@
 .sidebar-right {
-  position: absolute;
+  position: fixed;
   width: 375px;
-  height: 1024px;
   right: 0px;
   top: 0px;
+  bottom: 0px;
 
   //   background: #fbf2e0;
   box-shadow: inset -2px 4px 48px rgba(0, 0, 0, 0.04);
