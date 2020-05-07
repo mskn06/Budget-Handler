@@ -3,8 +3,8 @@
   height: 4px;
 
   background: #fbf2e0;
-  box-shadow: inset 0px -2px 2px rgba(251, 251, 251, 0.8),
-    inset 0px 1.5px 2px rgba(0, 0, 0, 0.18);
+  box-shadow: inset 0px 2px 2px rgba(251, 251, 251, 0.8),
+    inset 0px -2px 2px rgba(0, 0, 0, 0.08);
   border-radius: 50px;
   transform: matrix(1, 0, 0, -1, 0, 0);
 }

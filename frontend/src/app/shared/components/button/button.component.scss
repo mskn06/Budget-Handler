@@ -4,12 +4,12 @@ button.btn {
   background: linear-gradient(90deg, #fff2d9 -1.28%, #fff9e4 103.08%);
 
   &-raised {
-    box-shadow: -7px -5px 8px rgba(255, 255, 255, 0.5),
-      5px 5px 16px rgba(0, 0, 0, 0.08);
+    box-shadow: -4px -4px 8px rgba(255, 255, 255, 0.5),
+      4px 7px 12px rgba(0, 0, 0, 0.04);
   }
   &-pressed {
-    box-shadow: inset 0px -6px 8px rgba(255, 255, 255, 0.5),
-      inset 5px 5px 16px rgba(0, 0, 0, 0.08);
+    box-shadow: inset -3px -3px 10px rgba(255, 255, 255, 0.6),
+      inset 4px 4px 12px rgba(0, 0, 0, 0.08);
   }
 
   &-login {
@@ -22,6 +22,7 @@ button.btn {
 
   &-primary {
     width: 400px;
+
     box-shadow: -7px -11px 22px rgba(255, 255, 255, 0.8),
       7px 7px 20px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
@@ -42,7 +43,7 @@ span {
   font-family: Lora;
   font-style: normal;
   font-weight: bold;
-  font-size: 28px;
+  font-size: 24px;
   line-height: 51px;
   letter-spacing: 0.08em;
 

@@ -8,26 +8,42 @@
   }
 
   .first {
-    width: 200px;
+    width: 150px;
     padding-left: 56px;
   }
   .second {
     padding-right: 56px;
-    width: 800px;
+    width: 880px;
   }
+}
+
+.toggle {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
 }
 
 .body {
   display: flex;
   justify-content: center;
+  margin-top: 24px;
 
   p {
     color: #9f6a2a;
+    margin: 4px 0;
+    font-size: 14px;
+  }
+
+  .form-fields {
+    padding-top: 24px;
+  }
+
+  .btn-primary {
+    padding-top: 40px;
   }
 }
 
 ion-input {
-  width: 400px;
   height: 50px;
 
   --padding-start: 24px;
