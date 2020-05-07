@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from "@angular/core";
   templateUrl: "./icon-button.component.html",
   styleUrls: ["./icon-button.component.scss"]
 })
-export class ButtonPressedComponent implements OnInit {
+export class IconButtonComponent implements OnInit {
   @Input() icon;
 
   constructor() {}

@@ -1,0 +1,50 @@
+button.btn {
+  width: 200px;
+  height: 50px;
+  background: linear-gradient(90deg, #fff2d9 -1.28%, #fff9e4 103.08%);
+
+  &-raised {
+    box-shadow: -7px -5px 8px rgba(255, 255, 255, 0.5),
+      5px 5px 16px rgba(0, 0, 0, 0.08);
+  }
+  &-pressed {
+    box-shadow: inset 0px -6px 8px rgba(255, 255, 255, 0.5),
+      inset 5px 5px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  &-login {
+    border-radius: 10px 0px 0px 10px;
+  }
+
+  &-signup {
+    border-radius: 0px 10px 10px 0px;
+  }
+
+  &-primary {
+    width: 400px;
+    box-shadow: -7px -11px 22px rgba(255, 255, 255, 0.8),
+      7px 7px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background: linear-gradient(
+      270deg,
+      #8a4b00 0%,
+      #e8b06d 99.99%,
+      rgba(138, 75, 0, 0) 100%
+    );
+
+    span {
+      color: white;
+    }
+  }
+}
+
+span {
+  font-family: Lora;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 51px;
+  letter-spacing: 0.08em;
+
+  color: var(--ion-color-secondary);
+}

@@ -1,9 +1,54 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>signup</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content color="primary">
+  <!-- logo header -->
+  <div class="head">
+    <div class="head--lines first">
+      <app-line></app-line>
+    </div>
+    <img src="../../../assets/logo/logo_full.png" alt="" />
+    <div class="head--lines second">
+      <app-line></app-line>
+    </div>
+  </div>
 
-<ion-content>
+  <!-- toggle -->
+  <div class="body">
+    <div>
+      <app-button [buttonName]="loginBtnName" [btnType]="loginBtn"></app-button>
+    </div>
+    <div>
+      <app-button
+        [buttonName]="signupBtnName"
+        [btnType]="signupBtn"
+      ></app-button>
+    </div>
+  </div>
+  <!-- signup form -->
+  <div class="body">
+    <div>
+      <form>
+        <!-- [formGroup]="userForm" -->
 
+        <div>
+          <p>NAME</p>
+          <ion-input type="text" required></ion-input>
+          <!-- formControlName="email" -->
+        </div>
+
+        <div>
+          <p>EMAIL ID</p>
+          <ion-input type="email" required></ion-input>
+          <!-- formControlName="email" -->
+        </div>
+
+        <div>
+          <p>PASSWORD</p>
+          <ion-input type="password" required></ion-input>
+          <!-- formControlName="password" -->
+        </div>
+
+        <app-button [buttonName]="SIGNUP" [btnType]="primaryBtn"></app-button>
+        <!-- [disabled]="!userForm.valid" (click)="loginForm()"-->
+      </form>
+    </div>
+  </div>
 </ion-content>

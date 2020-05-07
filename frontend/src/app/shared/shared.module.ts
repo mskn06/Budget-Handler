@@ -1,24 +1,27 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { IonicModule } from "@ionic/angular";
 
-import { ButtonPressedComponent } from "./components/icon-button/icon-button.component";
-import { ButtonRaisedComponent } from "./components/primary-button/primary-button.component";
+import { IconButtonComponent } from "./components/icon-button/icon-button.component";
+import { ButtonComponent } from "./components/button/button.component";
 import { LineComponent } from "./components/line/line.component";
 import { ProfileOutlineComponent } from "./components/profile-outline/profile-outline.component";
 import { SidebarLeftComponent } from "./layouts/sidebar-left/sidebar-left.component";
 import { SidebarRightComponent } from "./layouts/sidebar-right/sidebar-right.component";
+import { InputRowComponent } from "./components/input-row/input-row.component";
 
 const components = [
-  ButtonPressedComponent,
-  ButtonRaisedComponent,
+  IconButtonComponent,
+  ButtonComponent,
   LineComponent,
   ProfileOutlineComponent,
   SidebarRightComponent,
-  SidebarLeftComponent
+  SidebarLeftComponent,
+  InputRowComponent
 ];
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, IonicModule],
 
   declarations: components,
   exports: components
