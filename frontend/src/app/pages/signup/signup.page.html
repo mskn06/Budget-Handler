@@ -13,7 +13,11 @@
   <!-- toggle -->
   <div class="toggle">
     <div>
-      <app-button [buttonName]="loginBtnName" [btnType]="loginBtn"></app-button>
+      <app-button
+        [routerLink]="['/login']"
+        [buttonName]="loginBtnName"
+        [btnType]="loginBtn"
+      ></app-button>
     </div>
     <div>
       <app-button

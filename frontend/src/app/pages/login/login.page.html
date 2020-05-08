@@ -17,6 +17,7 @@
     </div>
     <div>
       <app-button
+        [routerLink]="['/signup']"
         [buttonName]="signupBtnName"
         [btnType]="signupBtn"
       ></app-button>
@@ -47,7 +48,11 @@
         </div>
 
         <div class="btn-primary">
-          <app-button [buttonName]="SIGNUP" [btnType]="primaryBtn"></app-button>
+          <app-button
+            [routerLink]="['/orders']"
+            [buttonName]="SIGNUP"
+            [btnType]="primaryBtn"
+          ></app-button>
           <!-- [disabled]="!userForm.valid" (click)="loginForm()"-->
         </div>
       </form>
