@@ -1,9 +1,43 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>setting</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <form>
+    <!-- [formGroup]="userForm" -->
 
+    <div class="form-fields">
+      <p>NAME</p>
+      <ion-input type="text" placeholder="John Doe" required></ion-input>
+      <!-- formControlName="name" -->
+    </div>
+
+    <div class="form-fields">
+      <p>PASSWORD</p>
+      <ion-input type="password" placeholder="John@123" required> </ion-input>
+
+      <!-- formControlName="password" -->
+    </div>
+
+    <div class="form-fields">
+      <p>E-MAIL</p>
+      <ion-input
+        type="email"
+        placeholder="johndoe123@gmail.com"
+        required
+      ></ion-input>
+      <!-- formControlName="email" -->
+    </div>
+
+    <div class="form-fields">
+      <p>CLEARANCE TIME</p>
+      <ion-input type="text" placeholder="21 days" required></ion-input>
+      <!-- formControlName="email" -->
+    </div>
+
+    <div class="btn-primary">
+      <app-button
+        [routerLink]="['/orders']"
+        [buttonName]="SIGNUP"
+        [btnType]="primaryBtn"
+      ></app-button>
+      <!-- [disabled]="!userForm.valid" (click)="loginForm()"-->
+    </div>
+  </form>
 </ion-content>
