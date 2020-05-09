@@ -7,24 +7,53 @@
 <ion-content color="primary">
   <app-sidebar-left></app-sidebar-left>
 
-  <mat-accordion displayMode="flat" multi class="mat-table">
-    <section matSort class="mat-elevation-z2 mat-header-row">
-      <span class="mat-header-cell" mat-sort-header="vesselName">Name</span>
-      <span class="mat-header-cell" mat-sort-header="vesselId">Vessel Id</span>
-      <span class="mat-header-cell" mat-sort-header="vesselStatus">Status</span>
-      <span class="mat-header-cell" mat-sort-header="ircs">IRCS</span>
-    </section>
+  <div class="body">
+    <h2>ACTIVE ORDERS</h2>
 
-    <mat-expansion-panel *ngFor="let item of displayedRows">
-      <mat-expansion-panel-header class="mat-row">
-        <span class="mat-cell">{{item.vesselName}}</span>
-        <span class="mat-cell">{{item.vesselId}}</span>
-        <span class="mat-cell">{{item.vesselStatus}}</span>
-        <span class="mat-cell">{{item.ircs}}</span>
-      </mat-expansion-panel-header>
-      <div><pre>{{item | json}}</pre></div>
-    </mat-expansion-panel>
-  </mat-accordion>
+    <mat-accordion displayMode="flat" multi class="mat-table">
+      <!-- Actual header -->
+      <section>
+        <span class="mat-header-cell" mat-sort-header="vesselName"
+          >PROJECT NAME</span
+        >
+        <span class="mat-header-cell" mat-sort-header="vesselId"
+          >DELIVERY DATE</span
+        >
+        <span class="mat-header-cell" mat-sort-header="vesselStatus"
+          >EARNING</span
+        >
+        <span class="mat-header-cell" mat-sort-header="ircs">EXPENSE</span>
+        <span class="mat-header-cell" mat-sort-header="ircs">STATUS</span>
+      </section>
+
+      <div class="scroll-box">
+        <mat-expansion-panel *ngFor="let item of displayedRows">
+          <!-- expanded header -->
+          <section>
+            <span class="mat-header-cell" mat-sort-header="vesselName"
+              >PROJECT NAME</span
+            >
+            <span class="mat-header-cell" mat-sort-header="vesselId"
+              >DELIVERY DATE</span
+            >
+            <span class="mat-header-cell" mat-sort-header="vesselStatus"
+              >EARNING</span
+            >
+            <span class="mat-header-cell" mat-sort-header="ircs">EXPENSE</span>
+            <span class="mat-header-cell" mat-sort-header="ircs">STATUS</span>
+          </section>
+
+          <mat-expansion-panel-header class="mat-row">
+            <span class="mat-cell">{{item.vesselName }}</span>
+            <span class="mat-cell">{{item.vesselId}}</span>
+            <span class="mat-cell">{{item.vesselStatus}}</span>
+            <span class="mat-cell">{{item.ircs}}</span>
+          </mat-expansion-panel-header>
+          <div><pre>{{item | json}}</pre></div>
+        </mat-expansion-panel>
+      </div>
+    </mat-accordion>
+  </div>
 
   <app-sidebar-right></app-sidebar-right>
   <app-profile-outline></app-profile-outline>
