@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from "@angular/core";
 })
 export class IconButtonComponent implements OnInit {
   @Input() icon;
+  // @Input() pageName;
 
   constructor() {}
 

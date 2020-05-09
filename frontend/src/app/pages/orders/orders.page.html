@@ -5,12 +5,27 @@
 </ion-header> -->
 
 <ion-content color="primary">
-  <!-- <app-icon-button></app-icon-button> -->
   <app-sidebar-left></app-sidebar-left>
-  <!-- <app-line></app-line> -->
+
+  <mat-accordion displayMode="flat" multi class="mat-table">
+    <section matSort class="mat-elevation-z2 mat-header-row">
+      <span class="mat-header-cell" mat-sort-header="vesselName">Name</span>
+      <span class="mat-header-cell" mat-sort-header="vesselId">Vessel Id</span>
+      <span class="mat-header-cell" mat-sort-header="vesselStatus">Status</span>
+      <span class="mat-header-cell" mat-sort-header="ircs">IRCS</span>
+    </section>
+
+    <mat-expansion-panel *ngFor="let item of displayedRows">
+      <mat-expansion-panel-header class="mat-row">
+        <span class="mat-cell">{{item.vesselName}}</span>
+        <span class="mat-cell">{{item.vesselId}}</span>
+        <span class="mat-cell">{{item.vesselStatus}}</span>
+        <span class="mat-cell">{{item.ircs}}</span>
+      </mat-expansion-panel-header>
+      <div><pre>{{item | json}}</pre></div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
   <app-sidebar-right></app-sidebar-right>
   <app-profile-outline></app-profile-outline>
-
-  <!-- <app-input-row></app-input-row> -->
-  <!-- <app-primary-button></app-primary-button> -->
 </ion-content>
