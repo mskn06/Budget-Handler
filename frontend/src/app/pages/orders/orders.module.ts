@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { MatExpansionModule } from "@angular/material/expansion";
+import { MatTableModule } from "@angular/material/table";
 
 import { IonicModule } from "@ionic/angular";
 
@@ -17,7 +18,8 @@ import { SharedModule } from "../../shared/shared.module";
     IonicModule,
     OrdersPageRoutingModule,
     SharedModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTableModule
   ],
   declarations: [OrdersPage]
 })
