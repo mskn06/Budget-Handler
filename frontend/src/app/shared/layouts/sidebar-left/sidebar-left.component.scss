@@ -1,9 +1,7 @@
 .sidebar-left {
-  position: fixed;
+  float: left;
   width: 110px;
-  left: 0px;
-  top: 0px;
-  bottom: 0px;
+  height: 100vh;
 
   background: #fbf2e0;
   box-shadow: 2px 4px 48px rgba(0, 0, 0, 0.04);

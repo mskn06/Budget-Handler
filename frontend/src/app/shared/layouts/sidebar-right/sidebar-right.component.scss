@@ -1,10 +1,11 @@
 .sidebar-right {
-  position: fixed;
   width: 375px;
-  right: 0px;
-  top: 0px;
-  bottom: 0px;
+  float: right;
+  height: 100vh;
 
-  //   background: #fbf2e0;
+  display: flex;
+  justify-content: center;
+
+  background: #fbf2e0;
   box-shadow: inset -2px 4px 48px rgba(0, 0, 0, 0.04);
 }
