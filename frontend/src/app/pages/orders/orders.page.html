@@ -1,9 +1,3 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>orders</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
 <ion-content color="primary">
   <div>
     <app-sidebar-left></app-sidebar-left>
@@ -30,20 +24,6 @@
 
       <div class="scroll-box">
         <mat-expansion-panel *ngFor="let item of displayedRows">
-          <!-- expanded header -->
-          <!-- <section>
-            <span class="mat-header-cell" mat-sort-header="vesselName">
-              STAFF NAME
-            </span>
-            <span class="mat-header-cell" mat-sort-header="vesselId"
-              >AMOUNT</span
-            >
-            <span class="mat-header-cell" mat-sort-header="vesselStatus">
-              PAID ON
-            </span>
-            <span class="mat-header-cell" mat-sort-header="ircs"></span>
-          </section> -->
-
           <mat-expansion-panel-header class="mat-row">
             <span class="mat-cell">{{item.vesselName }}</span>
             <span class="mat-cell">{{item.vesselId}}</span>
@@ -58,34 +38,30 @@
 
             <!-- Position Column -->
             <ng-container matColumnDef="position">
-              <th mat-header-cell *matHeaderCellDef>No.</th>
+              <th mat-header-cell *matHeaderCellDef>STAFF NAME</th>
               <td mat-cell *matCellDef="let element">{{element.position}}</td>
             </ng-container>
 
             <!-- Name Column -->
             <ng-container matColumnDef="name">
-              <th mat-header-cell *matHeaderCellDef>Name</th>
+              <th mat-header-cell *matHeaderCellDef>AMOUNT</th>
               <td mat-cell *matCellDef="let element">{{element.name}}</td>
             </ng-container>
 
             <!-- Weight Column -->
             <ng-container matColumnDef="weight">
-              <th mat-header-cell *matHeaderCellDef>Weight</th>
+              <th mat-header-cell *matHeaderCellDef>PAID ON</th>
               <td mat-cell *matCellDef="let element">{{element.weight}}</td>
             </ng-container>
 
             <!-- Symbol Column -->
             <ng-container matColumnDef="symbol">
-              <th mat-header-cell *matHeaderCellDef>Symbol</th>
+              <th mat-header-cell *matHeaderCellDef></th>
               <td mat-cell *matCellDef="let element">{{element.symbol}}</td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr
-              mat-row
-              *matRowDef="let row; columns: displayedColumns;"
-              [class.make-gold]="true"
-            ></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
 
           <!-- </div> -->
