@@ -7,52 +7,52 @@
   <div class="action-btn" >
 
     <!-- orders icon -->
-    <div *ngIf= "pageName != 'orders' else PressedOrder">
+    <div *ngIf= "pageName != 'orders' else PressedOrder" (click)="gotofunc('orders')"> 
       <app-icon-button [class]="raised" [icon]="orderIcon"></app-icon-button>
     </div>
 
     <ng-template #PressedOrder>
-      <div >
+      <div (click)="gotofunc('orders')">
         <app-icon-button [class]="pressed" [icon]="orderIconActive"></app-icon-button>
       </div>
     </ng-template>
     
 
     <!-- staff icon -->
-    <div *ngIf= "pageName != 'staff' else PressedStaff">
+    <div *ngIf= "pageName != 'staff' else PressedStaff" (click)="gotofunc('staff')">
       <app-icon-button [class]="raised" [icon]="staffIcon"></app-icon-button>
     </div>
 
     <ng-template #PressedStaff>
-      <div >
+      <div (click)="gotofunc('staff')">
         <app-icon-button [class]="pressed" [icon]="staffIconActive"></app-icon-button>
       </div>
     </ng-template>
 
     <!-- setting icon -->
-    <div *ngIf= "pageName != 'setting' else PressedSetting">
+    <div *ngIf= "pageName != 'setting' else PressedSetting" (click)="gotofunc('setting')">
       <app-icon-button [class]="raised" [icon]="settingIcon"></app-icon-button>
     </div>
 
     <ng-template #PressedSetting>
-      <div>
+      <div (click)="gotofunc('setting')">
         <app-icon-button [class]="pressed" [icon]="settingIconActive"></app-icon-button>
       </div>
     </ng-template>
 
     <!-- add order icon -->
-    <div *ngIf= "pageName != 'add-new-order' else PressedAddOrder">
+    <div *ngIf= "pageName != 'add-new-order' else PressedAddOrder" (click)="gotofunc('add-new-order')">
       <app-icon-button [class]="primaryRaised" [icon]="addOrderIcon"></app-icon-button>
     </div>
 
     <ng-template #PressedAddOrder>
-      <div >
+      <div (click)="gotofunc('add-new-order')">
         <app-icon-button [class]="primaryPressed" [icon]="addOrderIcon"></app-icon-button>
       </div>
     </ng-template>
 
     <!-- logout icon -->
-    <div>
+    <div (click)="gotofunc('login')">
       <app-icon-button [class]="raised" [icon]="logoutIcon"></app-icon-button>
     </div>
   </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-sidebar-left",
@@ -14,17 +15,23 @@ export class SidebarLeftComponent implements OnInit {
   primaryPressed = "primary-pressed";
   primaryRaised = "primary-raised";
 
-  orderIcon = "../../../../assets/icon/orders.png";
-  orderIconActive = "../../../../assets/icon/orders_active.png";
-  staffIcon = "../../../../assets/icon/members.png";
-  staffIconActive = "../../../../assets/icon/members_active.png";
-  settingIcon = "../../../../assets/icon/setting.png";
-  settingIconActive = "../../../../assets/icon/setting_active.png";
-  addOrderIcon = "../../../../assets/icon/add_order.png";
-  logoutIcon = "../../../../assets/icon/logout.png";
+  // icons 
+  icon = "../../../../assets/icon/"
+  orderIcon = this.icon + "orders.png";
+  orderIconActive = this.icon +  "orders_active.png";
+  staffIcon = this.icon + "members.png";
+  staffIconActive = this.icon + "members_active.png";
+  settingIcon = this.icon + "setting.png";
+  settingIconActive = this.icon + "setting_active.png";
+  addOrderIcon = this.icon + "add_order.png";
+  logoutIcon = this.icon + "logout.png";
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
+  }
+
+  gotofunc(routeAddress: string){
+    this.router.navigate(["/" + routeAddress ])
   }
 }
