@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from "@angular/core";
-// import { page } from "../../../../data/data";
 
 @Component({
   selector: "app-icon-button",
@@ -7,9 +6,8 @@ import { Component, OnInit, Input } from "@angular/core";
   styleUrls: ["./icon-button.component.scss"]
 })
 export class IconButtonComponent implements OnInit {
-  @Input() icon;
-  // @Input() pageName;
-
+ @Input() class;
+ @Input() icon;
   constructor() {}
 
   ngOnInit() {}

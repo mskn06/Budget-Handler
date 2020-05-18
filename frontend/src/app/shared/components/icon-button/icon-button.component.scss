@@ -1,9 +1,9 @@
 button {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
 
   background: linear-gradient(270deg, #fff2d9 13.47%, #ffffff 100%);
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
 button.pressed {
@@ -16,12 +16,24 @@ button.raised {
     3.68901px 3.68901px 3.68901px rgba(0, 0, 0, 0.1);
 }
 
-button.primary {
+button.primary-raised {
   background: linear-gradient(
     270deg,
     #8a4b00 28.33%,
     rgba(163, 97, 19, 0.64) 100%
   );
+
   box-shadow: -2px -2px 3.68901px rgba(255, 255, 255, 0.6),
     3.68901px 3.68901px 3.68901px rgba(0, 0, 0, 0.1);
+}
+
+button.primary-pressed {
+  background: linear-gradient(
+    270deg,
+    #8a4b00 28.33%,
+    rgba(163, 97, 19, 0.64) 100%
+  );
+
+  box-shadow: inset -2px -2px 3.68901px rgba(255, 255, 255, 0.6),
+    inset 3.68901px 3.68901px 3.68901px rgba(0, 0, 0, 0.1);
 }

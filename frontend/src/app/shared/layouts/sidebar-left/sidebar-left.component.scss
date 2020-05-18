@@ -1,23 +1,27 @@
 .sidebar-left {
   float: left;
-  width: 110px;
   height: 100vh;
 
   background: #fbf2e0;
   box-shadow: 2px 4px 48px rgba(0, 0, 0, 0.04);
-  border-radius: 0px 40px 40px 0px;
+  border-radius: 0px 30px 30px 0px;
 }
 
 .logo {
   padding: 25px;
 }
 
-.action-btns {
+.action-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.action-btns div {
-  padding-top: 20px;
+.action-btn div {
+  padding: 10px;
 }
+
+.action-btn div:last-child{
+  padding-top: 30vh;
+}
+

@@ -4,9 +4,57 @@
   </div>
 
   <!-- middle buttons -->
-  <div class="action-btns">
-    <div *ngFor="let page of pages">
-      <app-icon-button [icon]="page.icon"></app-icon-button>
+  <div class="action-btn" >
+
+    <!-- orders icon -->
+    <div *ngIf= "pageName != 'orders' else PressedOrder">
+      <app-icon-button [class]="raised" [icon]="orderIcon"></app-icon-button>
+    </div>
+
+    <ng-template #PressedOrder>
+      <div >
+        <app-icon-button [class]="pressed" [icon]="orderIconActive"></app-icon-button>
+      </div>
+    </ng-template>
+    
+
+    <!-- staff icon -->
+    <div *ngIf= "pageName != 'staff' else PressedStaff">
+      <app-icon-button [class]="raised" [icon]="staffIcon"></app-icon-button>
+    </div>
+
+    <ng-template #PressedStaff>
+      <div >
+        <app-icon-button [class]="pressed" [icon]="staffIconActive"></app-icon-button>
+      </div>
+    </ng-template>
+
+    <!-- setting icon -->
+    <div *ngIf= "pageName != 'setting' else PressedSetting">
+      <app-icon-button [class]="raised" [icon]="settingIcon"></app-icon-button>
+    </div>
+
+    <ng-template #PressedSetting>
+      <div>
+        <app-icon-button [class]="pressed" [icon]="settingIconActive"></app-icon-button>
+      </div>
+    </ng-template>
+
+    <!-- add order icon -->
+    <div *ngIf= "pageName != 'add-new-order' else PressedAddOrder">
+      <app-icon-button [class]="primaryRaised" [icon]="addOrderIcon"></app-icon-button>
+    </div>
+
+    <ng-template #PressedAddOrder>
+      <div >
+        <app-icon-button [class]="primaryPressed" [icon]="addOrderIcon"></app-icon-button>
+      </div>
+    </ng-template>
+
+    <!-- logout icon -->
+    <div>
+      <app-icon-button [class]="raised" [icon]="logoutIcon"></app-icon-button>
     </div>
   </div>
+
 </div>
