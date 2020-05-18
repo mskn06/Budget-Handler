@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-new-order.page.scss'],
 })
 export class AddNewOrderPage implements OnInit {
+  pageName = "add-new-order";
 
   constructor() { }
 
