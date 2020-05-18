@@ -1,25 +1,50 @@
-export const pages = [
-  {
-    name: "orders",
-    icon: "../../assets/icon/orders.png",
-    icon_active: "../../assets/icon/orders_active.png"
-  },
-  {
-    name: "staff",
-    icon: "../../assets/icon/members.png",
-    icon_active: "../../assets/icon/members_active.png"
-  },
-  {
-    name: "setting",
-    icon: "../../assets/icon/setting.png",
-    icon_active: "../../assets/icon/setting_active.png"
-  },
-  {
-    name: "add-new-order",
-    icon: "../../assets/icon/add_order.png"
-  },
-  {
-    name: "logout",
-    icon: "../../assets/icon/logout.png"
-  }
-];
+export var User = {
+  username: "Santa Singh",
+  password: "12345678",
+  email: "santasingh@gmail.com",
+  clearanceTime: "21 days",
+  orderDetails: Orders,
+  staffDetails: Staff,
+};
+
+export var Orders = {
+  projectName: "React Project",
+  deliveryDate: "20-02-2020",
+  earning: "$400",
+  expense: "$100",
+  status: "Pending",
+  staffDetails: [
+    {
+      staffName: "John Doe",
+      amount: "$50",
+      paidOn: "02-03-2020",
+    },
+    {
+      staffName: "Johnny",
+      amount: "$50",
+      paidOn: "05-03-2020",
+    },
+  ],
+};
+
+export var Staff = {
+  memberName: "John Doe",
+  paid: "$100",
+  earned: "$400",
+  projects: "02",
+  toPay: "Pending",
+  projectDetails: [
+    {
+      projectName: "React Project",
+      paid: "$50",
+      earned: "$100",
+      paidOn: "02-03-2020",
+    },
+    {
+      projectName: "React Project",
+      paid: "$50",
+      earned: "$50",
+      paidOn: "02-03-2020",
+    },
+  ],
+};
