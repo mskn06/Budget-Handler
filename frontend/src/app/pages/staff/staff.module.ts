@@ -8,7 +8,6 @@ import { StaffPageRoutingModule } from "./staff-routing.module";
 
 import { StaffPage } from "./staff.page";
 import { SharedModule } from "src/app/shared/shared.module";
-import { MaterialModule } from "src/app/shared/material-modules";
 
 @NgModule({
   imports: [
@@ -17,7 +16,6 @@ import { MaterialModule } from "src/app/shared/material-modules";
     IonicModule,
     StaffPageRoutingModule,
     SharedModule,
-    MaterialModule
   ],
   declarations: [StaffPage]
 })

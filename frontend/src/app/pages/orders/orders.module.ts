@@ -8,7 +8,6 @@ import { OrdersPageRoutingModule } from "./orders-routing.module";
 
 import { OrdersPage } from "./orders.page";
 import { SharedModule } from "../../shared/shared.module";
-import { MaterialModule } from "src/app/shared/material-modules";
 
 @NgModule({
   imports: [
@@ -17,7 +16,6 @@ import { MaterialModule } from "src/app/shared/material-modules";
     IonicModule,
     OrdersPageRoutingModule,
     SharedModule,
-    MaterialModule
   ],
   declarations: [OrdersPage]
 })

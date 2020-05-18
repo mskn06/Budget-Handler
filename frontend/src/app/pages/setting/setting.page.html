@@ -1,18 +1,15 @@
-<ion-content>
+<!-- <ion-content>
   <form>
-    <!-- [formGroup]="userForm" -->
 
     <div class="form-fields">
       <p>NAME</p>
       <ion-input type="text" placeholder="John Doe" required></ion-input>
-      <!-- formControlName="name" -->
     </div>
 
     <div class="form-fields">
       <p>PASSWORD</p>
       <ion-input type="password" placeholder="John@123" required> </ion-input>
 
-      <!-- formControlName="password" -->
     </div>
 
     <div class="form-fields">
@@ -22,13 +19,11 @@
         placeholder="johndoe123@gmail.com"
         required
       ></ion-input>
-      <!-- formControlName="email" -->
     </div>
 
     <div class="form-fields">
       <p>CLEARANCE TIME</p>
       <ion-input type="text" placeholder="21 days" required></ion-input>
-      <!-- formControlName="email" -->
     </div>
 
     <div class="btn-primary">
@@ -37,7 +32,23 @@
         [buttonName]="SIGNUP"
         [btnType]="primaryBtn"
       ></app-button>
-      <!-- [disabled]="!userForm.valid" (click)="loginForm()"-->
     </div>
   </form>
+</ion-content> -->
+
+
+<ion-content color="primary">
+  <div>
+    <app-sidebar-left></app-sidebar-left>
+  </div>
+
+  <div class="body">
+    <h2>SETTINGS</h2>
+
+    
+  </div>
+
+  <div>
+    <app-sidebar-right></app-sidebar-right>
+  </div>
 </ion-content>

@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { AddNewOrderPageRoutingModule } from './add-new-order-routing.module';
 
 import { AddNewOrderPage } from './add-new-order.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AddNewOrderPageRoutingModule
+    AddNewOrderPageRoutingModule,
+    SharedModule
   ],
   declarations: [AddNewOrderPage]
 })
