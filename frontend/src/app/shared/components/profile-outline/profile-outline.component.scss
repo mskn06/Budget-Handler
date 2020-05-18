@@ -1,13 +1,14 @@
 .profile-outline {
-  width: 135px;
-  height: 135px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 25px auto;
+  width: 120px;
+  height: 120px;
 
   background: #ebdec6;
   box-shadow: inset -3.47px -2.46809px 10.4894px rgba(255, 255, 255, 0.4),
     inset 3.47px 2.46809px 9.87234px rgba(0, 0, 0, 0.1);
   border-radius: 50%;
+}
+
+img{
+  padding: 20px;
 }

@@ -1,11 +1,47 @@
 .sidebar-right {
-  width: 375px;
+  width: 300px;
   float: right;
   height: 100vh;
 
-  display: flex;
-  justify-content: center;
-
   background: #fbf2e0;
   box-shadow: inset -2px 4px 48px rgba(0, 0, 0, 0.04);
+}
+
+.key-params{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 40px;
+
+    .key-param{
+      margin: 25px 12px;
+
+      .key{
+        margin: 0;
+        font-size:0.5rem;
+        color: #C7A277;
+        letter-spacing: 4px;
+      }
+
+      .value{
+        margin: 0;
+        font-size: 1.5rem;
+        color: black;
+        font-weight: 500;
+
+      }
+    }
+}
+
+
+.activity{
+  color: black;
+  padding-top: 20px;
+
+  h1{
+    font-size: 18px
+  }
+  
+  p{
+    font-size: x-small;
+  }
 }
