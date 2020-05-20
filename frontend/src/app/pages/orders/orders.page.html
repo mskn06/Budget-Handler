@@ -1,12 +1,26 @@
 <ion-content color="primary">
   <div>
-    <app-sidebar-left [pageName]="pageName"></app-sidebar-left>
+    <app-sidebar-left [pageName]="'orders'"></app-sidebar-left>
   </div>
 
   <div class="body">
     <h2>ACTIVE ORDERS</h2>
 
-    
+    <!-- accordion -->
+
+    <accordion>
+      <group [title]="user.username">
+        <table>
+          <tr ng-repeat="x in user.orderDetails">
+            <td>{{user.projectName }}</td>
+            <!-- <td>{{ x.staffName }}</td>
+            <td>{{ x.staffName }}</td> -->
+          </tr>
+        </table>
+      </group>
+    </accordion>
+
+    <!-- end accordion -->
   </div>
 
   <div>

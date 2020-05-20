@@ -1,17 +1,12 @@
+import { Order } from "./order-interface";
+
 
 export interface Staff {
-    memberName: string;
-    paid: number;
-    earned: number;
+    staffName: string;
+    paid: number; //amtUsed
+    earned: number;   //amtEarned
     projects: number;
-    toPay: string;
-    projectDetails:ProjectDetails[];
-  }
-  
-  interface ProjectDetails {
-    projectName: string;
-    paid: number;
-    earned: number;
-    paidOn: Date;
+    toPay: number;
+    orderDetails?: Order[];
   }
   
