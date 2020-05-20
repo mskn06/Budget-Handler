@@ -9,6 +9,8 @@ import { ProfileOutlineComponent } from "./components/profile-outline/profile-ou
 import { SidebarLeftComponent } from "./layouts/sidebar-left/sidebar-left.component";
 import { SidebarRightComponent } from "./layouts/sidebar-right/sidebar-right.component";
 import { InputRowComponent } from "./components/input-row/input-row.component";
+import { AccordionComponent } from './components/accordion/accordion.component';
+import { AccordionGroupComponent } from './components/accordion/accordion-group.component';
 
 const components = [
   IconButtonComponent,
@@ -17,7 +19,9 @@ const components = [
   ProfileOutlineComponent,
   SidebarRightComponent,
   SidebarLeftComponent,
-  InputRowComponent
+  InputRowComponent,
+  AccordionComponent,
+  AccordionGroupComponent
 ];
 
 @NgModule({

@@ -1,0 +1,22 @@
+.mypanel {
+    color: #222;
+  }
+  
+  .mypanel .title {
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+
+    background: linear-gradient(90deg, #FFF2D9 -1.28%, #FFF9E4 103.08%);
+    box-shadow: -5px -7px 8px rgba(255, 255, 255, 0.5), 5px 5px 16px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+  }
+  
+  .mypanel .body {
+    padding: 10px;
+  }
+  
+  .mypanel .body.hidden {
+    display: none;
+  }
