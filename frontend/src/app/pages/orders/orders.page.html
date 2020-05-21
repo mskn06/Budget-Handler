@@ -8,13 +8,16 @@
 
     <!-- accordion -->
 
-    <accordion>
-      <group [title]="user.username">
-        <table>
-          <tr ng-repeat="x in user.orderDetails">
-            <td>{{user.projectName }}</td>
-            <!-- <td>{{ x.staffName }}</td>
-            <td>{{ x.staffName }}</td> -->
+    <accordion *ngFor="let user of users">
+      <group [row]="user">
+
+        <!-- collapsible -->
+        <table >
+          <tr *ngFor="let staff of users[0].staffDetails">
+         
+            <td>{{ staff.staffName }}</td>
+            <td>{{ staff.paid }}</td>
+            <td>{{ staff.earned }}</td>
           </tr>
         </table>
       </group>

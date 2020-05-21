@@ -1,0 +1,15 @@
+<div class="mypanel">
+  <div *ngIf="row">
+
+    <div class="row" (click)="toggle.emit()"  >
+      <div>{{row.orderDetails[0].projectName}}</div>
+      <div>{{row.orderDetails[0].deliveryDate | date:'dd-mm-yyyy'}}</div>
+      <div>${{row.orderDetails[0].earning}}</div>
+      <div>${{row.orderDetails[0].expense}}</div>
+      <div>{{row.orderDetails[0].status}}</div>
+    </div>
+    <div class="body" [ngClass]="{ hidden: !opened }">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

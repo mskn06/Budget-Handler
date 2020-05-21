@@ -13,13 +13,13 @@
   <!-- toggle -->
   <div class="toggle">
     <div>
-      <app-button [buttonName]="loginBtnName" [btnType]="loginBtn"></app-button>
+      <app-button [buttonName]="'LOGIN'" [btnType]="'btn-login btn-pressed'"></app-button>
     </div>
     <div>
       <app-button
         [routerLink]="['/signup']"
-        [buttonName]="signupBtnName"
-        [btnType]="signupBtn"
+        [buttonName]="'SIGN UP'"
+        [btnType]="'btn-signup btn-raised'"
       ></app-button>
     </div>
   </div>
@@ -50,8 +50,8 @@
         <div class="btn-primary">
           <app-button
             [routerLink]="['/orders']"
-            [buttonName]="SIGNUP"
-            [btnType]="primaryBtn"
+            [buttonName]="'LOGIN'"
+            [btnType]="'btn-primary'"
           ></app-button>
           <!-- [disabled]="!userForm.valid" (click)="loginForm()"-->
         </div>

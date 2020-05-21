@@ -6,12 +6,6 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./login.page.scss"]
 })
 export class LoginPage implements OnInit {
-  loginBtnName = "LOGIN";
-  signupBtnName = "SIGNUP";
-  loginBtn = "btn-login btn-pressed";
-  signupBtn = "btn-signup btn-raised";
-  SIGNUP = "LOGIN";
-  primaryBtn = "btn-primary";
 
   constructor() {}
 

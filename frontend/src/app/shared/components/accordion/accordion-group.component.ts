@@ -1,24 +1,13 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
-  selector: 'group',
-  template: `
-  <div class="mypanel">
-    <div class="title" (click)="toggle.emit()">
-      {{title}}
-    </div>
-    <div class="body" [ngClass]="{'hidden': !opened}">
-      <ng-content></ng-content>
-    </div>
-  <div>
-  `,
-  styleUrls: ['accordion.component.scss'],
+  selector: "group",
+  templateUrl: "accordion-group.component.html",
+  styleUrls: ["accordion.component.scss"],
 })
 export class AccordionGroupComponent {
   @Input() opened = false;
-  @Input() title: string;
+  @Input() row: any;
 
   @Output() toggle: EventEmitter<any> = new EventEmitter<any>();
-
-
 }
