@@ -36,30 +36,8 @@ var Users: User[] = [
         earned: 600,
         projects: 6,
         toPay: 100,
-      },
-    ],
-  },
-  {
-    username: "John Doe",
-    password: "12345678",
-    email: "johndoe1234@gmail.com",
-    clearanceTime: "21 days",
-    orderDetails: [
-      {
-        projectName: "React",
-        deliveryDate: new Date(),
-        earning: 400,
-        expense: 100,
-        status: "Pending",
-      },
-    ],
-    staffDetails: [
-      {
-        staffName: "Bill Mane",
-        paid: 300,
-        earned: 600,
-        projects: 6,
-        toPay: 100,
+        paidOn: new Date(),
+        
       },
     ],
   },
@@ -84,6 +62,284 @@ var Users: User[] = [
         earned: 600,
         projects: 6,
         toPay: 100,
+        paidOn: new Date(),
+        
+      },
+    ],
+  },
+  {
+    username: "John Doe",
+    password: "12345678",
+    email: "johndoe1234@gmail.com",
+    clearanceTime: "21 days",
+    orderDetails: [
+      {
+        projectName: "React Project",
+        deliveryDate: new Date(),
+        earning: 400,
+        expense: 100,
+        status: "Pending",
+      },
+    ],
+    staffDetails: [
+      {
+        staffName: "Bill Mane",
+        paid: 300,
+        earned: 600,
+        projects: 6,
+        toPay: 100,
+        paidOn: new Date(),
+        
+      },
+    ],
+  },
+  {
+    username: "John Doe",
+    password: "12345678",
+    email: "johndoe1234@gmail.com",
+    clearanceTime: "21 days",
+    orderDetails: [
+      {
+        projectName: "React Project",
+        deliveryDate: new Date(),
+        earning: 400,
+        expense: 100,
+        status: "Pending",
+      },
+    ],
+    staffDetails: [
+      {
+        staffName: "Bill Mane",
+        paid: 300,
+        earned: 600,
+        projects: 6,
+        toPay: 100,
+        paidOn: new Date(),
+        
+      },
+    ],
+  },
+  {
+    username: "John Doe",
+    password: "12345678",
+    email: "johndoe1234@gmail.com",
+    clearanceTime: "21 days",
+    orderDetails: [
+      {
+        projectName: "React Project",
+        deliveryDate: new Date(),
+        earning: 400,
+        expense: 100,
+        status: "Pending",
+      },
+    ],
+    staffDetails: [
+      {
+        staffName: "Bill Mane",
+        paid: 300,
+        earned: 600,
+        projects: 6,
+        toPay: 100,
+        paidOn: new Date(),
+        
+      },
+    ],
+  },
+  {
+    username: "John Doe",
+    password: "12345678",
+    email: "johndoe1234@gmail.com",
+    clearanceTime: "21 days",
+    orderDetails: [
+      {
+        projectName: "React Project",
+        deliveryDate: new Date(),
+        earning: 400,
+        expense: 100,
+        status: "Pending",
+      },
+    ],
+    staffDetails: [
+      {
+        staffName: "Bill Mane",
+        paid: 300,
+        earned: 600,
+        projects: 6,
+        toPay: 100,
+        paidOn: new Date(),
+        
+      },
+    ],
+  },
+  {
+    username: "John Doe",
+    password: "12345678",
+    email: "johndoe1234@gmail.com",
+    clearanceTime: "21 days",
+    orderDetails: [
+      {
+        projectName: "React Project",
+        deliveryDate: new Date(),
+        earning: 400,
+        expense: 100,
+        status: "Pending",
+      },
+    ],
+    staffDetails: [
+      {
+        staffName: "Bill Mane",
+        paid: 300,
+        earned: 600,
+        projects: 6,
+        toPay: 100,
+        paidOn: new Date(),
+        
+      },
+    ],
+  },
+  {
+    username: "John Doe",
+    password: "12345678",
+    email: "johndoe1234@gmail.com",
+    clearanceTime: "21 days",
+    orderDetails: [
+      {
+        projectName: "React Project",
+        deliveryDate: new Date(),
+        earning: 400,
+        expense: 100,
+        status: "Pending",
+      },
+    ],
+    staffDetails: [
+      {
+        staffName: "Bill Mane",
+        paid: 300,
+        earned: 600,
+        projects: 6,
+        toPay: 100,
+        paidOn: new Date(),
+        
+      },
+    ],
+  },
+  {
+    username: "John Doe",
+    password: "12345678",
+    email: "johndoe1234@gmail.com",
+    clearanceTime: "21 days",
+    orderDetails: [
+      {
+        projectName: "React Project",
+        deliveryDate: new Date(),
+        earning: 400,
+        expense: 100,
+        status: "Pending",
+      },
+    ],
+    staffDetails: [
+      {
+        staffName: "Bill Mane",
+        paid: 300,
+        earned: 600,
+        projects: 6,
+        toPay: 100,
+        paidOn: new Date(),
+        
+      },
+    ],
+  },
+  {
+    username: "John Doe",
+    password: "12345678",
+    email: "johndoe1234@gmail.com",
+    clearanceTime: "21 days",
+    orderDetails: [
+      {
+        projectName: "React Project",
+        deliveryDate: new Date(),
+        earning: 400,
+        expense: 100,
+        status: "Pending",
+      },
+    ],
+    staffDetails: [
+      {
+        staffName: "Bill Mane",
+        paid: 300,
+        earned: 600,
+        projects: 6,
+        toPay: 100,
+        paidOn: new Date(),
+        
+      },
+    ],
+  },
+  {
+    username: "John Doe",
+    password: "12345678",
+    email: "johndoe1234@gmail.com",
+    clearanceTime: "21 days",
+    orderDetails: [
+      {
+        projectName: "React",
+        deliveryDate: new Date(),
+        earning: 400,
+        expense: 100,
+        status: "Pending",
+      },
+    ],
+    staffDetails: [
+      {
+        staffName: "Bill Mane",
+        paid: 300,
+        earned: 600,
+        projects: 6,
+        toPay: 100,
+        paidOn: new Date(),
+      },
+      {
+        staffName: "Bill Mane",
+        paid: 300,
+        earned: 600,
+        projects: 6,
+        toPay: 100,
+        paidOn: null,
+      },
+      {
+        staffName: "Bill Mane",
+        paid: 300,
+        earned: 600,
+        projects: 6,
+        toPay: 100,
+        paidOn: null,
+      },
+    
+    ],
+  },
+  {
+    username: "John Doe",
+    password: "12345678",
+    email: "johndoe1234@gmail.com",
+    clearanceTime: "21 days",
+    orderDetails: [
+      {
+        projectName: "React Project",
+        deliveryDate: new Date(),
+        earning: 400,
+        expense: 100,
+        status: "Pending",
+      },
+    ],
+    staffDetails: [
+      {
+        staffName: "Bill Mane",
+        paid: 300,
+        earned: 600,
+        projects: 6,
+        toPay: 100,
+        paidOn: new Date(),
+
       },
     ],
   },

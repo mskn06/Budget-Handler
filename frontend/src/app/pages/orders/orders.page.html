@@ -6,23 +6,36 @@
   <div class="body">
     <h2>ACTIVE ORDERS</h2>
 
+    <div class="header">
+      <div>PROJECT NAME</div>
+      <div>DELIVERY DATE</div>
+      <div>EARNING</div>
+      <div>EXPENSE</div>
+      <div>STATUS</div>
+    </div>
     <!-- accordion -->
-
-    <accordion *ngFor="let user of users">
-      <group [row]="user">
-
-        <!-- collapsible -->
-        <table >
-          <tr *ngFor="let staff of users[0].staffDetails">
-         
-            <td>{{ staff.staffName }}</td>
-            <td>{{ staff.paid }}</td>
-            <td>{{ staff.earned }}</td>
-          </tr>
-        </table>
-      </group>
-    </accordion>
-
+    <div class="scroll-box">
+      <accordion *ngFor="let user of users">
+        <group [row]="user">
+          <!-- collapsible -->
+          <table class="mytable">
+            <tr *ngFor="let staff of user.staffDetails">
+              <td>{{ staff.staffName }}</td>
+              <td>{{ staff.paid }}</td>
+              <td>{{ staff.paidOn | date:'dd-mm-yyyy' }}</td>
+              <td>
+                <div *ngIf="staff.paidOn; else pay">
+                  <button class="paid">PAID</button>
+                </div>
+                <ng-template #pay>
+                  <button class="pay">PAY</button>
+                </ng-template>
+              </td>
+            </tr>
+          </table>
+        </group>
+      </accordion>
+    </div>
     <!-- end accordion -->
   </div>
 
