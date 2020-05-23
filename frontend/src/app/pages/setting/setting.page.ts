@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./setting.page.scss'],
 })
 export class SettingPage implements OnInit {
-  pageName = "setting"
   constructor() { }
 
   ngOnInit() {

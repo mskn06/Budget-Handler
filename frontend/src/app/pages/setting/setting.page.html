@@ -39,13 +39,26 @@
 
 <ion-content color="primary">
   <div>
-    <app-sidebar-left [pageName]="pageName"></app-sidebar-left>
+    <app-sidebar-left [pageName]="'setting'"></app-sidebar-left>
   </div>
 
   <div class="body">
     <h2>SETTINGS</h2>
+<div class="body--form">
 
-    
+  <app-input-row class="input-field">
+    NAME
+  </app-input-row>
+  <app-input-row class="input-field">
+    PASSWORD
+  </app-input-row>
+  <app-input-row class="input-field">
+    E-MAIL
+  </app-input-row>
+  <app-input-row class="input-field">
+    CLEARANCE TIME
+  </app-input-row>
+</div>
   </div>
 
   <div>
