@@ -1,7 +1,63 @@
 .body {
   float: left;
+  width: 66vw;
   margin: 20px 0 0 32px;
   h2 {
     color: saddlebrown;
   }
+  .header{
+    display: grid;
+    grid-auto-flow: column;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 27px;
+    color: #C7A277;
+  }
+  .scroll-box {
+    overflow-y: scroll;
+    padding-right: 44px;
+    height: 80vh;
+  }
 }
+
+button {
+  padding: 8px 32px;
+  &.pay {
+    background: linear-gradient(
+      270deg,
+      #ffecc9 -0.29%,
+      rgba(255, 250, 234, 0.9) 100%
+    );
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.14),
+      -2px -2px 6px rgba(255, 255, 255, 0.5);
+    border-radius: 10.4962px;
+  }
+  &.paid {
+    background: linear-gradient(
+      270deg,
+      rgba(103, 220, 93, 0.3) -0.29%,
+      rgba(193, 242, 189, 0) 100%
+    );
+    box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.1),
+      inset -3px -3px 6px #ffffff;
+    border-radius: 10.4962px;
+  }
+}
+
+table.mytable tr td{
+  padding: 10px;
+}
+
+
+
+.scroll-box::-webkit-scrollbar {
+  width: 5px;
+}
+
+.scroll-box::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  height: 60px;
+  background-color: #8a4b00;
+}
+

@@ -15,11 +15,11 @@
     </div>
     <!-- accordion -->
     <div class="scroll-box">
-      <accordion *ngFor="let user of users">
-        <group [row]="user">
+      <accordion *ngFor="let order of orders">
+        <group [order]="order">
           <!-- collapsible -->
           <table class="mytable">
-            <tr *ngFor="let staff of user.staffDetails">
+            <tr *ngFor="let staff of order.staffDetails">
               <td>{{ staff.staffName }}</td>
               <td>{{ staff.paid }}</td>
               <td>{{ staff.paidOn | date:'dd-mm-yyyy' }}</td>

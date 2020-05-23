@@ -6,6 +6,7 @@ export interface Order {
     earning: number;   //amtEarned
     expense: number;    //amtUsed
     status: string;
+    paidOn: Date;
     staffDetails?: Staff[];
   }
   

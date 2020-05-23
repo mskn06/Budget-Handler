@@ -1,13 +1,25 @@
 <div class="mypanel">
-  <div *ngIf="row">
+  <div>
 
-    <div class="row" (click)="toggle.emit()"  >
-      <div>{{row.orderDetails[0].projectName}}</div>
-      <div>{{row.orderDetails[0].deliveryDate | date:'dd-mm-yyyy'}}</div>
-      <div>${{row.orderDetails[0].earning}}</div>
-      <div>${{row.orderDetails[0].expense}}</div>
-      <div>{{row.orderDetails[0].status}}</div>
+    <!-- order page -->
+    <div *ngIf="order" class="row" (click)="toggle.emit()"  >
+      <div>{{order.projectName}}</div>
+      <div>{{order.deliveryDate | date:'dd-mm-yyyy'}}</div>
+      <div>${{order.earning}}</div>
+      <div>${{order.expense}}</div>
+      <div>{{order.status}}</div>
     </div>
+
+    <!-- staff page -->
+    <div *ngIf="staff" class="row" (click)="toggle.emit()"  >
+      <div>{{staff.staffName}}</div>
+      <div>${{staff.paid}}</div>
+      <div>${{staff.earned}}</div>
+      <div>{{staff.projects}}</div>
+      <div>${{staff.toPay}}</div>
+    </div>
+
+
     <div class="body" [ngClass]="{ hidden: !opened }">
       <ng-content></ng-content>
     </div>

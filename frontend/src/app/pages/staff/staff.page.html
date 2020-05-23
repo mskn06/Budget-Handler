@@ -1,12 +1,36 @@
 <ion-content color="primary">
   <div>
-    <app-sidebar-left [pageName]="pageName"></app-sidebar-left>
+    <app-sidebar-left [pageName]="'staff'"></app-sidebar-left>
   </div>
 
   <div class="body">
     <h2>STAFF MEMBERS</h2>
 
-    
+    <div class="header">
+      <div>MEMBER NAME</div>
+      <div>PAID</div>
+      <div>EARNED</div>
+      <div>PROJECTS</div>
+      <div>TO PAY</div>
+    </div>
+    <!-- accordion -->
+    <div class="scroll-box">
+      <accordion *ngFor="let staff of staffs">
+        <group [staff]="staff">
+          <!-- collapsible -->
+          <table class="mytable">
+            <tr *ngFor="let order of staff.orderDetails">
+              <td>{{ order.projectName }}</td>
+              <td>${{ order.expense }}</td>
+              <td>${{ order.earning }}</td>
+              <td>{{ order.paidOn | date:'dd-mm-yyyy' }}</td>
+              
+            </tr>
+          </table>
+        </group>
+      </accordion>
+    </div>
+    <!-- end accordion -->
   </div>
 
   <div>
