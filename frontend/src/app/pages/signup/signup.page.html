@@ -13,17 +13,12 @@
   <!-- toggle -->
   <div class="toggle">
     <div>
-      <app-button
-        [routerLink]="['/login']"
-        [buttonName]="'LOGIN'"
-        [btnType]="'btn-login btn-raised'"
-      ></app-button>
+      <app-button [routerLink]="['/login']" [btnType]="'btn-login btn-raised'">
+        LOGIN
+      </app-button>
     </div>
     <div>
-      <app-button
-        [buttonName]="'SIGNUP'"
-        [btnType]="'btn-signup btn-pressed'"
-      ></app-button>
+      <app-button [btnType]="'btn-signup btn-pressed'">SIGNUP</app-button>
     </div>
   </div>
   <!-- signup form -->
@@ -56,9 +51,9 @@
         </div>
 
         <div class="btn-primary">
-          <app-button
-          [routerLink]="['/login']"
-          [buttonName]="'SIGN UP'" [btnType]="'btn-primary'"></app-button>
+          <app-button [routerLink]="['/login']" [btnType]="'btn-primary'">
+            SIGN UP
+          </app-button>
           <!-- [disabled]="!userForm.valid" (click)="loginForm()"-->
         </div>
       </form>
