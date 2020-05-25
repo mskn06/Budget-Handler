@@ -5,6 +5,17 @@
   h2 {
     color: saddlebrown;
   }
+
+  .add-staff{
+    margin: 20px auto;
+    display: flex;
+    align-items: flex-end;
+
+    .submit-btn{
+      margin: 0 20px;
+    }
+  }
+
   .header{
     display: grid;
     grid-auto-flow: column;
@@ -13,6 +24,9 @@
     font-size: 16px;
     line-height: 27px;
     color: #C7A277;
+
+    clear: both;
+    padding-top: 20px;
   }
   .scroll-box {
     overflow-y: scroll;
