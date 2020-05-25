@@ -5,35 +5,36 @@
 
   <div class="body">
     <h2>ADD NEW ORDER</h2>
-    <div class="form">
+
+    <div class="form scroll-box">
       <div class="input-field">
         <app-input-row [placeholder]="'React Project'">
           PROJECT NAME
         </app-input-row>
       </div>
+
       <div class="input-field">
         <app-input-row [placeholder]="'6500 (in USD)'">
           ORDER AMOUNT
         </app-input-row>
       </div>
+
       <div class="input-field">
         <app-input-row [placeholder]="'12-05-2020'">
           DELIVERY DATE
         </app-input-row>
       </div>
-    </div>
 
-    <!-- END BODY -->
-  </div>
-
-  <div class="body">
-    <h2>ADD STAFF</h2>
-    <div class="form">
+      <h2 class="clear-float p-t-40">ADD STAFF</h2>
+     
+      <!-- add staff -->
+      <div *ngFor="let i of [].constructor(count)" >
       <div class="input-field">
         <app-input-row [placeholder]="'John Doe'">
           STAFF NAME
         </app-input-row>
       </div>
+
       <div class="input-field">
         <app-input-row [placeholder]="'100 (in USD)'">
           AMOUNT
@@ -41,13 +42,25 @@
       </div>
     </div>
 
+      <div class="add-staff">
+        <app-icon-button
+          [class]="'primary-raised'"
+          [icon]="addOrderIcon"
+          (click)="addStaff()"
+        ></app-icon-button>
+      </div>
 
-  <div class="submit-btn">
-    <app-button [routerLink]="['/orders']" [btnType]="'btn-primary btn-raised'">
-      CREATE
-    </app-button>
+      <div class="submit-btn">
+        <app-button
+          [routerLink]="['/orders']"
+          [btnType]="'btn-primary btn-raised'"
+        >
+          CREATE
+        </app-button>
+      </div>
+    </div>
   </div>
-  </div>
+
   <div>
     <app-sidebar-right></app-sidebar-right>
   </div>

@@ -7,13 +7,40 @@
     color: saddlebrown;
   }
 
+  h2.clear-float{
+    clear: both;
+  }
+
+  .p-t-40{
+    padding-top: 40px;
+  }
+
   .input-field {
     margin: 0 24px;
     float: left;
+  }
+
+  .scroll-box{
+    overflow-y: scroll;
+    height: 85vh;
+  }
+
+  .add-staff{
+    margin-top: 52px;
   }
 
   .submit-btn{
     margin: 55px;
     float: right;
   }
+}
+
+.scroll-box::-webkit-scrollbar {
+  width: 5px;
+}
+
+.scroll-box::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  height: 60px;
+  background-color: #8a4b00;
 }
