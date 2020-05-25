@@ -49,3 +49,7 @@ span {
 
   color: var(--ion-color-secondary);
 }
+
+button:focus{
+  outline: none;
+}

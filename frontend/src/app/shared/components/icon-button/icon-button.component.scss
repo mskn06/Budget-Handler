@@ -37,3 +37,7 @@ button.primary-pressed {
   box-shadow: inset -2px -2px 3.68901px rgba(255, 255, 255, 0.6),
     inset 3.68901px 3.68901px 3.68901px rgba(0, 0, 0, 0.1);
 }
+
+button:focus{
+  outline: none;
+}
