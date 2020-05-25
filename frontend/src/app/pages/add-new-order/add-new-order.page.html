@@ -1,15 +1,53 @@
-
 <ion-content color="primary">
   <div>
-    <app-sidebar-left [pageName] = "pageName"></app-sidebar-left>
+    <app-sidebar-left [pageName]="'add-new-order'"></app-sidebar-left>
   </div>
 
   <div class="body">
     <h2>ADD NEW ORDER</h2>
+    <div class="form">
+      <div class="input-field">
+        <app-input-row [placeholder]="'React Project'">
+          PROJECT NAME
+        </app-input-row>
+      </div>
+      <div class="input-field">
+        <app-input-row [placeholder]="'6500 (in USD)'">
+          ORDER AMOUNT
+        </app-input-row>
+      </div>
+      <div class="input-field">
+        <app-input-row [placeholder]="'12-05-2020'">
+          DELIVERY DATE
+        </app-input-row>
+      </div>
+    </div>
 
-    
+    <!-- END BODY -->
   </div>
 
+  <div class="body">
+    <h2>ADD STAFF</h2>
+    <div class="form">
+      <div class="input-field">
+        <app-input-row [placeholder]="'John Doe'">
+          STAFF NAME
+        </app-input-row>
+      </div>
+      <div class="input-field">
+        <app-input-row [placeholder]="'100 (in USD)'">
+          AMOUNT
+        </app-input-row>
+      </div>
+    </div>
+
+
+  <div class="submit-btn">
+    <app-button [routerLink]="['/orders']" [btnType]="'btn-primary btn-raised'">
+      CREATE
+    </app-button>
+  </div>
+  </div>
   <div>
     <app-sidebar-right></app-sidebar-right>
   </div>

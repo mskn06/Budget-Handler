@@ -1,7 +1,19 @@
 .body {
-    float: left;
-    margin: 20px 0 0 32px;
-    h2 {
-      color: saddlebrown;
-    }
+  width: 66vw;
+  float: left;
+  margin: 20px 0 0 32px;
+
+  h2 {
+    color: saddlebrown;
   }
+
+  .input-field {
+    margin: 0 24px;
+    float: left;
+  }
+
+  .submit-btn{
+    margin: 55px;
+    float: right;
+  }
+}
