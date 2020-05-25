@@ -3,10 +3,10 @@
     <app-sidebar-left [pageName]="'add-new-order'"></app-sidebar-left>
   </div>
 
-  <div class="body">
+  <div class="body scroll-box">
     <h2>ADD NEW ORDER</h2>
 
-    <div class="form scroll-box">
+    <div class="form ">
       <div class="input-field">
         <app-input-row [placeholder]="'React Project'">
           PROJECT NAME
@@ -28,7 +28,15 @@
       <h2 class="clear-float p-t-40">ADD STAFF</h2>
      
       <!-- add staff -->
-      <div *ngFor="let i of [].constructor(count)" >
+      <div *ngFor="let i of [].constructor(count)" class="added-staff">
+          <div>
+            <p>Muskaan</p>
+          </div>
+          <div>
+            <p>100</p>
+          </div>
+      </div>
+
       <div class="input-field">
         <app-input-row [placeholder]="'John Doe'">
           STAFF NAME
@@ -40,7 +48,6 @@
           AMOUNT
         </app-input-row>
       </div>
-    </div>
 
       <div class="add-staff">
         <app-icon-button

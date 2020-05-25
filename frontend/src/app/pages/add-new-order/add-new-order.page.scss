@@ -7,11 +7,11 @@
     color: saddlebrown;
   }
 
-  h2.clear-float{
+  h2.clear-float {
     clear: both;
   }
 
-  .p-t-40{
+  .p-t-40 {
     padding-top: 40px;
   }
 
@@ -20,19 +20,33 @@
     float: left;
   }
 
-  .scroll-box{
-    overflow-y: scroll;
-    height: 85vh;
-  }
-
-  .add-staff{
+  .add-staff {
     margin-top: 52px;
   }
 
-  .submit-btn{
+  .added-staff {
+    color: black;
+    margin: 24px;
+
+    display: flex;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    div {
+      padding: 0 126px;
+    }
+  }
+
+  .submit-btn {
     margin: 55px;
     float: right;
   }
+}
+
+.scroll-box {
+  overflow-y: scroll;
+  height: 95vh;
 }
 
 .scroll-box::-webkit-scrollbar {

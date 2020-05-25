@@ -8,7 +8,8 @@ import { Component, OnInit } from "@angular/core";
 export class AddNewOrderPage implements OnInit {
   icon = "../../../../assets/icon/";
   addOrderIcon = this.icon + "add_order.png";
-  count = 1;
+  count = 0;
+  
   constructor() {}
 
   ngOnInit() {}
