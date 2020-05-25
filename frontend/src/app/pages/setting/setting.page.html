@@ -36,7 +36,6 @@
   </form>
 </ion-content> -->
 
-
 <ion-content color="primary">
   <div>
     <app-sidebar-left [pageName]="'setting'"></app-sidebar-left>
@@ -44,21 +43,37 @@
 
   <div class="body">
     <h2>SETTINGS</h2>
-<div class="body--form">
+    <div class="body--form">
+      <div  class="input-field">
+        <app-input-row [placeholder]="'John Doe'">
+          NAME
+        </app-input-row>
+      </div>
+      <div class="input-field">
+        <app-input-row [placeholder]="'********'" >
+          PASSWORD
+        </app-input-row>
+      </div>
+      <div class="input-field">
+        <app-input-row [placeholder]="'johndoe1234@gmail.com'" >
+          E-MAIL
+        </app-input-row>
+      </div>
+      <div class="input-field">
+        <app-input-row [placeholder]="'21 days'" >
+          CLEARANCE TIME
+        </app-input-row>
+      </div>
 
-  <app-input-row class="input-field">
-    NAME
-  </app-input-row>
-  <app-input-row class="input-field">
-    PASSWORD
-  </app-input-row>
-  <app-input-row class="input-field">
-    E-MAIL
-  </app-input-row>
-  <app-input-row class="input-field">
-    CLEARANCE TIME
-  </app-input-row>
-</div>
+      <div  class="input-field">
+        <app-button
+        [routerLink]="['/setting']"
+        [btnType]="'btn-primary btn-raised'"
+      >
+      SAVE
+    </app-button>
+      </div>
+    </div>
   </div>
 
   <div>
