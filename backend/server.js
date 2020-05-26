@@ -6,7 +6,6 @@ var app = express();
 // var indexRouter = require("./routes/index");
 // var workRouter = require("./routes/work");
 
-// app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // app.use(cookieParser());
