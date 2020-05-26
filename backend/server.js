@@ -12,13 +12,13 @@ app.use(express.urlencoded({ extended: false }));
 // app.use(express.static(path.join(__dirname, "build")));
 
 
-app.use("/api", userRouter);
+app.use("/user", userRouter);
 // app.use("/api/work", workRouter);
 
 
-// app.get('/', (req, res) => {
-//   res.send('Hello World!');
-// });
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
 
 
 app.listen(3000, () => {
