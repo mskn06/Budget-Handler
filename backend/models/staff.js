@@ -24,4 +24,5 @@ const staffModel = Schema(
   }
 );
 
+
 module.exports = mongoose.model("Staff", staffModel);
