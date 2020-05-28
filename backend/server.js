@@ -1,26 +1,26 @@
-var express = require('express');
-require('./database/database')
+import express from "express";
+import bodyParser from "body-parser";
+import "./database/database";
 
 var app = express();
-
-var userRouter = require("./routes/user");
-// var workRouter = require("./routes/work");
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 // app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, "build")));
 
+import userRoutes from "./routes/user";
+userRoutes(app);
 
-app.use("/user", userRouter);
-// app.use("/api/work", workRouter);
 
+// app.use("/user", userRouter);
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+app.get("/", (req, res) => {
+  res.send("Hello World!");
 });
 
-
-app.listen(3000, () => {
-  console.log('server started @localhost:3000');
+app.listen(PORT, () => {
+  console.log(`server started @localhost:${PORT}`);
 });

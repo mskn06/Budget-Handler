@@ -1,14 +1,9 @@
-var router = require("express").Router();
+import UserController from "../controller/user";
 
-const {getUserInfo, postUser, updateUser} = require ("../controller/user")
+export default (server) =>{
 
-// GET: all users
-router.get("/", getUserInfo)
-
-// POST: add user
-router.post("/", postUser);
-
-// PUT: update user
-router.put("/", updateUser);
-
-module.exports = router
+    server.get("/user", UserController.getAll);
+    server.post("/user", UserController.insert);
+    server.put("/user/:id", UserController.update);
+    server.delete("/user/:id", UserController.delete);
+}
