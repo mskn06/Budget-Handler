@@ -2,6 +2,7 @@ import Controller from "./controller";
 import OrderService from "../services/orderService";
 import Order from "./../models/order";
 import StaffController from "./staffController";
+import UserController from "./userController";
 
 const orderService = new OrderService(new Order().getInstance());
 
@@ -12,7 +13,14 @@ class OrderController extends Controller {
 
   async insert(req, res) {
     try {
+      req.body.orderAmount = req.body.orderAmount - (0.2 * req.body.orderAmount);
+      console.log(req.body.orderAmount)
       let response = await this.service.insert(req.body);
+
+      // update user details
+      // await UserDetails.
+
+      // update staff details
       response.item.staffDetails.forEach(async (element) => {
         let staff = await StaffController.addStaff(element);
         if (staff.error) return res.status(staff.statusCode).send(staff);
