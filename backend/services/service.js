@@ -51,13 +51,13 @@ class Service {
   async insert(data) {
     try {
       let existingItem = await this.model.find(data);
-      if(!existingItem.len)  
+      // console.log(existingItem.length)
+      if(existingItem.length)  
       return {
         error: true,
         statusCode: 409,
         existingItem
       };
-
 
       let item = await this.model.create(data);
       if (item)
@@ -93,6 +93,7 @@ class Service {
     }
   }
 
+ 
   async delete(id) {
     try {
       let item = await this.model.findByIdAndDelete(id);
