@@ -3,10 +3,30 @@ import mongoose from "mongoose";
 class Service {
   constructor(model) {
     this.model = model;
+    this.getOne = this.getOne.bind(this);
     this.getAll = this.getAll.bind(this);
     this.insert = this.insert.bind(this);
     this.update = this.update.bind(this);
     this.delete = this.delete.bind(this);
+  }
+
+  async getOne(body) {
+    try {
+      let item = await this.model.findOne({ email: body.email});
+
+      return {
+        error: false,
+        statusCode: 200,
+        data: item,
+        
+      };
+    } catch (errors) {
+      return {
+        error: true,
+        statusCode: 500,
+        errors,
+      };
+    }
   }
 
   async getAll(query) {
@@ -27,23 +47,20 @@ class Service {
     }
 
     try {
-      let items = await this.model
-        .find(query)
-        .skip(skip)
-        .limit(limit);
+      let items = await this.model.find(query).skip(skip).limit(limit);
       let total = await this.model.countDocuments();
 
       return {
         error: false,
         statusCode: 200,
         data: items,
-        total
+        total,
       };
     } catch (errors) {
       return {
         error: true,
         statusCode: 500,
-        errors
+        errors,
       };
     }
   }
@@ -52,18 +69,18 @@ class Service {
     try {
       let existingItem = await this.model.find(data);
       // console.log(existingItem.length)
-      if(existingItem.length)  
-      return {
-        error: true,
-        statusCode: 409,
-        existingItem
-      };
+      if (existingItem.length)
+        return {
+          error: true,
+          statusCode: 409,
+          existingItem,
+        };
 
       let item = await this.model.create(data);
       if (item)
         return {
           error: false,
-          item
+          item,
         };
     } catch (error) {
       console.log("error", error);
@@ -71,7 +88,7 @@ class Service {
         error: true,
         statusCode: 500,
         message: error.errmsg || "Not able to create item",
-        errors: error.errors
+        errors: error.errors,
       };
     }
   }
@@ -82,18 +99,17 @@ class Service {
       return {
         error: false,
         statusCode: 202,
-        item
+        item,
       };
     } catch (error) {
       return {
         error: true,
         statusCode: 500,
-        error
+        error,
       };
     }
   }
 
- 
   async delete(id) {
     try {
       let item = await this.model.findByIdAndDelete(id);
@@ -101,20 +117,20 @@ class Service {
         return {
           error: true,
           statusCode: 404,
-          message: "item not found"
+          message: "item not found",
         };
 
       return {
         error: false,
         deleted: true,
         statusCode: 202,
-        item
+        item,
       };
     } catch (error) {
       return {
         error: true,
         statusCode: 500,
-        error
+        error,
       };
     }
   }

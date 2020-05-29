@@ -20,7 +20,8 @@ class Order {
       staffDetails:[
         {
           staffName: String,
-          toPay: Number
+          toPay: Number,
+          paid: Date
         }
       ],
       staff: [
