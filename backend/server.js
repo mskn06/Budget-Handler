@@ -12,7 +12,11 @@ app.use(express.urlencoded({ extended: false }));
 // app.use(express.static(path.join(__dirname, "build")));
 
 import userRoutes from "./routes/user";
+import orderRoutes from "./routes/order"
+import staffRoutes from "./routes/staff"
 userRoutes(app);
+orderRoutes(app);
+staffRoutes(app);
 
 
 // app.use("/user", userRouter);
