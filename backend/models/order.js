@@ -1,30 +1,44 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+import mongoose, { Schema } from "mongoose";
+import uniqueValidator from "mongoose-unique-validator";
 
-const orderModel = Schema(
-  {
-    projectName: {
-      type: String,
-      required: true,
-    },
-    orderAmount: {
-      type: Number,
-      required: true,
-    },
-    deliveryDate: {
-      type: Date,
-      required: true,
-    },
-    staff: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Staff",
+class Order {
+
+  initSchema() {
+    const schema = new Schema({
+      projectName: {
+        type: String,
+        required: true,
       },
-    ],
-  },
-  {
-    timestamps: true,
+      orderAmount: {
+        type: Number,
+        required: true,
+      },
+      deliveryDate: {
+        type: Date,
+        required: true,
+      },
+      staffDetails:[
+        {
+          staffName: String,
+          toPay: Number
+        }
+      ],
+      staff: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: "Staff",
+        },
+      ],
+    }, { timestamps: true });
+   
+    schema.plugin(uniqueValidator);
+    mongoose.model("Order", schema);
   }
-);
 
-module.exports = mongoose.model("Order", orderModel);
+  getInstance() {
+    this.initSchema();
+    return mongoose.model("Order");
+  }
+}
+
+export default Order;

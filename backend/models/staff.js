@@ -1,28 +1,37 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+import mongoose, { Schema } from "mongoose";
+import uniqueValidator from "mongoose-unique-validator";
 
-const staffModel = Schema(
-  {
-    memberName: {
-      type: String,
-      required: true,
-    },
-    amtPaid: Number,
-    amtEarned: Number,
-    projects: Number,
-    ToPay: Number,
+class Staff {
 
-    order: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Order",
+  initSchema() {
+    const schema = new Schema({
+      staffName: {
+        type: String,
+        required: true,
       },
-    ],
-  },
-  {
-    timestamps: true,
+      amtPaid: Number,
+      amtEarned: Number,
+      projects: Number,
+      toPay: Number,
+  
+      order: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: "Order",
+        },
+      ],
+    }, { timestamps: true });
+   
+// increment project number every time
+
+    schema.plugin(uniqueValidator);
+    mongoose.model("Staff", schema);
   }
-);
 
+  getInstance() {
+    this.initSchema();
+    return mongoose.model("Staff");
+  }
+}
 
-module.exports = mongoose.model("Staff", staffModel);
+export default Staff;
