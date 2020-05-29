@@ -25,7 +25,7 @@ class User {
         type: Number,
         default: 0,
       },
-      amtPaid: {
+      amtToBePaid: {
         type: Number,
         default: 0,
       },
