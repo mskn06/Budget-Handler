@@ -1,4 +1,4 @@
-import UserController from "../controller/user";
+import UserController from "../controller/userController";
 
 export default (server) =>{
 
