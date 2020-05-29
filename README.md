@@ -1,7 +1,8 @@
 # Budget-Handler
 Manages Budget distribution | Customised for Collaborations
 
-
+Command to run frontend
+ionic serve
 
 Command to run server(Backend APIs): 
 
