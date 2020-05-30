@@ -5,11 +5,15 @@ class StaffService extends Service {
     super(model);
   }
 
-  async updateData(element) {
+  async updateData(staff, orderId) {
     try {
       let item = await this.model.findOneAndUpdate(
-        { staffName: element.staffName },
-        { $set: { toPay: element.toPay }, $inc: { projects: 1 } },
+        { staffName: staff.staffName },
+        {
+          $set: { amtToBePaid: staff.amtToBePaid },
+          $inc: { projects: 1 },
+          $push: { orders: orderId },
+        },
         { new: true }
       );
       return {

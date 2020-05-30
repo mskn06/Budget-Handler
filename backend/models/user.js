@@ -21,7 +21,7 @@ class User {
           type: Number,
           default: 21,
         },
-        orders: {
+        totalOrders: {
           type: Number,
           default: 0,
         },
@@ -45,6 +45,9 @@ class User {
           type: Number,
           default: 0,
         },
+        staff: [{
+          type: String
+        }],
         orders: [
           {
             type: Schema.Types.ObjectId,

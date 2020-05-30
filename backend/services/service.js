@@ -73,7 +73,7 @@ class Service {
         return {
           error: true,
           statusCode: 409,
-          existingItem,
+          item: existingItem,
         };
 
       let item = await this.model.create(data);

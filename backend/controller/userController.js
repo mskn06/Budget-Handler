@@ -9,8 +9,16 @@ class UserController extends Controller {
     super(service);
   }
 
-  async updateFigures(body) {
-    let response = await this.service.updateFiguresService(body);
+  async addStaff(staffName) {
+    let response = await this.service.addStaffName(staffName);
+    return response;
+  }
+
+  async updateFigures(amtToBePaid, orderId) {
+    let response = await this.service.updateFiguresService(
+      amtToBePaid,
+      orderId
+    );
     return response;
   }
 }

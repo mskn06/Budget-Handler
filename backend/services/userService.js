@@ -11,17 +11,33 @@ class UserService extends Service {
     // update amtCleared = orderAmount(from body)
   }
 
-  async updateFiguresService(body) {
+  async addStaffName(staffName) {
     try {
-      var amtToBePaid = 0;
-      body.staffDetails.forEach((element) => {
-        amtToBePaid = amtToBePaid + element.toPay;
-      });
+      let item = await this.model.findOneAndUpdate(
+        { email: "muskaan@gmail.com" },
+        { $push: { staff: staffName } },
+        { new: true }
+      );
+      return {
+        error: false,
+        statusCode: 202,
+        item,
+      };
+    } catch (error) {
+      return {
+        error: true,
+        statusCode: 500,
+        error,
+      };
+    }
+  }
 
+  async updateFiguresService(amtToBePaid, orderId) {
+    try {
       // have to update session email
       let item = await this.model.findOneAndUpdate(
         { email: "muskaan@gmail.com" },
-        { $set: { amtToBePaid: amtToBePaid } },
+        { $inc: { amtToBePaid: amtToBePaid }, $push: { orders: orderId } },
         { new: true }
       );
       return {

@@ -1,43 +1,58 @@
-import Service from './service';
+import Service from "./service";
 
 class OrderService extends Service {
   constructor(model) {
     super(model);
   }
 
+  async updateOrder(staffResponse, orderId) {
+    try {
+      let updatedOrder = await this.model.findOneAndUpdate(
+        { _id: orderId },
+        {
+          $set: { amtToBePaid: staffResponse.amtToBePaid },
+          $push: { staffs: { $each: staffResponse.staffIds } },
+        },
+        { new: true }
+      );
+
+      if (updatedOrder)
+        return {
+          error: false,
+          updatedOrder,
+        };
+    } catch (error) {
+      return {
+        error: true,
+        statusCode: 500,
+        message: error.errmsg || "Not able to update order",
+        errors: error.errors,
+      };
+    }
+  }
+
   async insert(data) {
     try {
-      let existingItem = await this.model.find(data);
-      // console.log(existingItem.length)
-      if (existingItem.length)
-        return {
-          error: true,
-          statusCode: 409,
-          existingItem,
-        };
+      // fiver amount(FA) - 20%(FA)
+      data.totalAmount = data.totalAmount - 0.2 * data.totalAmount;
 
-        data.expense = 0
-        data.earning = 0
+      // amtToBePaid = total amt alloted to staff
+      data.amtToBePaid = 0;
+      data.staffDetails.forEach((staff) => {
+        data.amtToBePaid = data.amtToBePaid + staff.amtToBePaid;
+      });
 
-        // fiver amount(FA) - 20%(FA)
-        data.orderAmount = data.orderAmount - 0.2 * data.orderAmount;
+      // delete staff details from body
+      let orderData = {...data}
+      delete orderData.staffDetails;
 
-        // expense = amtUsed
-        data.staffDetails.forEach((element) => {
-          data.expense = data.expense + element.toPay;
-        });
-
-        // earning = amtEarned
-        data.earning = data.orderAmount - data.expense
-
-      let item = await this.model.create(data);
+      let item = await this.model.create(orderData);
       if (item)
         return {
           error: false,
           item,
         };
     } catch (error) {
-      console.log("error", error);
       return {
         error: true,
         statusCode: 500,
@@ -46,10 +61,6 @@ class OrderService extends Service {
       };
     }
   }
-
-};
+}
 
 export default OrderService;
-
-
-
