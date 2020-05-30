@@ -9,29 +9,45 @@ class Order {
           type: String,
           required: true,
         },
-        orderAmount: {
-          type: Number,
-          required: true,
-        },
         deliveryDate: {
           type: Date,
           required: true,
         },
-        staffDetails: [
-          {
-            staffName: String,
-            toPay: Number,
-            paidOn: Date,
-          },
-        ],
-        earning: Number,
-        expense: Number,
-        
+        totalAmount: {
+          type: Number,
+          required: true,
+        },
+        amtToBePaid: {
+          type: Number,
+          default: 0,
+        },
+        amtUsed: {
+          type: Number,
+          default: 0,
+        },
+        amtCleared: {
+          type: Number,
+          default: 0,
+        },
+        amtInClearance: {
+          type: Number,
+          default: 0,
+        },
+        amtEarned: {
+          type: Number,
+          default: 0,
+        },
         status: {
           type: String,
           enum: ["PENDING", "COMPLETE"],
           default: "PENDING",
         },
+        staffs: [
+          {
+            type: Schema.Types.ObjectId,
+            ref: "Staff",
+          },
+        ],
       },
       { timestamps: true }
     );
