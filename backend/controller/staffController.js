@@ -28,19 +28,17 @@ class StaffController extends Controller {
     let amtToBePaid = 0;
     let staffIds = [];
 
-    body.staffDetails
-      .forEach(async (staff) => {
-        let updatedStaff = await this.service.updateData(staff, orderId);
+    body.staffDetails.forEach(async (staff) => {
+      let updatedStaff = await this.service.updateData(staff, orderId);
 
-        if (updatedStaff.error)
-          return res.status(updatedStaff.statusCode).send(updatedStaff);
+      if (updatedStaff.error)
+        return res.status(updatedStaff.statusCode).send(updatedStaff);
 
-        amtToBePaid = amtToBePaid + updatedStaff.item.amtToBePaid;
-        staffIds.push(updatedStaff._id);
-      })
-      .then((cb) => {
-        return { staffIds: staffIds, amtToBePaid: amtToBePaid };
-      });
+      amtToBePaid = amtToBePaid + updatedStaff.item.amtToBePaid;
+      staffIds.push(updatedStaff._id);
+    });
+
+    return { staffIds: staffIds, amtToBePaid: amtToBePaid };
   }
 }
 
