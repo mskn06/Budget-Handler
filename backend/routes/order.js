@@ -6,4 +6,6 @@ export default (server) =>{
     server.post("/order", OrderController.insert);
     server.put("/order/:id", OrderController.update);
     server.delete("/order/:id", OrderController.delete);
+
+    server.get("/order/date", OrderController.updatePaymentDate)
 }

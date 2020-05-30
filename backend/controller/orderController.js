@@ -13,15 +13,14 @@ class OrderController extends Controller {
 
   async insert(req, res) {
     try {
-      req.body.orderAmount = req.body.orderAmount - 0.2 * req.body.orderAmount;
-      // console.log(req.body.orderAmount)
+      // adding order details in Order model
       let response = await this.service.insert(req.body);
 
-      // update user figures
+      // update user figures in User model
       let user = await UserController.updateFigures(req.body);
       // console.log("user", user)
 
-      // update staff details
+      // update staff details in Staff model
       response.item.staffDetails.forEach(async (element) => {
         let staff = await StaffController.addStaff(element);
         if (staff.error) return res.status(staff.statusCode).send(staff);
@@ -33,6 +32,17 @@ class OrderController extends Controller {
     } catch (error) {
       res.send(error);
     }
+  }
+
+  async updatePaymentDate(req, res){
+    try {
+      var d = new Date()
+    res.status(200).send({data: d})
+    } catch (error) {
+      console.log(error)
+      res.send(error)
+    }
+    
   }
 }
 
