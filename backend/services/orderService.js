@@ -24,7 +24,6 @@ class OrderService extends Service {
 
         // expense = amtUsed
         data.staffDetails.forEach((element) => {
-          console.log(element)
           data.expense = data.expense + element.toPay;
         });
 

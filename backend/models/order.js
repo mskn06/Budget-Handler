@@ -21,7 +21,7 @@ class Order {
           {
             staffName: String,
             toPay: Number,
-            paid: Date,
+            paidOn: Date,
           },
         ],
         earning: Number,
