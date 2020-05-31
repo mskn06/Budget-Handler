@@ -37,7 +37,10 @@ class UserService extends Service {
       // have to update session email
       let item = await this.model.findOneAndUpdate(
         { email: "muskaan@gmail.com" },
-        { $inc: { amtToBePaid: amtToBePaid }, $push: { orders: orderId } },
+        {
+          $inc: { amtToBePaid: amtToBePaid, totalOrders: 1 },
+          $push: { orders: orderId },
+        },
         { new: true }
       );
       return {

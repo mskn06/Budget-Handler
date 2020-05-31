@@ -15,31 +15,34 @@ class OrderController extends Controller {
     try {
       // adding order details in Order model
       let response = await this.service.insert(req.body);
-      // console.log("response", response);
 
-      // update staff details in Staff model, returns staffId, amtToBePaid
-      let staffResponse = await StaffController.getStaffIds(
+      // update staff details in Staff model & returns amtToBePaid
+      let amtToBePaid = await StaffController.updateStaff(
         req.body,
         response.item._id
       );
-      console.log("staffResponse", staffResponse);
+
+      // returns staffIds
+      let staffIds = await StaffController.getStaffIds(response.item._id);
 
       // populate staffIds and amtToBePaid
+      let staff = { amtToBePaid, staffIds };
       let orderResponse = await this.service.updateOrder(
-        staffResponse,
+        staff,
         response.item._id
       );
-      // console.log("orderResponse", orderResponse);
+      console.log("orderResponse", orderResponse);
 
       // update user figures in User model
       let userResponse = await UserController.updateFigures(
-        staffResponse.amtToBePaid,
+        staff.amtToBePaid,
         response.item._id
       );
-      // console.log("userResponse", userResponse);
+      console.log("userResponse", userResponse);
 
       // return response
-      if (orderResponse.error) return res.status(orderResponse.statusCode).send(orderResponse);
+      if (orderResponse.error)
+        return res.status(orderResponse.statusCode).send(orderResponse);
       else return res.status(201).send(orderResponse);
     } catch (error) {
       res.send(error);
