@@ -77,8 +77,7 @@ class StaffService extends Service {
         updateOne: {
           filter: { staffName: staff.staffName },
           update: {
-            $set: { amtToBePaid: staff.amtToBePaid },
-            $inc: { projects: 1 },
+            $inc: { projects: 1 , amtToBePaid: staff.amtToBePaid},
             $push: { orders: orderId },
           },
           new: true,

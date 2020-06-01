@@ -17,12 +17,12 @@ class StaffController extends Controller {
 
   async getOrder(req, res) {
     try {
-      console.log(req.params);
+      // console.log(req.params);
       // console.log(this);
       let response = await this.service.getOrderDetails(req);
       res.send(response);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       res.send(error);
     }
   }

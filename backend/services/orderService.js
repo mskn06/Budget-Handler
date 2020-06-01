@@ -57,7 +57,7 @@ class OrderService extends Service {
 
   async updateOrder(staffResponse, orderId) {
     try {
-      console.log(staffResponse);
+      // console.log(staffResponse);
       let updatedOrder = await this.model.findOneAndUpdate(
         { _id: orderId },
         {
