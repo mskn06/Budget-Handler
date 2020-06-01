@@ -34,7 +34,7 @@
     <div class="scroll-box">
       <accordion *ngFor="let staff of staffs">
         <group [staff]="staff">
-          <!-- collapsible -->
+          <!-- collapsible: SUB-CONTENT -->
           <table class="mytable">
             <tr *ngFor="let order of staff.orderDetails">
               <td>{{ order.projectName }}</td>

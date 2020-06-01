@@ -17,12 +17,12 @@
     <div class="scroll-box">
       <accordion *ngFor="let order of orders">
         <group [order]="order">
-          <!-- collapsible -->
+          <!-- collapsible: SUB-CONTENT -->
           <table class="mytable">
-            <tr *ngFor="let staff of order.staffDetails">
+            <tr *ngFor="let staff of order.staffs">
               <td>{{ staff.staffName }}</td>
-              <td>{{ staff.paid }}</td>
-              <td>{{ staff.paidOn | date:'dd-mm-yyyy' }}</td>
+              <td>{{ staff.amtToBePaid }}</td>
+              <!-- <td>{{ staff  }}</td> -->
               <td>
                 <div *ngIf="staff.paidOn; else pay">
                   <button class="paid">PAID</button>

@@ -1,17 +1,17 @@
 <div class="mypanel">
   <div>
 
-    <!-- order page -->
+    <!-- order page: MAIN CONTENT -->
     <div *ngIf="order" class="row" (click)="toggle.emit()"  >
       <div>{{order.projectName}}</div>
       <div>{{order.deliveryDate | date:'dd-mm-yyyy'}}</div>
-      <div>${{order.earning}}</div>
-      <div>${{order.expense}}</div>
+      <div>${{order.amtEarned}}</div>
+      <div>${{order.amtToBePaid}}</div>
       <div>{{order.status}}</div>
       <!-- <div><img src="../../../../assets/icon/chevron_closed.png"></div> -->
     </div>
 
-    <!-- staff page -->
+    <!-- staff page: MAIN CONTENT -->
     <div *ngIf="staff" class="row" (click)="toggle.emit()"  >
       <div>{{staff.staffName}}</div>
       <div>${{staff.paid}}</div>
