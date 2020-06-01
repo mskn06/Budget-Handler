@@ -8,6 +8,7 @@ export default (server) =>{
     // ADD STAFF
     server.post("/staff", StaffController.insert);
 
+    server.get("/staff/:id", StaffController.getOrder);
 
     // server.put("/staff/:id", StaffController.update);
     // server.delete("/staff/:id", StaffController.delete);

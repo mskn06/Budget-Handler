@@ -9,6 +9,22 @@ const staffService = new StaffService(new Staff().getInstance());
 class StaffController extends Controller {
   constructor(service) {
     super(service);
+    this.getOrder = this.getOrder.bind(this)
+    this.insert = this.insert.bind(this)
+    this.updateStaff = this.updateStaff.bind(this)
+    this.getStaffIds = this.getStaffIds.bind(this)
+  }
+
+  async getOrder(req, res) {
+    try {
+      console.log(req.params);
+      // console.log(this);
+      let response = await this.service.getOrderDetails(req);
+      res.send(response);
+    } catch (error) {
+      console.log(error);
+      res.send(error);
+    }
   }
 
   async insert(req, res) {

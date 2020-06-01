@@ -3,6 +3,56 @@ import Service from "./service";
 class StaffService extends Service {
   constructor(model) {
     super(model);
+
+    this.getOrderDetails = this.getOrderDetails.bind(this)
+    this.getIds = this.getIds.bind(this)
+    this.updateData = this.updateData.bind(this)
+  }
+
+  async getAll(query) {
+    let { skip, limit } = query;
+
+    skip = skip ? Number(skip) : 0;
+    limit = limit ? Number(limit) : 10;
+
+    delete query.skip;
+    delete query.limit;
+
+    if (query._id) {
+      try {
+        query._id = new mongoose.mongo.ObjectId(query._id);
+      } catch (error) {
+        console.log("not able to generate mongoose id with content", query._id);
+      }
+    }
+
+    try {
+      let items = await this.model.find(query).populate("orders").skip(skip).limit(limit);
+      let total = await this.model.countDocuments();
+
+      return {
+        error: false,
+        statusCode: 200,
+        data: items,
+        total,
+      };
+    } catch (errors) {
+      return {
+        error: true,
+        statusCode: 500,
+        errors,
+      };
+    }
+  }
+
+  async getOrderDetails(req) {
+    try {
+      let response = await this.model.findById(req.params.id).populate("orders");
+      // console.log(response);
+      return response;
+    } catch (error) {
+      return error;
+    }
   }
 
   async getIds(orderId) {
