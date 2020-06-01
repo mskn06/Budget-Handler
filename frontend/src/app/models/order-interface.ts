@@ -1,12 +1,14 @@
 import { Staff } from "./staff-interface";
 
 export interface Order {
-    projectName: string;
-    deliveryDate: Date;
-    earning: number;   //amtEarned
-    expense: number;    //amtUsed
-    status: string;
-    paidOn: Date;
-    staffDetails?: Staff[];
-  }
-  
+  projectName: String;
+  deliveryDate: Date;
+  totalAmount: Number;
+  amtToBePaid?: Number;
+  amtUsed?: Number;
+  amtCleared?: Number;
+  amtInClearance?: Number;
+  amtEarned?: Number;
+  status: String;
+  staffs?: Staff[];
+}
