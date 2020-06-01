@@ -1,9 +1,9 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { IonicModule } from "@ionic/angular";
-import { GetAllOrdersService } from "./order/get-all-orders.service";
+import { OrderService } from "./order/get-all-orders.service";
 
-const services = [GetAllOrdersService];
+const services = [OrderService];
 
 @NgModule({
   imports: [

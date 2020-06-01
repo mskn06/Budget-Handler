@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Order } from "../../models/order-interface";
-import { GetAllOrdersService } from "../../services/order/get-all-orders.service";
+import { OrderService } from "../../services/order/get-all-orders.service";
 
 @Component({
   selector: "app-orders",
@@ -11,12 +11,11 @@ export class OrdersPage implements OnInit {
   orders = Orders;
   order;
 
-  constructor(private getAllOrders: GetAllOrdersService) {}
+  constructor(private orderService: OrderService) {}
   ngOnInit() {
-    this.getAllOrders.getOrders().subscribe((result) => {
-      this.order = result;
+    this.orderService.getOrders().subscribe((orders) => {
+      this.order = orders;
       console.log("orders", this.order);
-      debugger
     });
   }
 }
