@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Order } from "../../models/order-interface";
+import { GetAllOrdersService } from "../../services/order/get-all-orders.service";
+
 @Component({
   selector: "app-orders",
   templateUrl: "./orders.page.html",
@@ -7,10 +9,15 @@ import { Order } from "../../models/order-interface";
 })
 export class OrdersPage implements OnInit {
   orders = Orders;
+  order;
 
-  constructor() {}
+  constructor(private getAllOrders: GetAllOrdersService) {}
   ngOnInit() {
-    console.log("orders", this.orders);
+    this.getAllOrders.getOrders().subscribe((result) => {
+      this.order = result;
+      console.log("orders", this.order);
+      debugger
+    });
   }
 }
 
