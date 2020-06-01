@@ -9,6 +9,19 @@ const orderService = new OrderService(new Order().getInstance());
 class OrderController extends Controller {
   constructor(service) {
     super(service);
+    this.getStaff = this.getStaff.bind(this);
+    this.insert = this.insert.bind(this);
+    this.updatePaymentDate = this.updatePaymentDate.bind(this);
+  }
+
+  async getStaff(req, res) {
+    try {
+      let response = await this.service.getStaffDetails(req);
+      res.send(response);
+    } catch (error) {
+      // console.log(error);
+      res.send(error);
+    }
   }
 
   async insert(req, res) {
@@ -31,14 +44,14 @@ class OrderController extends Controller {
         staff,
         response.item._id
       );
-      console.log("orderResponse", orderResponse);
+      // console.log("orderResponse", orderResponse);
 
       // update user figures in User model
       let userResponse = await UserController.updateFigures(
         staff.amtToBePaid,
         response.item._id
       );
-      console.log("userResponse", userResponse);
+      // console.log("userResponse", userResponse);
 
       // return response
       if (orderResponse.error)
@@ -54,7 +67,7 @@ class OrderController extends Controller {
       var d = new Date();
       res.status(200).send({ data: d });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       res.send(error);
     }
   }
