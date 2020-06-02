@@ -1,6 +1,6 @@
 import Controller from "./controller";
 import ProjectService from "../services/projectService";
-import Project from "./../models/project";
+import Project from "../models/project";
 import StaffController from "./staffController";
 import UserController from "./userController";
 
