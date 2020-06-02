@@ -4,9 +4,9 @@ class StaffService extends Service {
   constructor(model) {
     super(model);
 
-    this.getOrderDetails = this.getOrderDetails.bind(this)
-    this.getIds = this.getIds.bind(this)
-    this.updateData = this.updateData.bind(this)
+    this.getProjectDetails = this.getProjectDetails.bind(this);
+    this.getIds = this.getIds.bind(this);
+    this.updateData = this.updateData.bind(this);
   }
 
   async getAll(query) {
@@ -27,7 +27,11 @@ class StaffService extends Service {
     }
 
     try {
-      let items = await this.model.find(query).populate("orders").skip(skip).limit(limit);
+      let items = await this.model
+        .find(query)
+        .populate("projects")
+        .skip(skip)
+        .limit(limit);
       let total = await this.model.countDocuments();
 
       return {
@@ -45,9 +49,11 @@ class StaffService extends Service {
     }
   }
 
-  async getOrderDetails(req) {
+  async getProjectDetails(req) {
     try {
-      let response = await this.model.findById(req.params.id).populate("orders");
+      let response = await this.model
+        .findById(req.params.id)
+        .populate("projects");
       // console.log(response);
       return response;
     } catch (error) {
@@ -55,10 +61,10 @@ class StaffService extends Service {
     }
   }
 
-  async getIds(orderId) {
+  async getIds(projectId) {
     let staffIds = [];
 
-    let item = await this.model.find({ orders: orderId });
+    let item = await this.model.find({ projects: projectId });
 
     item.forEach((staff) => {
       staffIds.push(staff._id);
@@ -66,7 +72,7 @@ class StaffService extends Service {
     return staffIds;
   }
 
-  async updateData(body, orderId) {
+  async updateData(body, projectId) {
     let staffUpdates = [];
     let amtToBePaid = 0;
 
@@ -77,8 +83,8 @@ class StaffService extends Service {
         updateOne: {
           filter: { staffName: staff.staffName },
           update: {
-            $inc: { projects: 1 , amtToBePaid: staff.amtToBePaid},
-            $push: { orders: orderId },
+            $inc: { projects: 1, amtToBePaid: staff.amtToBePaid },
+            $push: { projects: projectId },
           },
           new: true,
         },

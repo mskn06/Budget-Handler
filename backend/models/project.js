@@ -1,21 +1,34 @@
 import mongoose, { Schema } from "mongoose";
 import uniqueValidator from "mongoose-unique-validator";
 
-class Staff {
+class Project {
   initSchema() {
     const schema = new Schema(
       {
         profile: {
-          staffName: {
+          projectName: {
             type: String,
             required: true,
           },
-          projectCount: {
+          delivery: {
+            type: Date,
+            required: true,
+          },
+          status: {
+            type: String,
+            enum: ["PENDING", "COMPLETE"],
+            default: "PENDING",
+          },
+          clearanceTime: {
             type: Number,
-            default: 0,
+            required: true,
           },
         },
         payment: {
+          totalAmount: {
+            type: Number,
+            required: true,
+          },
           amtToBePaid: {
             type: Number,
             default: 0,
@@ -24,21 +37,28 @@ class Staff {
             type: Number,
             default: 0,
           },
-          projectPercentage: {
+          amtCleared: {
+            type: Number,
+            default: 0,
+          },
+          amtInClearance: {
+            type: Number,
+            default: 0,
+          },
+          amtEarned: {
             type: Number,
             default: 0,
           },
         },
-
-        projects: [
+        staffs: [
           {
             profile: {
-              projectName: String,
+              staffName: String,
             },
             payment: {
               amtToBePaid: Number,
               amtPaid: Number,
-              projectPercentage: Number,
+              paidOn: Date,
             },
           },
         ],
@@ -46,16 +66,14 @@ class Staff {
       { timestamps: true }
     );
 
-    // increment project number every time
-
     schema.plugin(uniqueValidator);
-    mongoose.model("Staff", schema);
+    mongoose.model("Project", schema);
   }
 
   getInstance() {
     this.initSchema();
-    return mongoose.model("Staff");
+    return mongoose.model("Project");
   }
 }
 
-export default Staff;
+export default Project;

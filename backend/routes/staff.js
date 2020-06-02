@@ -1,15 +1,14 @@
 import StaffController from "../controller/staffController";
 
-export default (server) =>{
+export default (server) => {
+  // GET (reqd: list of staff names)
+  server.get("/staff", StaffController.getAll);
 
-    // GET (reqd: list of staff names)
-    server.get("/staff", StaffController.getAll);
+  // ADD STAFF
+  server.post("/staff", StaffController.insert);
 
-    // ADD STAFF
-    server.post("/staff", StaffController.insert);
+  server.get("/staff/:id", StaffController.getProject);
 
-    server.get("/staff/:id", StaffController.getOrder);
-
-    // server.put("/staff/:id", StaffController.update);
-    // server.delete("/staff/:id", StaffController.delete);
-}
+  // server.put("/staff/:id", StaffController.update);
+  // server.delete("/staff/:id", StaffController.delete);
+};

@@ -1,12 +1,12 @@
 import Controller from "./controller";
-import OrderService from "../services/orderService";
-import Order from "./../models/order";
+import ProjectService from "../services/projectService";
+import Project from "./../models/project";
 import StaffController from "./staffController";
 import UserController from "./userController";
 
-const orderService = new OrderService(new Order().getInstance());
+const projectService = new ProjectService(new Project().getInstance());
 
-class OrderController extends Controller {
+class ProjectController extends Controller {
   constructor(service) {
     super(service);
     this.getStaff = this.getStaff.bind(this);
@@ -26,7 +26,7 @@ class OrderController extends Controller {
 
   async insert(req, res) {
     try {
-      // adding order details in Order model
+      // adding project details in Project model
       let response = await this.service.insert(req.body);
 
       // update staff details in Staff model & returns amtToBePaid
@@ -40,11 +40,11 @@ class OrderController extends Controller {
 
       // populate staffIds and amtToBePaid
       let staff = { amtToBePaid, staffIds };
-      let orderResponse = await this.service.updateOrder(
+      let projectResponse = await this.service.updateProject(
         staff,
         response.item._id
       );
-      // console.log("orderResponse", orderResponse);
+      // console.log("projectResponse", projectResponse);
 
       // update user figures in User model
       let userResponse = await UserController.updateFigures(
@@ -54,9 +54,9 @@ class OrderController extends Controller {
       // console.log("userResponse", userResponse);
 
       // return response
-      if (orderResponse.error)
-        return res.status(orderResponse.statusCode).send(orderResponse);
-      else return res.status(201).send(orderResponse);
+      if (projectResponse.error)
+        return res.status(projectResponse.statusCode).send(projectResponse);
+      else return res.status(201).send(projectResponse);
     } catch (error) {
       res.send(error);
     }
@@ -73,4 +73,4 @@ class OrderController extends Controller {
   }
 }
 
-export default new OrderController(orderService);
+export default new ProjectController(projectService);

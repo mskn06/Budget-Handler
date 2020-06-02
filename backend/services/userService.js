@@ -8,7 +8,7 @@ class UserService extends Service {
     // update amtInClearance
 
     // if delivery date + clearance time  >= today's date
-    // update amtCleared = orderAmount(from body)
+    // update amtCleared = projectAmount(from body)
   }
 
   async addStaffName(staffName) {
@@ -32,14 +32,14 @@ class UserService extends Service {
     }
   }
 
-  async updateFiguresService(amtToBePaid, orderId) {
+  async updateFiguresService(amtToBePaid, projectId) {
     try {
       // have to update session email
       let item = await this.model.findOneAndUpdate(
         { email: "muskaan@gmail.com" },
         {
-          $inc: { amtToBePaid: amtToBePaid, totalOrders: 1 },
-          $push: { orders: orderId },
+          $inc: { amtToBePaid: amtToBePaid, totalProjects: 1 },
+          $push: { projects: projectId },
         },
         { new: true }
       );

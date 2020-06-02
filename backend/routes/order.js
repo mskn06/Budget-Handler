@@ -1,14 +1,12 @@
-import OrderController from "../controller/orderController";
+import ProjectController from "../controller/projectController";
 
-export default (server) =>{
+export default (server) => {
+  // add project
+  server.post("/project", ProjectController.insert);
+  server.get("/project", ProjectController.getAll);
+  server.get("/project/date", ProjectController.updatePaymentDate);
 
-    // add order
-    server.post("/order", OrderController.insert);
-    server.get("/order", OrderController.getAll);
-    server.get("/order/date", OrderController.updatePaymentDate)
-    
-    server.get("/order/:id", OrderController.getStaff);
-    server.put("/order/:id", OrderController.update);
-    server.delete("/order/:id", OrderController.delete);
-
-}
+  server.get("/project/:id", ProjectController.getStaff);
+  server.put("/project/:id", ProjectController.update);
+  server.delete("/project/:id", ProjectController.delete);
+};

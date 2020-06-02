@@ -1,12 +1,11 @@
 import Service from "./service";
 
-class OrderService extends Service {
+class ProjectService extends Service {
   constructor(model) {
     super(model);
     this.getStaffDetails = this.getStaffDetails.bind(this);
-    this.updateOrder = this.updateOrder.bind(this);
+    this.updateProject = this.updateProject.bind(this);
     this.insert = this.insert.bind(this);
-
   }
 
   async getAll(query) {
@@ -27,7 +26,11 @@ class OrderService extends Service {
     }
 
     try {
-      let items = await this.model.find(query).populate("staffs").skip(skip).limit(limit);
+      let items = await this.model
+        .find(query)
+        .populate("staffs")
+        .skip(skip)
+        .limit(limit);
       let total = await this.model.countDocuments();
 
       return {
@@ -47,7 +50,9 @@ class OrderService extends Service {
 
   async getStaffDetails(req) {
     try {
-      let response = await this.model.findById(req.params.id).populate("staffs");
+      let response = await this.model
+        .findById(req.params.id)
+        .populate("staffs");
       // console.log(response);
       return response;
     } catch (error) {
@@ -55,11 +60,11 @@ class OrderService extends Service {
     }
   }
 
-  async updateOrder(staffResponse, orderId) {
+  async updateProject(staffResponse, projectId) {
     try {
       // console.log(staffResponse);
-      let updatedOrder = await this.model.findOneAndUpdate(
-        { _id: orderId },
+      let updatedProject = await this.model.findOneAndUpdate(
+        { _id: projectId },
         {
           $set: { amtToBePaid: staffResponse.amtToBePaid },
           $push: { staffs: { $each: staffResponse.staffIds } },
@@ -67,16 +72,16 @@ class OrderService extends Service {
         { new: true }
       );
 
-      if (updatedOrder)
+      if (updatedProject)
         return {
           error: false,
-          updatedOrder,
+          updatedProject,
         };
     } catch (error) {
       return {
         error: true,
         statusCode: 500,
-        message: error.errmsg || "Not able to update order",
+        message: error.errmsg || "Not able to update project",
         errors: error.errors,
       };
     }
@@ -94,10 +99,10 @@ class OrderService extends Service {
       });
 
       // delete staff details from body
-      let orderData = { ...data };
-      delete orderData.staffDetails;
+      let projectData = { ...data };
+      delete projectData.staffDetails;
 
-      let item = await this.model.create(orderData);
+      let item = await this.model.create(projectData);
       if (item)
         return {
           error: false,
@@ -114,4 +119,4 @@ class OrderService extends Service {
   }
 }
 
-export default OrderService;
+export default ProjectService;

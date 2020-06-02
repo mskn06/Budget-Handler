@@ -9,17 +9,17 @@ const staffService = new StaffService(new Staff().getInstance());
 class StaffController extends Controller {
   constructor(service) {
     super(service);
-    this.getOrder = this.getOrder.bind(this)
-    this.insert = this.insert.bind(this)
-    this.updateStaff = this.updateStaff.bind(this)
-    this.getStaffIds = this.getStaffIds.bind(this)
+    this.getProject = this.getProject.bind(this);
+    this.insert = this.insert.bind(this);
+    this.updateStaff = this.updateStaff.bind(this);
+    this.getStaffIds = this.getStaffIds.bind(this);
   }
 
-  async getOrder(req, res) {
+  async getProject(req, res) {
     try {
       // console.log(req.params);
       // console.log(this);
-      let response = await this.service.getOrderDetails(req);
+      let response = await this.service.getProjectDetails(req);
       res.send(response);
     } catch (error) {
       // console.log(error);
@@ -40,17 +40,17 @@ class StaffController extends Controller {
     return res.status(201).send(response);
   }
 
-  async updateStaff(body, orderId) {
-    let updatedStaff = await this.service.updateData(body, orderId);
+  async updateStaff(body, projectId) {
+    let updatedStaff = await this.service.updateData(body, projectId);
 
     if (!updatedStaff.success)
       return res.status(updatedStaff.statusCode).send(updatedStaff);
 
-    return updatedStaff.amtToBePaid ;
+    return updatedStaff.amtToBePaid;
   }
 
-  async getStaffIds(orderId) {
-    let staffIds = await this.service.getIds(orderId);
+  async getStaffIds(projectId) {
+    let staffIds = await this.service.getIds(projectId);
     return staffIds;
   }
 }

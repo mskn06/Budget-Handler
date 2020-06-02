@@ -14,10 +14,10 @@ app.use(cors());
 // app.use(express.static(path.join(__dirname, "build")));
 
 import userRoutes from "./routes/user";
-import orderRoutes from "./routes/order";
+import projectRoutes from "./routes/project";
 import staffRoutes from "./routes/staff";
 userRoutes(app);
-orderRoutes(app);
+projectRoutes(app);
 staffRoutes(app);
 
 // app.use("/user", userRouter);

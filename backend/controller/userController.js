@@ -14,10 +14,10 @@ class UserController extends Controller {
     return response;
   }
 
-  async updateFigures(amtToBePaid, orderId) {
+  async updateFigures(amtToBePaid, projectId) {
     let response = await this.service.updateFiguresService(
       amtToBePaid,
-      orderId
+      projectId
     );
     return response;
   }
