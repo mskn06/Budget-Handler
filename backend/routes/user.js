@@ -1,16 +1,12 @@
 import UserController from "../controller/userController";
 
-export default (server) =>{
+export default (server) => {
+  // signup
+  server.post("/signup", UserController.insert);
 
-    // signup
-    server.post("/signup", UserController.insert);
-    
-    // login
-    server.get("/login", UserController.getOne);
-    
-    // update details
-    server.put("/user/:id", UserController.update);
+  // login
+  server.get("/login", UserController.getOne);
 
-    // server.get("/users", UserController.getAll);
-    // server.delete("/user/:id", UserController.delete);
-}
+  // update
+  server.put("/user/:id", UserController.update);
+};
