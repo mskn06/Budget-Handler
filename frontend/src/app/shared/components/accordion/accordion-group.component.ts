@@ -7,7 +7,7 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
 })
 export class AccordionGroupComponent {
   @Input() opened = false;
-  @Input() order: any;
+  @Input() project: any;
   @Input() staff: any;
 
   @Output() toggle: EventEmitter<any> = new EventEmitter<any>();

@@ -28,7 +28,7 @@
 
     <div class="btn-primary">
       <app-button
-        [routerLink]="['/orders']"
+        [routerLink]="['/projects']"
         [btnType]="primaryBtn"
       >
     SIGNUP</app-button>
@@ -44,34 +44,34 @@
   <div class="body">
     <h2>SETTINGS</h2>
     <div class="form">
-      <div  class="input-field">
+      <div class="input-field">
         <app-input-row [placeholder]="'John Doe'">
           NAME
         </app-input-row>
       </div>
       <div class="input-field">
-        <app-input-row [placeholder]="'********'" >
+        <app-input-row [placeholder]="'********'">
           PASSWORD
         </app-input-row>
       </div>
       <div class="input-field">
-        <app-input-row [placeholder]="'johndoe1234@gmail.com'" >
+        <app-input-row [placeholder]="'johndoe1234@gmail.com'">
           E-MAIL
         </app-input-row>
       </div>
       <div class="input-field">
-        <app-input-row [placeholder]="'21 days'" >
+        <app-input-row [placeholder]="'21 days'">
           CLEARANCE TIME
         </app-input-row>
       </div>
 
       <div class="submit-btn">
         <app-button
-        [routerLink]="['/setting']"
-        [btnType]="'btn-primary btn-raised'"
-      >
-      SAVE
-    </app-button>
+          [routerLink]="['/setting']"
+          [btnType]="'btn-primary btn-raised'"
+        >
+          SAVE
+        </app-button>
       </div>
     </div>
   </div>

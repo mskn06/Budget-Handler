@@ -1,10 +1,10 @@
 <ion-content color="primary">
   <div>
-    <app-sidebar-left [pageName]="'orders'"></app-sidebar-left>
+    <app-sidebar-left [pageName]="'projects'"></app-sidebar-left>
   </div>
 
   <div class="body">
-    <h2>ACTIVE ORDERS</h2>
+    <h2>PROJECTS</h2>
 
     <div class="header">
       <div>PROJECT NAME</div>
@@ -15,11 +15,11 @@
     </div>
     <!-- accordion -->
     <div class="scroll-box">
-      <accordion *ngFor="let order of orders">
-        <group [order]="order">
+      <accordion *ngFor="let project of projects">
+        <group [project]="project">
           <!-- collapsible: SUB-CONTENT -->
           <table class="mytable">
-            <tr *ngFor="let staff of order.staffs">
+            <tr *ngFor="let staff of project.staffs">
               <td>{{ staff.staffName }}</td>
               <td>{{ staff.amtToBePaid }}</td>
               <!-- <td>{{ staff  }}</td> -->

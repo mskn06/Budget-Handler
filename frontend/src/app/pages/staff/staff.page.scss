@@ -6,24 +6,24 @@
     color: saddlebrown;
   }
 
-  .add-staff{
+  .add-staff {
     margin: 20px auto;
     display: flex;
     align-items: flex-end;
 
-    .submit-btn{
+    .submit-btn {
       margin: 0 20px;
     }
   }
 
-  .header{
+  .header {
     display: grid;
     grid-auto-flow: column;
     font-family: Poppins;
     font-weight: 500;
     font-size: 16px;
     line-height: 27px;
-    color: #C7A277;
+    color: #c7a277;
 
     clear: both;
     padding-top: 20px;
@@ -59,11 +59,9 @@ button {
   }
 }
 
-table.mytable tr td{
+table.mytable tr td {
   padding: 10px;
 }
-
-
 
 .scroll-box::-webkit-scrollbar {
   width: 5px;
@@ -74,4 +72,3 @@ table.mytable tr td{
   height: 60px;
   background-color: #8a4b00;
 }
-

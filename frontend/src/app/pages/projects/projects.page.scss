@@ -5,14 +5,14 @@
   h2 {
     color: saddlebrown;
   }
-  .header{
+  .header {
     display: grid;
     grid-auto-flow: column;
     font-family: Poppins;
     font-weight: 500;
     font-size: 16px;
     line-height: 27px;
-    color: #C7A277;
+    color: #c7a277;
   }
   .scroll-box {
     overflow-y: scroll;
@@ -45,11 +45,9 @@ button {
   }
 }
 
-table.mytable tr td{
+table.mytable tr td {
   padding: 10px;
 }
-
-  
 
 //   section span {
 //     color: #c7a277;
@@ -71,4 +69,3 @@ table.mytable tr td{
   height: 60px;
   background-color: #8a4b00;
 }
-

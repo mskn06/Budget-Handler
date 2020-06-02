@@ -3,11 +3,11 @@ export var User = {
   password: "12345678",
   email: "santasingh@gmail.com",
   clearanceTime: "21 days",
-  orderDetails: Orders,
+  projectDetails: Projects,
   staffDetails: Staff,
 };
 
-export var Orders = {
+export var Projects = {
   projectName: "React Project",
   deliveryDate: "20-02-2020",
   earning: "$400",

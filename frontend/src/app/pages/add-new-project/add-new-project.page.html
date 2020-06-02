@@ -1,12 +1,12 @@
 <ion-content color="primary">
   <div>
-    <app-sidebar-left [pageName]="'add-new-order'"></app-sidebar-left>
+    <app-sidebar-left [pageName]="'add-new-project'"></app-sidebar-left>
   </div>
 
   <div class="body scroll-box">
-    <h2>ADD NEW ORDER</h2>
+    <h2>ADD NEW PROJECT</h2>
 
-    <div class="form ">
+    <div class="form">
       <div class="input-field">
         <app-input-row [placeholder]="'React Project'">
           PROJECT NAME
@@ -15,7 +15,7 @@
 
       <div class="input-field">
         <app-input-row [placeholder]="'6500 (in USD)'">
-          ORDER AMOUNT
+          PROJECT AMOUNT
         </app-input-row>
       </div>
 
@@ -26,15 +26,15 @@
       </div>
 
       <h2 class="clear-float p-t-40">ADD STAFF</h2>
-     
+
       <!-- add staff -->
       <div *ngFor="let i of [].constructor(count)" class="added-staff">
-          <div>
-            <p>Muskaan</p>
-          </div>
-          <div>
-            <p>100</p>
-          </div>
+        <div>
+          <p>Muskaan</p>
+        </div>
+        <div>
+          <p>100</p>
+        </div>
       </div>
 
       <div class="input-field">
@@ -52,14 +52,14 @@
       <div class="add-staff">
         <app-icon-button
           [class]="'primary-raised'"
-          [icon]="addOrderIcon"
+          [icon]="addProjectIcon"
           (click)="addStaff()"
         ></app-icon-button>
       </div>
 
       <div class="submit-btn">
         <app-button
-          [routerLink]="['/orders']"
+          [routerLink]="['/projects']"
           [btnType]="'btn-primary btn-raised'"
         >
           CREATE

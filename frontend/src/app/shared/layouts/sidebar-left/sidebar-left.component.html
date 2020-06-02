@@ -1,53 +1,78 @@
-<div class="sidebar-left" >
+<div class="sidebar-left">
   <div class="logo">
     <img src="../../../../assets/logo/logo_BH.png" alt="" />
   </div>
 
   <!-- middle buttons -->
-  <div class="action-btn" >
-
-    <!-- orders icon -->
-    <div *ngIf= "pageName != 'orders' else PressedOrder" (click)="gotofunc('orders')"> 
-      <app-icon-button [class]="raised" [icon]="orderIcon"></app-icon-button>
+  <div class="action-btn">
+    <!-- projects icon -->
+    <div
+      *ngIf="pageName != 'projects'; else PressedProject"
+      (click)="gotofunc('projects')"
+    >
+      <app-icon-button [class]="raised" [icon]="projectIcon"></app-icon-button>
     </div>
 
-    <ng-template #PressedOrder>
-      <div (click)="gotofunc('orders')">
-        <app-icon-button [class]="pressed" [icon]="orderIconActive"></app-icon-button>
+    <ng-template #PressedProject>
+      <div (click)="gotofunc('projects')">
+        <app-icon-button
+          [class]="pressed"
+          [icon]="projectIconActive"
+        ></app-icon-button>
       </div>
     </ng-template>
-    
 
     <!-- staff icon -->
-    <div *ngIf= "pageName != 'staff' else PressedStaff" (click)="gotofunc('staff')">
+    <div
+      *ngIf="pageName != 'staff'; else PressedStaff"
+      (click)="gotofunc('staff')"
+    >
       <app-icon-button [class]="raised" [icon]="staffIcon"></app-icon-button>
     </div>
 
     <ng-template #PressedStaff>
       <div (click)="gotofunc('staff')">
-        <app-icon-button [class]="pressed" [icon]="staffIconActive"></app-icon-button>
+        <app-icon-button
+          [class]="pressed"
+          [icon]="staffIconActive"
+        ></app-icon-button>
       </div>
     </ng-template>
 
     <!-- setting icon -->
-    <div *ngIf= "pageName != 'setting' else PressedSetting" (click)="gotofunc('setting')">
+    <div
+      *ngIf="pageName != 'setting'; else PressedSetting"
+      (click)="gotofunc('setting')"
+    >
       <app-icon-button [class]="raised" [icon]="settingIcon"></app-icon-button>
     </div>
 
     <ng-template #PressedSetting>
       <div (click)="gotofunc('setting')">
-        <app-icon-button [class]="pressed" [icon]="settingIconActive"></app-icon-button>
+        <app-icon-button
+          [class]="pressed"
+          [icon]="settingIconActive"
+        ></app-icon-button>
       </div>
     </ng-template>
 
-    <!-- add order icon -->
-    <div *ngIf= "pageName != 'add-new-order' else PressedAddOrder" (click)="gotofunc('add-new-order')">
-      <app-icon-button [class]="primaryRaised" [icon]="addOrderIcon"></app-icon-button>
+    <!-- add project icon -->
+    <div
+      *ngIf="pageName != 'add-new-project'; else PressedAddProject"
+      (click)="gotofunc('add-new-project')"
+    >
+      <app-icon-button
+        [class]="primaryRaised"
+        [icon]="addProjectIcon"
+      ></app-icon-button>
     </div>
 
-    <ng-template #PressedAddOrder>
-      <div (click)="gotofunc('add-new-order')">
-        <app-icon-button [class]="primaryPressed" [icon]="addOrderIcon"></app-icon-button>
+    <ng-template #PressedAddProject>
+      <div (click)="gotofunc('add-new-project')">
+        <app-icon-button
+          [class]="primaryPressed"
+          [icon]="addProjectIcon"
+        ></app-icon-button>
       </div>
     </ng-template>
 
@@ -56,5 +81,4 @@
       <app-icon-button [class]="raised" [icon]="logoutIcon"></app-icon-button>
     </div>
   </div>
-
 </div>

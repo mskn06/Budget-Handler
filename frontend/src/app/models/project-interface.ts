@@ -1,6 +1,6 @@
 import { Staff } from "./staff-interface";
 
-export interface Order {
+export interface Project {
   projectName: String;
   deliveryDate: Date;
   totalAmount: Number;

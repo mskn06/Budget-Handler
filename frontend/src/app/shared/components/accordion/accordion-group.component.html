@@ -1,27 +1,24 @@
 <div class="mypanel">
   <div>
-
-    <!-- order page: MAIN CONTENT -->
-    <div *ngIf="order" class="row" (click)="toggle.emit()"  >
-      <div>{{order.projectName}}</div>
-      <div>{{order.deliveryDate | date:'dd-mm-yyyy'}}</div>
-      <div>${{order.amtEarned}}</div>
-      <div>${{order.amtToBePaid}}</div>
-      <div>{{order.status}}</div>
+    <!-- project page: MAIN CONTENT -->
+    <div *ngIf="project" class="row" (click)="toggle.emit()">
+      <div>{{ project.projectName }}</div>
+      <div>{{ project.deliveryDate | date: "dd-mm-yyyy" }}</div>
+      <div>${{ project.amtEarned }}</div>
+      <div>${{ project.amtToBePaid }}</div>
+      <div>{{ project.status }}</div>
       <!-- <div><img src="../../../../assets/icon/chevron_closed.png"></div> -->
     </div>
 
     <!-- staff page: MAIN CONTENT -->
-    <div *ngIf="staff" class="row" (click)="toggle.emit()"  >
-      <div>{{staff.staffName}}</div>
-      <div>${{staff.paid}}</div>
-      <div>${{staff.earned}}</div>
-      <div>{{staff.projects}}</div>
-      <div>${{staff.toPay}}</div>
+    <div *ngIf="staff" class="row" (click)="toggle.emit()">
+      <div>{{ staff.staffName }}</div>
+      <div>${{ staff.paid }}</div>
+      <div>${{ staff.earned }}</div>
+      <div>{{ staff.projects }}</div>
+      <div>${{ staff.toPay }}</div>
       <!-- <div><img src="../../../../assets/icon/chevron_closed.png"></div> -->
-
     </div>
-
 
     <div class="body" [ngClass]="{ hidden: !opened }">
       <ng-content></ng-content>

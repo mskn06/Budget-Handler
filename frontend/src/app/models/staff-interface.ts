@@ -1,4 +1,4 @@
-import { Order } from "./order-interface";
+import { Project } from "./project-interface";
 
 export interface Staff {
   staffName: String;
@@ -6,7 +6,7 @@ export interface Staff {
   amtPaid?: Number;
   amtEarned?: Number;
   projects?: Number;
-  orders?: Order[];
+  // projects?: Order[];
 }
 
 // staffName: string;
@@ -15,4 +15,4 @@ export interface Staff {
 // projects: number;
 // toPay: number;
 // paidOn: Date;
-// orderDetails?: Order[];
+// projectDetails?: Order[];

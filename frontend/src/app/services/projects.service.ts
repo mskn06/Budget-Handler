@@ -7,10 +7,10 @@ import { Observable } from "rxjs";
 @Injectable({
   providedIn: "root",
 })
-export class OrderService {
+export class ProjectService {
   constructor(private http: HttpClient) {}
 
-  getOrders(): Observable<any> {
-    return this.http.get(CONSTANTS.GETORDERS);
+  getProjects(): Observable<any> {
+    return this.http.get(CONSTANTS.GETPROJECTS);
   }
 }

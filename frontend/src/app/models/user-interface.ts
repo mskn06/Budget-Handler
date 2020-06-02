@@ -1,11 +1,11 @@
-import { Order } from "./order-interface";
+import { Project } from "./project-interface";
 
 export interface User {
   name: String;
   password: String;
   email: String;
   clearanceTime: Number;
-  totalOrders?: Number;
+  totalProjects?: Number;
   amtToBePaid?: Number;
   amtUsed?: Number;
   amtCleared?: Number;
@@ -13,12 +13,12 @@ export interface User {
   amtEarned?: Number;
 
   staff?: String[];
-  orders?: Order[];
+  projects?: Project[];
 }
 
 // username: string;
 // password: string;
 // email: string;
 // clearanceTime: string;
-// orderDetails: Order[];
+// projectDetails: Project[];
 // staffDetails: Staff[];

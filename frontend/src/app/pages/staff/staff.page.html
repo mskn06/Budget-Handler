@@ -7,7 +7,6 @@
     <h2>STAFF MEMBERS</h2>
 
     <div class="add-staff">
-
       <div class="input-field">
         <app-input-row [placeholder]="'John Doe'">
           STAFF NAME
@@ -15,12 +14,12 @@
       </div>
       <div class="submit-btn">
         <app-button
-        [routerLink]="['/staff']"
-        [btnType]="'btn-primary btn-raised'"
+          [routerLink]="['/staff']"
+          [btnType]="'btn-primary btn-raised'"
         >
-        ADD STAFF
-      </app-button>
-    </div>
+          ADD STAFF
+        </app-button>
+      </div>
     </div>
 
     <div class="header">
@@ -36,12 +35,11 @@
         <group [staff]="staff">
           <!-- collapsible: SUB-CONTENT -->
           <table class="mytable">
-            <tr *ngFor="let order of staff.orderDetails">
-              <td>{{ order.projectName }}</td>
-              <td>${{ order.expense }}</td>
-              <td>${{ order.earning }}</td>
-              <td>{{ order.paidOn | date:'dd-mm-yyyy' }}</td>
-              
+            <tr *ngFor="let project of staff.projectDetails">
+              <td>{{ project.projectName }}</td>
+              <td>${{ project.expense }}</td>
+              <td>${{ project.earning }}</td>
+              <td>{{ project.paidOn | date:'dd-mm-yyyy' }}</td>
             </tr>
           </table>
         </group>
