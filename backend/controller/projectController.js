@@ -15,22 +15,7 @@ class ProjectController extends Controller {
   }
 
   async insert(req, res) {
-    /*
-    FORMAT
-    BODY: {
-      projectName: 
-      delivery:
-      totalAmount:
-      staff:[
-        { staffName:
-          amtToBePaid:
-        }
-      ]
-    }
-    */
     try {
-      // console.log(req.body);
-
       // call PROJECT insert service
       let projectResponse = await this.service.addProject(req.body);
       // console.log(projectResponse);
