@@ -9,12 +9,12 @@ import { ProjectService } from "../../services/projects.service";
 })
 export class ProjectsPage implements OnInit {
   projects = Projects;
-  project;
+  project: Project;
 
   constructor(private projectService: ProjectService) {}
   ngOnInit() {
     this.projectService.getProjects().subscribe((projects) => {
-      this.project = projects;
+      this.project = projects.data;
       console.log("projects", this.project);
     });
   }

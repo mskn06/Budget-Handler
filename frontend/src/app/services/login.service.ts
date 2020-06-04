@@ -2,16 +2,16 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
 import { CONSTANTS } from "../../../apiConstants";
-import { Observable } from "rxjs";
+// import { Observable } from "rxjs";
 import { User } from "../models/user-interface";
 
 @Injectable({
   providedIn: "root",
 })
-export class SignupService {
+export class LoginService {
   constructor(private http: HttpClient) {}
 
-  postUser() {
-    return this.http.post(CONSTANTS.SIGNUP, "");
+  getUser() {
+    return this.http.get<User>(CONSTANTS.LOGIN);
   }
 }
