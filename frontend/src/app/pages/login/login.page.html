@@ -29,32 +29,34 @@
   <!-- signup form -->
   <div class="body">
     <div>
-      <form>
-        <!-- [formGroup]="userForm" -->
-
+      <form [formGroup]="user">
         <div class="form-fields">
           <p>USERNAME / EMAIL ID</p>
           <ion-input
             type="email"
             placeholder="johndoe123@gmail.com"
-            required
+            formControlName="email"
           ></ion-input>
-          <!-- formControlName="email" -->
         </div>
 
         <div class="form-fields">
           <p>PASSWORD</p>
-          <ion-input type="password" placeholder="John@123" required>
+          <ion-input
+            type="password"
+            placeholder="John@123"
+            formControlName="password"
+          >
           </ion-input>
-
-          <!-- formControlName="password" -->
         </div>
 
         <div class="btn-primary">
-          <app-button [routerLink]="['/projects']" [btnType]="'btn-primary'">
+          <app-button
+            [routerLink]="['/projects']"
+            [btnType]="'btn-primary'"
+            (click)="login()"
+          >
             LOGIN
           </app-button>
-          <!-- [disabled]="!userForm.valid" (click)="loginForm()"-->
         </div>
       </form>
     </div>

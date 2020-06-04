@@ -9,8 +9,9 @@ import { ProfileOutlineComponent } from "./components/profile-outline/profile-ou
 import { SidebarLeftComponent } from "./layouts/sidebar-left/sidebar-left.component";
 import { SidebarRightComponent } from "./layouts/sidebar-right/sidebar-right.component";
 import { InputRowComponent } from "./components/input-row/input-row.component";
-import { AccordionComponent } from './components/accordion/accordion.component';
-import { AccordionGroupComponent } from './components/accordion/accordion-group.component';
+import { AccordionComponent } from "./components/accordion/accordion.component";
+import { AccordionGroupComponent } from "./components/accordion/accordion-group.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 const components = [
   IconButtonComponent,
@@ -21,13 +22,13 @@ const components = [
   SidebarLeftComponent,
   InputRowComponent,
   AccordionComponent,
-  AccordionGroupComponent
+  AccordionGroupComponent,
 ];
 
 @NgModule({
-  imports: [CommonModule, IonicModule],
+  imports: [CommonModule, IonicModule, FormsModule, ReactiveFormsModule],
 
-  declarations: components,
-  exports: components
+  declarations: [...components],
+  exports: [...components, FormsModule, ReactiveFormsModule],
 })
 export class SharedModule {}
