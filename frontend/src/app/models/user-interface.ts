@@ -1,24 +1,21 @@
 import { Project } from "./project-interface";
+import { Staff } from "./staff-interface";
 
 export interface User {
-  name: String;
-  password: String;
-  email: String;
-  clearanceTime: Number;
-  totalProjects?: Number;
-  amtToBePaid?: Number;
-  amtUsed?: Number;
-  amtCleared?: Number;
-  amtInClearance?: Number;
-  amtEarned?: Number;
-
-  staff?: String[];
+  profile: {
+    userName: String;
+    password: String;
+    email: String;
+    clearanceTime: Number;
+  };
+  payment: {
+    projectCount?: Number;
+    amtToBePaid?: Number;
+    amtPaid?: Number;
+    amtCleared?: Number;
+    amtInClearance?: Number;
+    amtEarned?: Number;
+  };
+  staffs?: Staff[];
   projects?: Project[];
 }
-
-// username: string;
-// password: string;
-// email: string;
-// clearanceTime: string;
-// projectDetails: Project[];
-// staffDetails: Staff[];

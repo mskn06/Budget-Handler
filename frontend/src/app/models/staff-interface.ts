@@ -1,18 +1,23 @@
-import { Project } from "./project-interface";
-
 export interface Staff {
-  staffName: String;
-  amtToBePaid?: Number;
-  amtPaid?: Number;
-  amtEarned?: Number;
-  projects?: Number;
-  // projects?: Order[];
+  profile: {
+    staffName: String;
+    projectCount?: Number;
+  };
+  payment: {
+    amtToBePaid?: Number;
+    amtPaid?: Number;
+    projectPercentage?: Number;
+  };
+  projects?: Project[];
 }
 
-// staffName: string;
-// paid: number; //amtUsed
-// earned: number; //amtEarned
-// projects: number;
-// toPay: number;
-// paidOn: Date;
-// projectDetails?: Order[];
+interface Project {
+  profile: {
+    projectName: String;
+  };
+  payment: {
+    amtToBePaid: Number;
+    amtPaid?: Number;
+    projectPercentage?: Number;
+  };
+}
