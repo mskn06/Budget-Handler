@@ -12,13 +12,12 @@ class Service {
 
   async getOne(body) {
     try {
-      let item = await this.model.findOne({ email: body.email});
+      let item = await this.model.findOne({ "profile.email": body.email });
 
       return {
         error: false,
         statusCode: 200,
         data: item,
-        
       };
     } catch (errors) {
       return {
@@ -95,11 +94,16 @@ class Service {
 
   async update(id, data) {
     try {
-      let item = await this.model.findByIdAndUpdate(id, data, { new: true });
+      let item = {
+        profile: data,
+      };
+      let response = await this.model.findByIdAndUpdate(id, item, {
+        new: true,
+      });
       return {
         error: false,
         statusCode: 202,
-        item,
+        item: response,
       };
     } catch (error) {
       return {

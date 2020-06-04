@@ -44,8 +44,10 @@ class ProjectController extends Controller {
       // call STAFF update service
       if (req.body.staff) {
         let staffResponse = await StaffController.addProject(req.body);
+        // console.log(staffResponse);
+
         // return response if error found
-        if (staffResponse.error)
+        if (!staffResponse.success)
           return res
             .status(staffResponse.statusCode)
             .send(staffResponse.message);
@@ -56,6 +58,8 @@ class ProjectController extends Controller {
         req.body,
         projectResponse
       );
+      // console.log(userResponse);
+
       // return response if error found
       if (userResponse.error)
         return res.status(userResponse.statusCode).send(userResponse.message);

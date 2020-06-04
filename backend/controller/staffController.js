@@ -38,7 +38,7 @@ class StaffController extends Controller {
     if (response.error) return res.status(response.statusCode).send(response);
 
     // add staffName to user model
-    let userResponse = UserController.addStaff(response.item.staffName);
+    let userResponse = UserController.addStaff(response.item);
     if (userResponse.error)
       return res.status(userResponse.statusCode).send(userResponse);
 

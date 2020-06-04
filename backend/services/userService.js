@@ -11,11 +11,42 @@ class UserService extends Service {
     // update amtCleared = projectAmount(from body)
   }
 
-  async addStaffName(staffName) {
+  async insert(body) {
+    try {
+      let data = {
+        profile: body,
+      };
+      let existingItem = await this.model.find({ "profile.email": body.email });
+      // console.log(existingItem.length);
+      if (existingItem.length)
+        return {
+          error: true,
+          statusCode: 409,
+          item: existingItem,
+        };
+
+      let item = await this.model.create(data);
+      if (item)
+        return {
+          error: false,
+          item,
+        };
+    } catch (error) {
+      // console.log("error", error);
+      return {
+        error: true,
+        statusCode: 500,
+        message: error.errmsg || "Not able to create item",
+        errors: error.errors,
+      };
+    }
+  }
+
+  async addStaff(staff) {
     try {
       let item = await this.model.findOneAndUpdate(
-        { email: "muskaan@gmail.com" },
-        { $push: { staff: staffName } },
+        { "profile.email": "muskaan@gmail.com" },
+        { $push: { staffs: staff._id } },
         { new: true }
       );
       return {
@@ -42,7 +73,7 @@ class UserService extends Service {
 
       // have to update session email
       let response = await this.model.findOneAndUpdate(
-        { profile: { email: "muskaan@gmail.com" } },
+        { "profile.email": "muskaan@gmail.com" },
         {
           $inc: {
             "payment.projectCount": 1,

@@ -9,6 +9,39 @@ class StaffService extends Service {
     this.addProject = this.addProject.bind(this);
   }
 
+  async insert(body) {
+    try {
+      let data = {
+        profile: body,
+      };
+      let existingItem = await this.model.find({
+        "profile.staffName": body.staffName,
+      });
+      // console.log(existingItem.length)
+      if (existingItem.length)
+        return {
+          error: true,
+          statusCode: 409,
+          item: existingItem,
+        };
+
+      let item = await this.model.create(data);
+      if (item)
+        return {
+          error: false,
+          item,
+        };
+    } catch (error) {
+      console.log("error", error);
+      return {
+        error: true,
+        statusCode: 500,
+        message: error.errmsg || "Not able to create item",
+        errors: error.errors,
+      };
+    }
+  }
+
   async getAll(query) {
     let { skip, limit } = query;
 
@@ -78,10 +111,10 @@ class StaffService extends Service {
     // creating array of staff objects
     body.staff.forEach((staff) => {
       let projectPercentage = (staff.amtToBePaid / body.totalAmount) * 100;
-
+      // console.log("st", staffInfo);
       staffInfo.push({
         updateOne: {
-          filter: { profile: { staffName: staff.staffName } },
+          filter: { "profile.staffName": staff.staffName },
           update: {
             $inc: {
               "profile.projectCount": 1,
@@ -106,15 +139,13 @@ class StaffService extends Service {
     // console.log("staff objects in add order", staffInfo);
 
     try {
-      console.log("here");
       let response = await this.model.bulkWrite(staffInfo);
-      console.log(response);
+      // console.log(response);
 
       return {
         error: false,
         statusCode: 202,
-        success: response.result.nModified,
-        response,
+        success: response.modifiedCount,
       };
     } catch (error) {
       return {

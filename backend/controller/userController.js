@@ -9,13 +9,13 @@ class UserController extends Controller {
     super(service);
   }
 
-  async addProject(body) {
-    let response = await this.service.addProject(body);
+  async addProject(body, project) {
+    let response = await this.service.addProject(body, project);
     return response;
   }
 
-  async addStaff(staffName) {
-    let response = await this.service.addStaffName(staffName);
+  async addStaff(staff) {
+    let response = await this.service.addStaff(staff);
     return response;
   }
 
