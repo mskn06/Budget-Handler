@@ -8,6 +8,59 @@ class ProjectService extends Service {
     this.insert = this.insert.bind(this);
   }
 
+  async addProject(body) {
+    // create an obj to store
+    let item = {
+      profile: {
+        projectName: body.projectName,
+        delivery: body.delivery,
+      },
+      payment: {
+        totalAmount: body.totalAmount,
+        amtToBePaid: 0,
+      },
+      staffs: [],
+    };
+
+    // add staff details
+    if (body.staff) {
+      body.staff.forEach((element) => {
+        // add staff
+        item.staffs.push({
+          profile: {
+            staffName: element.staffName,
+          },
+          payment: {
+            amtToBePaid: element.amtToBePaid,
+          },
+        });
+
+        // add amtToBePaid
+        item.payment.amtToBePaid += element.amtToBePaid;
+      });
+    }
+
+    // item to be stored
+    // console.log("project item", item.staffs);
+
+    try {
+      // store the obj to Project
+      let response = await this.model.create(item);
+      if (response)
+        return {
+          error: false,
+          statusCode: 201,
+          response,
+        };
+    } catch (error) {
+      return {
+        error: true,
+        statusCode: 500,
+        message: error.errmsg || "Not able to create project",
+      };
+    }
+  }
+
   async getAll(query) {
     let { skip, limit } = query;
 

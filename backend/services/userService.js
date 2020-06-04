@@ -32,21 +32,30 @@ class UserService extends Service {
     }
   }
 
-  async updateFiguresService(amtToBePaid, projectId) {
+  async addProject(body, project) {
     try {
+      let amtToBePaid = 0;
+
+      body.staff.forEach((staff) => {
+        amtToBePaid += staff.amtToBePaid;
+      });
+
       // have to update session email
-      let item = await this.model.findOneAndUpdate(
-        { email: "muskaan@gmail.com" },
+      let response = await this.model.findOneAndUpdate(
+        { profile: { email: "muskaan@gmail.com" } },
         {
-          $inc: { amtToBePaid: amtToBePaid, totalProjects: 1 },
-          $push: { projects: projectId },
+          $inc: {
+            "payment.projectCount": 1,
+            "payment.amtToBePaid": amtToBePaid,
+          },
+          $push: { projects: project.response._id },
         },
         { new: true }
       );
       return {
         error: false,
         statusCode: 202,
-        item,
+        response,
       };
     } catch (error) {
       return {

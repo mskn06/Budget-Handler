@@ -15,6 +15,11 @@ class StaffController extends Controller {
     this.getStaffIds = this.getStaffIds.bind(this);
   }
 
+  async addProject(body) {
+    let response = await this.service.addProject(body);
+    return response;
+  }
+
   async getProject(req, res) {
     try {
       // console.log(req.params);

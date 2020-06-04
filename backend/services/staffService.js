@@ -6,7 +6,7 @@ class StaffService extends Service {
 
     this.getProjectDetails = this.getProjectDetails.bind(this);
     this.getIds = this.getIds.bind(this);
-    this.updateData = this.updateData.bind(this);
+    this.addProject = this.addProject.bind(this);
   }
 
   async getAll(query) {
@@ -72,38 +72,55 @@ class StaffService extends Service {
     return staffIds;
   }
 
-  async updateData(body, projectId) {
-    let staffUpdates = [];
-    let amtToBePaid = 0;
+  async addProject(body) {
+    let staffInfo = [];
 
-    body.staffDetails.forEach((staff) => {
-      amtToBePaid += staff.amtToBePaid;
+    // creating array of staff objects
+    body.staff.forEach((staff) => {
+      let projectPercentage = (staff.amtToBePaid / body.totalAmount) * 100;
 
-      staffUpdates.push({
+      staffInfo.push({
         updateOne: {
-          filter: { staffName: staff.staffName },
+          filter: { profile: { staffName: staff.staffName } },
           update: {
-            $inc: { projects: 1, amtToBePaid: staff.amtToBePaid },
-            $push: { projects: projectId },
+            $inc: {
+              "profile.projectCount": 1,
+              "payment.amtToBePaid": staff.amtToBePaid,
+            },
+            $push: {
+              projects: {
+                profile: { projectName: body.projectName },
+                payment: {
+                  amtToBePaid: staff.amtToBePaid,
+                  projectPercentage: projectPercentage,
+                },
+              },
+            },
           },
           new: true,
         },
       });
     });
+
+    // final staff objects to be updated
+    // console.log("staff objects in add order", staffInfo);
+
     try {
-      let item = await this.model.bulkWrite(staffUpdates);
+      console.log("here");
+      let response = await this.model.bulkWrite(staffInfo);
+      console.log(response);
 
       return {
         error: false,
         statusCode: 202,
-        success: item.result.nModified,
-        amtToBePaid,
+        success: response.result.nModified,
+        response,
       };
     } catch (error) {
       return {
         error: true,
         statusCode: 500,
-        error,
+        message: error || "not able to update staff",
       };
     }
   }

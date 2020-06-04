@@ -14,50 +14,63 @@ class ProjectController extends Controller {
     this.updatePaymentDate = this.updatePaymentDate.bind(this);
   }
 
+  async insert(req, res) {
+    /*
+    FORMAT
+    BODY: {
+      projectName: 
+      delivery:
+      totalAmount:
+      staff:[
+        { staffName:
+          amtToBePaid:
+        }
+      ]
+    }
+    */
+    try {
+      // console.log(req.body);
+
+      // call PROJECT insert service
+      let projectResponse = await this.service.addProject(req.body);
+      // console.log(projectResponse);
+
+      // return response if error found
+      if (projectResponse.error)
+        return res
+          .status(projectResponse.statusCode)
+          .send(projectResponse.message);
+
+      // call STAFF update service
+      if (req.body.staff) {
+        let staffResponse = await StaffController.addProject(req.body);
+        // return response if error found
+        if (staffResponse.error)
+          return res
+            .status(staffResponse.statusCode)
+            .send(staffResponse.message);
+      }
+
+      // call USER update service
+      let userResponse = await UserController.addProject(
+        req.body,
+        projectResponse
+      );
+      // return response if error found
+      if (userResponse.error)
+        return res.status(userResponse.statusCode).send(userResponse.message);
+      else return res.status(projectResponse.statusCode).send(projectResponse);
+    } catch (error) {
+      res.send(error);
+    }
+  }
+
   async getStaff(req, res) {
     try {
       let response = await this.service.getStaffDetails(req);
       res.send(response);
     } catch (error) {
       // console.log(error);
-      res.send(error);
-    }
-  }
-
-  async insert(req, res) {
-    try {
-      // adding project details in Project model
-      let response = await this.service.insert(req.body);
-
-      // update staff details in Staff model & returns amtToBePaid
-      let amtToBePaid = await StaffController.updateStaff(
-        req.body,
-        response.item._id
-      );
-
-      // returns staffIds
-      let staffIds = await StaffController.getStaffIds(response.item._id);
-
-      // populate staffIds and amtToBePaid
-      let staff = { amtToBePaid, staffIds };
-      let projectResponse = await this.service.updateProject(
-        staff,
-        response.item._id
-      );
-      // console.log("projectResponse", projectResponse);
-
-      // update user figures in User model
-      let userResponse = await UserController.updateFigures(
-        staff.amtToBePaid,
-        response.item._id
-      );
-      // console.log("userResponse", userResponse);
-
-      // return response
-      if (projectResponse.error)
-        return res.status(projectResponse.statusCode).send(projectResponse);
-      else return res.status(201).send(projectResponse);
-    } catch (error) {
       res.send(error);
     }
   }

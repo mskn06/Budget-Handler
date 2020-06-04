@@ -21,7 +21,7 @@ class Project {
           },
           clearanceTime: {
             type: Number,
-            required: true,
+            default: 21,
           },
         },
         payment: {
