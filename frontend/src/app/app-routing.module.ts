@@ -11,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: "",
-    redirectTo: "projects",
+    redirectTo: "login",
     pathMatch: "full",
   },
   {

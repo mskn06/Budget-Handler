@@ -11,7 +11,10 @@ import { User } from "../models/user-interface";
 export class LoginService {
   constructor(private http: HttpClient) {}
 
-  getUser() {
-    return this.http.get<User>(CONSTANTS.LOGIN);
+  getUser(user) {
+    this.http.post(CONSTANTS.LOGIN, user).subscribe((res) => {
+      // console.log(res);
+      return res;
+    });
   }
 }

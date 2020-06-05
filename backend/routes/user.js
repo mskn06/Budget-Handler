@@ -5,7 +5,7 @@ export default (server) => {
   server.post("/signup", UserController.insert);
 
   // login
-  server.get("/login", UserController.getOne);
+  server.post("/login", UserController.getOne);
 
   // update
   server.put("/user/:id", UserController.update);
