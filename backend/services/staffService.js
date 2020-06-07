@@ -155,6 +155,28 @@ class StaffService extends Service {
       };
     }
   }
+
+  async update(id, data) {
+    try {
+      let item = {
+        profile: data,
+      };
+      let response = await this.model.findByIdAndUpdate(id, item, {
+        new: true,
+      });
+      return {
+        error: false,
+        statusCode: 202,
+        item: response,
+      };
+    } catch (error) {
+      return {
+        error: true,
+        statusCode: 500,
+        error,
+      };
+    }
+  }
 }
 
 export default StaffService;

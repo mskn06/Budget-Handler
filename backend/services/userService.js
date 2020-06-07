@@ -96,6 +96,45 @@ class UserService extends Service {
       };
     }
   }
+  async getOne(body) {
+    try {
+      let item = await this.model.findOne({ "profile.email": body.email });
+
+      return {
+        error: false,
+        statusCode: 200,
+        data: item,
+      };
+    } catch (errors) {
+      return {
+        error: true,
+        statusCode: 500,
+        errors,
+      };
+    }
+  }
+
+  async update(id, data) {
+    try {
+      let item = {
+        profile: data,
+      };
+      let response = await this.model.findByIdAndUpdate(id, item, {
+        new: true,
+      });
+      return {
+        error: false,
+        statusCode: 202,
+        item: response,
+      };
+    } catch (error) {
+      return {
+        error: true,
+        statusCode: 500,
+        error,
+      };
+    }
+  }
 }
 
 export default UserService;

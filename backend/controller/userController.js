@@ -9,6 +9,24 @@ class UserController extends Controller {
     super(service);
   }
 
+  async insert(req, res) {
+    let response = await this.service.insert(req.body);
+    if (response.error) return res.status(response.statusCode).send(response);
+    return res.status(201).send(response);
+  }
+
+  async getOne(req, res) {
+    return res.status(200).send(await this.service.getOne(req.body));
+  }
+
+  async update(req, res) {
+    const { id } = req.params;
+
+    let response = await this.service.update(id, req.body);
+
+    return res.status(response.statusCode).send(response);
+  }
+
   async addProject(body, project) {
     let response = await this.service.addProject(body, project);
     return response;
@@ -16,14 +34,6 @@ class UserController extends Controller {
 
   async addStaff(staff) {
     let response = await this.service.addStaff(staff);
-    return response;
-  }
-
-  async updateFigures(amtToBePaid, projectId) {
-    let response = await this.service.updateFiguresService(
-      amtToBePaid,
-      projectId
-    );
     return response;
   }
 }
