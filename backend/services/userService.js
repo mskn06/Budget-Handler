@@ -3,6 +3,7 @@ import Service from "./service";
 class UserService extends Service {
   constructor(model) {
     super(model);
+    this.getUser = this.getUser.bind(this);
 
     // IF DELIVERY DATE >= TODAY DATE
     // update amtInClearance
@@ -93,6 +94,23 @@ class UserService extends Service {
         error: true,
         statusCode: 500,
         error,
+      };
+    }
+  }
+
+  async getUser(req) {
+    try {
+      let item = await this.model.findById(req.params.id);
+      return {
+        error: false,
+        statusCode: 200,
+        data: item,
+      };
+    } catch (errors) {
+      return {
+        error: true,
+        statusCode: 500,
+        errors,
       };
     }
   }

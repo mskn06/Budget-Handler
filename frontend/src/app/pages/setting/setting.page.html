@@ -1,41 +1,3 @@
-<!-- <ion-content>
-  <form>
-
-    <div class="form-fields">
-      <p>NAME</p>
-      <ion-input type="text" placeholder="John Doe" required></ion-input>
-    </div>
-
-    <div class="form-fields">
-      <p>PASSWORD</p>
-      <ion-input type="password" placeholder="John@123" required> </ion-input>
-
-    </div>
-
-    <div class="form-fields">
-      <p>E-MAIL</p>
-      <ion-input
-        type="email"
-        placeholder="johndoe123@gmail.com"
-        required
-      ></ion-input>
-    </div>
-
-    <div class="form-fields">
-      <p>CLEARANCE TIME</p>
-      <ion-input type="text" placeholder="21 days" required></ion-input>
-    </div>
-
-    <div class="btn-primary">
-      <app-button
-        [routerLink]="['/projects']"
-        [btnType]="primaryBtn"
-      >
-    SIGNUP</app-button>
-    </div>
-  </form>
-</ion-content> -->
-
 <ion-content color="primary">
   <div>
     <app-sidebar-left [pageName]="'setting'"></app-sidebar-left>
@@ -43,36 +5,57 @@
 
   <div class="body">
     <h2>SETTINGS</h2>
-    <div class="form">
-      <div class="input-field">
-        <app-input-row [placeholder]="'John Doe'">
-          NAME
-        </app-input-row>
-      </div>
-      <div class="input-field">
-        <app-input-row [placeholder]="'********'">
-          PASSWORD
-        </app-input-row>
-      </div>
-      <div class="input-field">
-        <app-input-row [placeholder]="'johndoe1234@gmail.com'">
-          E-MAIL
-        </app-input-row>
-      </div>
-      <div class="input-field">
-        <app-input-row [placeholder]="'21 days'">
-          CLEARANCE TIME
-        </app-input-row>
-      </div>
+    <div *ngIf="user">
+      <form [formGroup]="userForm">
+        <div class="form-fields">
+          <p>USERNAME</p>
+          <ion-input
+            type="text"
+            [(ngModel)]="user.userName"
+            formControlName="userName"
+          >
+          </ion-input>
+        </div>
 
-      <div class="submit-btn">
-        <app-button
-          [routerLink]="['/setting']"
-          [btnType]="'btn-primary btn-raised'"
-        >
-          SAVE
-        </app-button>
-      </div>
+        <div class="form-fields">
+          <p>PASSWORD</p>
+          <ion-input
+            type="password"
+            [(ngModel)]="user.password"
+            formControlName="password"
+          >
+          </ion-input>
+        </div>
+        <div class="form-fields">
+          <p>E-MAIL</p>
+          <ion-input
+            type="email"
+            [(ngModel)]="user.email"
+            formControlName="email"
+          >
+          </ion-input>
+        </div>
+
+        <div class="form-fields">
+          <p>CLEARANCE TIME</p>
+          <ion-input
+            type="number"
+            [(ngModel)]="user.clearanceTime"
+            formControlName="clearanceTime"
+          >
+          </ion-input>
+        </div>
+
+        <div class="submit-btn">
+          <app-button
+            [routerLink]="['/setting']"
+            [btnType]="'btn-primary btn-raised'"
+            (click)="updateUser()"
+          >
+            SAVE
+          </app-button>
+        </div>
+      </form>
     </div>
   </div>
 

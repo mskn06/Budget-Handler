@@ -40,7 +40,7 @@ export class LoginPage implements OnInit {
       this.loading = true;
 
       this.userData = await this.loginService
-        .getUser(this.user.value)
+        .login(this.user.value)
         .pipe(first())
         .subscribe(
           (data) => {

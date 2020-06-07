@@ -5,8 +5,15 @@ import { ProjectService } from "./projects.service";
 import { LoginService } from "./login.service";
 import { SignupService } from "./signup.service";
 import { StaffService } from "./staff.service";
+import { UserService } from "./user.service";
 
-const services = [ProjectService, LoginService, SignupService, StaffService];
+const services = [
+  ProjectService,
+  LoginService,
+  SignupService,
+  StaffService,
+  UserService,
+];
 
 @NgModule({
   imports: [CommonModule, IonicModule],

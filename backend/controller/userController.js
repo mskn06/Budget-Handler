@@ -7,12 +7,21 @@ const userService = new UserService(new User().getInstance());
 class UserController extends Controller {
   constructor(service) {
     super(service);
+    this.getUser = this.getUser.bind(this);
   }
 
   async insert(req, res) {
     let response = await this.service.insert(req.body);
     if (response.error) return res.status(response.statusCode).send(response);
     return res.status(201).send(response);
+  }
+
+  async getUser(req, res) {
+    try {
+      return res.status(200).send(await this.service.getUser(req));
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async getOne(req, res) {
