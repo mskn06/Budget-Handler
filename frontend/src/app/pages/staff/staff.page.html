@@ -6,20 +6,25 @@
   <div class="body">
     <h2>STAFF MEMBERS</h2>
 
-    <div class="add-staff">
-      <div class="input-field">
-        <app-input-row [placeholder]="'John Doe'">
-          STAFF NAME
-        </app-input-row>
-      </div>
-      <div class="submit-btn">
-        <app-button
-          [routerLink]="['/staff']"
-          [btnType]="'btn-primary btn-raised'"
-        >
-          ADD STAFF
-        </app-button>
-      </div>
+    <div>
+      <form [formGroup]="staffForm">
+        <div class="form-field">
+          <p>
+            STAFF NAME
+          </p>
+          <ion-input placeholder="John Doe" formControlName="staffName">
+          </ion-input>
+        </div>
+        <div class="submit-btn">
+          <app-button
+            [routerLink]="['/staff']"
+            [btnType]="'btn-primary btn-raised'"
+            (click)="postStaff()"
+          >
+            ADD STAFF
+          </app-button>
+        </div>
+      </form>
     </div>
 
     <div class="header">

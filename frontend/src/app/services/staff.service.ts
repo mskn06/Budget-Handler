@@ -13,4 +13,8 @@ export class StaffService {
   getStaffs(): Observable<any> {
     return this.http.get(CONSTANTS.GETSTAFFS);
   }
+
+  postStaff(staff) {
+    return this.http.post(CONSTANTS.ADDSTAFF, staff);
+  }
 }

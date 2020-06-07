@@ -6,14 +6,23 @@
     color: saddlebrown;
   }
 
-  .add-staff {
-    margin: 20px auto;
-    display: flex;
-    align-items: flex-end;
+  p {
+    color: #9f6a2a;
+    margin: 4px 0;
+    font-size: 14px;
+    font-weight: bold;
+  }
 
-    .submit-btn {
-      margin: 0 20px;
-    }
+  .form-field {
+    padding-top: 24px;
+    width: 48%;
+    float: left;
+    padding-right: 24px;
+  }
+
+  .submit-btn {
+    padding-top: 44px;
+    margin: 0 20px;
   }
 
   .header {
@@ -71,4 +80,17 @@ table.mytable tr td {
   border-radius: 10px;
   height: 60px;
   background-color: #8a4b00;
+}
+
+ion-input {
+  height: 50px;
+
+  --padding-start: 24px;
+  font-size: 22px;
+  color: #d1b18b;
+
+  background: linear-gradient(90deg, #fff2d9 -1.28%, #fff9e4 103.08%);
+  box-shadow: inset -7px -5px 8px rgba(255, 255, 255, 0.5),
+    inset 5px 5px 16px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
 }
