@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { LoginService } from "src/app/services/login.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { first } from "rxjs/operators";
 
 @Component({
   selector: "app-login",
@@ -11,6 +12,8 @@ import { Router } from "@angular/router";
 export class LoginPage implements OnInit {
   private user: FormGroup;
   userData;
+  loading = false;
+  submitted = false;
 
   constructor(
     private loginService: LoginService,
@@ -25,11 +28,30 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {}
 
-  login() {
-    console.log(this.user.value);
+  async login() {
+    this.submitted = true;
+
+    if (this.user.invalid) {
+      console.log("Fill valid details!");
+      return;
+    }
+
     if (this.user.value) {
-      this.userData = this.loginService.getUser(this.user.value);
-      this.router.navigate(["/projects"]);
+      this.loading = true;
+
+      this.userData = await this.loginService
+        .getUser(this.user.value)
+        .pipe(first())
+        .subscribe(
+          (data) => {
+            console.log("user", data);
+            if (data) this.router.navigate(["/projects"]);
+          },
+          (err) => {
+            console.log(err);
+            this.loading = false;
+          }
+        );
     }
   }
 }

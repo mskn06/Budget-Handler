@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Router } from "@angular/router";
+import { LoginService } from "src/app/services/login.service";
 
 @Component({
   selector: "app-sidebar-left",
@@ -26,11 +27,16 @@ export class SidebarLeftComponent implements OnInit {
   addProjectIcon = this.icon + "add_project.png";
   logoutIcon = this.icon + "logout.png";
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private loginService: LoginService) {}
 
   ngOnInit() {}
 
   gotofunc(routeAddress: string) {
     this.router.navigate(["/" + routeAddress]);
+  }
+
+  logout() {
+    this.loginService.logout();
+    this.router.navigate(["/login"]);
   }
 }

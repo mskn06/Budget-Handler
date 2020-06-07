@@ -27,7 +27,6 @@ const components = [
 
 @NgModule({
   imports: [CommonModule, IonicModule, FormsModule, ReactiveFormsModule],
-
   declarations: [...components],
   exports: [...components, FormsModule, ReactiveFormsModule],
 })

@@ -9,8 +9,6 @@ const services = [ProjectService, LoginService, SignupService];
 
 @NgModule({
   imports: [CommonModule, IonicModule],
-  declarations: services,
   providers: [...services],
-  exports: services,
 })
 export class apiServices {}
