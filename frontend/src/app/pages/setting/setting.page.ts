@@ -13,8 +13,7 @@ export class SettingPage implements OnInit {
   user: User;
   currentUser;
   userForm: FormGroup;
-  submitted;
-  loading;
+
   constructor(
     private userService: UserService,
     private formBuilder: FormBuilder
@@ -38,16 +37,12 @@ export class SettingPage implements OnInit {
   }
 
   async updateUser() {
-    this.submitted = true;
-
     if (this.userForm.invalid) {
       console.log("Fill valid details!");
       return;
     }
 
     if (this.userForm.value) {
-      this.loading = true;
-
       await this.userService
         .updateUser(this.userForm.value, this.currentUser)
         .pipe(first())
@@ -57,7 +52,6 @@ export class SettingPage implements OnInit {
           },
           (err) => {
             console.log(err);
-            this.loading = false;
           }
         );
 
