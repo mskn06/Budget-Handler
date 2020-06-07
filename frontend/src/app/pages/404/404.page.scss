@@ -1,0 +1,27 @@
+div.error {
+  font-size: 65px;
+  font-weight: 400;
+  color: #8a4b00;
+  box-sizing: border-box;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 25px;
+
+  &--lines {
+    align-self: center;
+  }
+
+  .first {
+    width: 150px;
+    padding-left: 56px;
+  }
+  .second {
+    padding-right: 56px;
+    width: 880px;
+  }
+}
