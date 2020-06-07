@@ -8,16 +8,13 @@ import { ProjectService } from "../../services/projects.service";
   styleUrls: ["./projects.page.scss"],
 })
 export class ProjectsPage implements OnInit {
-  projects = Projects;
-  project: Project;
+  projects: Project[];
 
   constructor(private projectService: ProjectService) {}
   ngOnInit() {
     this.projectService.getProjects().subscribe((projects) => {
-      this.project = projects.data;
-      console.log("projects", this.project);
+      this.projects = projects.data;
+      console.log("projects", this.projects);
     });
   }
 }
-
-var Projects: Project[] = [];

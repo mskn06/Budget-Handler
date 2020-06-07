@@ -20,11 +20,28 @@
           <!-- collapsible: SUB-CONTENT -->
           <table class="mytable">
             <tr *ngFor="let staff of project.staffs">
-              <td>{{ staff.staffName }}</td>
-              <td>{{ staff.amtToBePaid }}</td>
-              <!-- <td>{{ staff  }}</td> -->
+              <!-- staff name -->
+              <td>{{ staff.profile.staffName }}</td>
+
+              <!-- amount -->
               <td>
-                <div *ngIf="staff.paidOn; else pay">
+                <div *ngIf="staff.payment.amtToBePaid">
+                  {{ staff.payment.amtToBePaid }}
+                </div>
+                <div *ngIf="staff.payment.amtPaid">
+                  {{ staff.payment.amtPaid }}
+                </div>
+              </td>
+              <td>
+                <div *ngIf="staff.payment.paidOn; else dash">
+                  {{ staff.payment.paidOn }}
+                </div>
+                <ng-template #dash>
+                  -
+                </ng-template>
+              </td>
+              <td>
+                <div *ngIf="staff.payment.paidOn; else pay">
                   <button class="paid">PAID</button>
                 </div>
                 <ng-template #pay>

@@ -2,11 +2,11 @@
   <div>
     <!-- project page: MAIN CONTENT -->
     <div *ngIf="project" class="row" (click)="toggle.emit()">
-      <div>{{ project.projectName }}</div>
-      <div>{{ project.deliveryDate | date: "dd-mm-yyyy" }}</div>
-      <div>${{ project.amtEarned }}</div>
-      <div>${{ project.amtToBePaid }}</div>
-      <div>{{ project.status }}</div>
+      <div>{{ project.profile.projectName }}</div>
+      <div>{{ project.profile.delivery }}</div>
+      <div>${{ project.payment.amtEarned }}</div>
+      <div>${{ project.payment.amtToBePaid + project.payment.amtPaid }}</div>
+      <div>{{ project.profile.status }}</div>
       <!-- <div><img src="../../../../assets/icon/chevron_closed.png"></div> -->
     </div>
 

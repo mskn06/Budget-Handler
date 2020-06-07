@@ -16,7 +16,7 @@ export class AccordionComponent implements AfterContentInit {
   groups: QueryList<AccordionGroupComponent>;
 
   ngAfterContentInit() {
-    console.log(this.groups);
+    // console.log(this.groups);
 
     this.groups.toArray().forEach((t) => {
       t.toggle.subscribe(() => {
