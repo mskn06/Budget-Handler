@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Staff } from "src/app/models/staff-interface";
+import { StaffService } from "src/app/services/staff.service";
 
 @Component({
   selector: "app-staff",
@@ -7,13 +8,14 @@ import { Staff } from "src/app/models/staff-interface";
   styleUrls: ["./staff.page.scss"],
 })
 export class StaffPage implements OnInit {
-  staffs = StaffMembers;
+  staffs: Staff[];
 
-  constructor() {}
+  constructor(private staffService: StaffService) {}
 
   ngOnInit() {
-    console.log("user", this.staffs);
+    this.staffService.getStaffs().subscribe((staffs) => {
+      this.staffs = staffs.data;
+      console.log("staffs", this.staffs);
+    });
   }
 }
-
-var StaffMembers: Staff[] = [];

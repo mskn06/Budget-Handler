@@ -23,9 +23,9 @@
     </div>
 
     <div class="header">
-      <div>MEMBER NAME</div>
+      <div>STAFF NAME</div>
       <div>PAID</div>
-      <div>EARNED</div>
+      <div>PROJECT %</div>
       <div>PROJECTS</div>
       <div>TO PAY</div>
     </div>
@@ -35,11 +35,32 @@
         <group [staff]="staff">
           <!-- collapsible: SUB-CONTENT -->
           <table class="mytable">
-            <tr *ngFor="let project of staff.projectDetails">
-              <td>{{ project.projectName }}</td>
-              <td>${{ project.expense }}</td>
-              <td>${{ project.earning }}</td>
-              <td>{{ project.paidOn | date:'dd-mm-yyyy' }}</td>
+            <tr *ngFor="let project of staff.projects">
+              <!-- project name -->
+              <td>{{ project.profile.projectName }}</td>
+
+              <!-- amount -->
+              <td>
+                <div *ngIf="project.payment.amtToBePaid; else paid">
+                  ${{ project.payment.amtToBePaid }}
+                </div>
+                <ng-template #paid>
+                  ${{ project.payment.amtPaid }}
+                </ng-template>
+              </td>
+
+              <!-- project %age -->
+              <td>{{ project.payment.projectPercentage }}%</td>
+
+              <!-- date: paidOn -->
+              <td>
+                <div *ngIf="project.payment.paidOn; else pay">
+                  {{ project.payment.paidOn | date:'dd-mm-yyyy' }}
+                </div>
+                <ng-template #pay>
+                  -
+                </ng-template>
+              </td>
             </tr>
           </table>
         </group>
