@@ -4,30 +4,30 @@
     <p>Hey, <span>John</span>!</p>
   </div> -->
 
-  <div class="key-params">
+  <div class="key-params" *ngIf="user">
     <div class="key-param">
       <p class="key">PROJECTS</p>
-      <p class="value">30</p>
+      <p class="value">{{ user.payment.projectCount }}</p>
     </div>
     <div class="key-param">
       <p class="key">TO BE PAID</p>
-      <p class="value">$300</p>
+      <p class="value">${{ user.payment.amtToBePaid }}</p>
     </div>
     <div class="key-param">
       <p class="key">CLEARED</p>
-      <p class="value">$480</p>
+      <p class="value">${{ user.payment.amtCleared }}</p>
     </div>
     <div class="key-param">
       <p class="key">CLEARANCE</p>
-      <p class="value">$0</p>
+      <p class="value">${{ user.payment.amtInClearance }}</p>
     </div>
     <div class="key-param">
       <p class="key">EARNED</p>
-      <p class="value">$280</p>
+      <p class="value">${{ user.payment.amtEarned }}</p>
     </div>
     <div class="key-param">
       <p class="key">PAID</p>
-      <p class="value">$200</p>
+      <p class="value">${{ user.payment.amtPaid }}</p>
     </div>
 
     <div class="activity">

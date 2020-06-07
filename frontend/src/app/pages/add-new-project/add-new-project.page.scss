@@ -15,27 +15,22 @@
     padding-top: 40px;
   }
 
-  .input-field {
-    margin: 0 24px;
+  p {
+    color: #9f6a2a;
+    margin: 4px 0;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .form-fields {
+    padding-top: 24px;
+    width: 45%;
     float: left;
+    padding-right: 29px;
   }
 
-  .add-staff {
-    margin-top: 52px;
-  }
-
-  .added-staff {
-    color: black;
-    margin: 24px;
-
-    display: flex;
-
-    font-size: 18px;
-    font-weight: 500;
-
-    div {
-      padding: 0 126px;
-    }
+  .staff-btn {
+    padding-top: 44px;
   }
 
   .submit-btn {
@@ -57,4 +52,17 @@
   border-radius: 10px;
   height: 60px;
   background-color: #8a4b00;
+}
+
+ion-input {
+  height: 50px;
+
+  --padding-start: 24px;
+  font-size: 22px;
+  color: #d1b18b;
+
+  background: linear-gradient(90deg, #fff2d9 -1.28%, #fff9e4 103.08%);
+  box-shadow: inset -7px -5px 8px rgba(255, 255, 255, 0.5),
+    inset 5px 5px 16px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
 }

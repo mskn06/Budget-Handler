@@ -6,65 +6,88 @@
   <div class="body scroll-box">
     <h2>ADD NEW PROJECT</h2>
 
-    <div class="form">
-      <div class="input-field">
-        <app-input-row [placeholder]="'React Project'">
-          PROJECT NAME
-        </app-input-row>
-      </div>
-
-      <div class="input-field">
-        <app-input-row [placeholder]="'6500 (in USD)'">
-          PROJECT AMOUNT
-        </app-input-row>
-      </div>
-
-      <div class="input-field">
-        <app-input-row [placeholder]="'12-05-2020'">
-          DELIVERY DATE
-        </app-input-row>
-      </div>
-
-      <h2 class="clear-float p-t-40">ADD STAFF</h2>
-
-      <!-- add staff -->
-      <div *ngFor="let i of [].constructor(count)" class="added-staff">
-        <div>
-          <p>Muskaan</p>
+    <div>
+      <form [formGroup]="projectForm">
+        <div class="form-fields">
+          <p>PROJECT NAME</p>
+          <ion-input
+            type="text"
+            placeholder="React Project"
+            formControlName="projectName"
+          >
+          </ion-input>
         </div>
-        <div>
-          <p>100</p>
+
+        <div class="form-fields">
+          <p>
+            PROJECT AMOUNT
+          </p>
+          <ion-input
+            type="number"
+            placeholder="$600"
+            formControlName="totalAmount"
+          >
+          </ion-input>
         </div>
-      </div>
 
-      <div class="input-field">
-        <app-input-row [placeholder]="'John Doe'">
-          STAFF NAME
-        </app-input-row>
-      </div>
+        <div class="form-fields">
+          <p>
+            DELIVERY DATE
+          </p>
+          <ion-input
+            type="date"
+            placeholder="12-05-2020"
+            formControlName="delivery"
+          >
+          </ion-input>
+        </div>
 
-      <div class="input-field">
-        <app-input-row [placeholder]="'100 (in USD)'">
-          AMOUNT
-        </app-input-row>
-      </div>
+        <h2 class="clear-float p-t-40">ADD STAFF</h2>
 
-      <div class="add-staff">
-        <app-icon-button
-          [class]="'primary-raised'"
-          [icon]="addProjectIcon"
-          (click)="addStaff()"
-        ></app-icon-button>
-      </div>
+        <!-- add staff -->
+        <div formArrayName="staff">
+          <div *ngFor="let staff of getStaff(projectForm); let i=index">
+            <div [formGroupName]="i">
+              <div class="form-fields">
+                <p>
+                  STAFF NAME
+                </p>
+                <ion-input
+                  type="text"
+                  placeholder="John Doe"
+                  formControlName="staffName"
+                >
+                </ion-input>
+              </div>
 
-      <div class="submit-btn">
-        <app-button
-          [routerLink]="['/projects']"
-          [btnType]="'btn-primary btn-raised'"
-        >
-          CREATE
-        </app-button>
-      </div>
+              <div class="form-fields">
+                <p>
+                  AMOUNT
+                </p>
+                <ion-input
+                  type="number"
+                  placeholder="$100"
+                  formControlName="amtToBePaid"
+                >
+                </ion-input>
+              </div>
+            </div>
+          </div>
+          <div class="staff-btn">
+            <app-icon-button
+              [class]="'primary-raised'"
+              [icon]="addProjectIcon"
+              (click)="addStaff()"
+            ></app-icon-button>
+          </div>
+
+          <div class="submit-btn">
+            <app-button [btnType]="'btn-primary btn-raised'" (click)="submit()">
+              CREATE
+            </app-button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 
