@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ProjectService } from "src/app/services/projects.service";
 import { FormBuilder, FormGroup, Validators, FormArray } from "@angular/forms";
 import { first } from "rxjs/operators";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-add-new-project",
@@ -14,11 +14,13 @@ export class AddNewProjectPage implements OnInit {
   addProjectIcon = this.icon + "add_project.png";
   count = 0;
   projectForm: FormGroup;
+  private userId;
 
   constructor(
     private projectService: ProjectService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
@@ -27,6 +29,10 @@ export class AddNewProjectPage implements OnInit {
       totalAmount: ["", Validators.required],
       delivery: ["", Validators.required],
       staff: this.formBuilder.array([this.initStaff()]),
+    });
+
+    this.route.params.subscribe((params) => {
+      this.userId = params.userId;
     });
   }
 
@@ -66,7 +72,8 @@ export class AddNewProjectPage implements OnInit {
       await this.projectService.postProject(this.projectForm.value).subscribe(
         (data) => {
           console.log("project", data);
-          this.router.navigate(["/projects"]);
+
+          this.router.navigate(["/user/" + this.userId + "/projects"]);
         },
         (err) => {
           console.log(err);
