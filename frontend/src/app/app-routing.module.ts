@@ -4,7 +4,7 @@ import { AuthGuard } from "./guard/auth_guard";
 
 const routes: Routes = [
   {
-    path: "projects",
+    path: "user/:userId/projects",
     loadChildren: () =>
       import("./pages/projects/projects.module").then(
         (m) => m.ProjectsPageModule
@@ -28,7 +28,7 @@ const routes: Routes = [
       import("./pages/signup/signup.module").then((m) => m.SignupPageModule),
   },
   {
-    path: "add-new-project",
+    path: "user/:userId/add-new-project",
     loadChildren: () =>
       import("./pages/add-new-project/add-new-project.module").then(
         (m) => m.AddNewProjectPageModule
@@ -37,13 +37,13 @@ const routes: Routes = [
   },
 
   {
-    path: "setting",
+    path: "user/:userId/setting",
     loadChildren: () =>
       import("./pages/setting/setting.module").then((m) => m.SettingPageModule),
     canActivate: [AuthGuard],
   },
   {
-    path: "staff",
+    path: "user/:userId/staff",
     loadChildren: () =>
       import("./pages/staff/staff.module").then((m) => m.StaffPageModule),
     canActivate: [AuthGuard],

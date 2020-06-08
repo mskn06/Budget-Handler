@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { LoginService } from "src/app/services/login.service";
 
 @Component({
@@ -9,12 +9,7 @@ import { LoginService } from "src/app/services/login.service";
 })
 export class SidebarLeftComponent implements OnInit {
   @Input() pageName;
-
-  // data sent to component
-  pressed = "pressed";
-  raised = "raised";
-  primaryPressed = "primary-pressed";
-  primaryRaised = "primary-raised";
+  private id;
 
   // icons
   icon = "../../../../assets/icon/";
@@ -27,12 +22,21 @@ export class SidebarLeftComponent implements OnInit {
   addProjectIcon = this.icon + "add_project.png";
   logoutIcon = this.icon + "logout.png";
 
-  constructor(private router: Router, private loginService: LoginService) {}
+  constructor(
+    private router: Router,
+    private loginService: LoginService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {}
 
   gotofunc(routeAddress: string) {
-    this.router.navigate(["/" + routeAddress]);
+    this.route.params.subscribe((params) => {
+      this.id = params.userId;
+    });
+    let r = "/user/" + this.id + "/" + routeAddress;
+    // console.log(r);
+    this.router.navigate([r]);
   }
 
   logout() {

@@ -45,7 +45,7 @@ export class LoginPage implements OnInit {
         .subscribe(
           (data) => {
             console.log("user", data);
-            if (data) this.router.navigate(["/projects"]);
+            if (data) this.router.navigate(["/user/" + data._id + "/projects"]);
           },
           (err) => {
             console.log(err);
