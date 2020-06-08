@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Staff } from "src/app/models/staff-interface";
 import { StaffService } from "src/app/services/staff.service";
 import { FormBuilder, Validators } from "@angular/forms";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: "app-staff",
@@ -17,7 +17,8 @@ export class StaffPage implements OnInit {
   constructor(
     private staffService: StaffService,
     private fb: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.staffForm = this.fb.group({
       staffName: ["", Validators.required],
@@ -30,7 +31,7 @@ export class StaffPage implements OnInit {
     });
 
     this.staffService.getStaffs(this.userId).subscribe((staffs) => {
-      this.staffs = staffs.data;
+      this.staffs = staffs;
       console.log("staffs", this.staffs);
     });
   }
@@ -45,6 +46,7 @@ export class StaffPage implements OnInit {
       .postStaff(this.userId, this.staffForm.value)
       .subscribe((data) => {
         console.log(data);
+        this.router.navigate(["/user/" + this.userId + "/staff"]);
       });
   }
 }

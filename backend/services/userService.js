@@ -166,7 +166,9 @@ class UserService extends Service {
   // IMPORTANT
   async getStaff(userId) {
     try {
-      let item = await this.model.findById(userId).populate("staffs");
+      let item = await this.model
+        .findById(userId)
+        .populate({ path: "staffs", options: { sort: { createdAt: -1 } } });
       return {
         error: false,
         statusCode: 200,
@@ -184,7 +186,9 @@ class UserService extends Service {
   // IMPORTANT
   async getProjects(userId) {
     try {
-      let item = await this.model.findById(userId).populate("projects");
+      let item = await this.model
+        .findById(userId)
+        .populate({ path: "projects", options: { sort: { createdAt: -1 } } });
       return {
         error: false,
         statusCode: 200,

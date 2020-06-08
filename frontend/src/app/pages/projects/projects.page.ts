@@ -21,7 +21,7 @@ export class ProjectsPage implements OnInit {
       this.userId = params.userId;
     });
     this.projectService.getProjects(this.userId).subscribe((projects) => {
-      this.projects = projects.data;
+      this.projects = projects;
       console.log("projects", this.projects);
     });
   }
