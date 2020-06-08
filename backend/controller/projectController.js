@@ -18,7 +18,7 @@ class ProjectController extends Controller {
     try {
       // call PROJECT insert service
       let projectResponse = await this.service.addProject(req.body);
-      // console.log(projectResponse);
+      console.log("projectResponse", projectResponse);
 
       // return response if error found
       if (projectResponse.error)
@@ -29,7 +29,7 @@ class ProjectController extends Controller {
       // call STAFF update service
       if (req.body.staff) {
         let staffResponse = await StaffController.addProject(req.body);
-        // console.log(staffResponse);
+        console.log("staffResponse", staffResponse);
 
         // return response if error found
         if (!staffResponse.success)
@@ -43,7 +43,7 @@ class ProjectController extends Controller {
         req.body,
         projectResponse
       );
-      // console.log(userResponse);
+      console.log("userResponse", userResponse);
 
       // return response if error found
       if (userResponse.error)

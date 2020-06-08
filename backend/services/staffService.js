@@ -110,7 +110,8 @@ class StaffService extends Service {
 
     // creating array of staff objects
     body.staff.forEach((staff) => {
-      let projectPercentage = (staff.amtToBePaid / body.totalAmount) * 100;
+      let projectPercentage =
+        Math.round((staff.amtToBePaid / body.totalAmount) * 10000) / 100;
       // console.log("st", staffInfo);
       staffInfo.push({
         updateOne: {

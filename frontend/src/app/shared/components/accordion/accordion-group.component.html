@@ -3,7 +3,7 @@
     <!-- project page: MAIN CONTENT -->
     <div *ngIf="project" class="row" (click)="toggle.emit()">
       <div>{{ project.profile.projectName }}</div>
-      <div>{{ project.profile.delivery }}</div>
+      <div>{{ project.profile.delivery | date: "dd-MM-yyyy" }}</div>
       <div>${{ project.payment.amtEarned }}</div>
       <div>${{ project.payment.amtToBePaid + project.payment.amtPaid }}</div>
       <div>{{ project.profile.status }}</div>

@@ -67,14 +67,15 @@ class UserService extends Service {
   async addProject(body, project) {
     try {
       let amtToBePaid = 0;
-
-      body.staff.forEach((staff) => {
-        amtToBePaid += staff.amtToBePaid;
-      });
+      if (body.staff) {
+        body.staff.forEach((staff) => {
+          amtToBePaid += staff.amtToBePaid;
+        });
+      }
 
       // have to update session email
       let response = await this.model.findOneAndUpdate(
-        { "profile.email": "muskaan@gmail.com" },
+        { "profile.email": "mj@gmail.com" },
         {
           $inc: {
             "payment.projectCount": 1,
@@ -84,6 +85,7 @@ class UserService extends Service {
         },
         { new: true }
       );
+
       return {
         error: false,
         statusCode: 202,

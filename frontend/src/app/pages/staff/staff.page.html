@@ -39,7 +39,7 @@
       <accordion *ngFor="let staff of staffs">
         <group [staff]="staff">
           <!-- collapsible: SUB-CONTENT -->
-          <table class="mytable">
+          <table class="mytable" *ngIf="staff.projects.length">
             <!-- heading -->
             <tr class="header">
               <td>PROJECT NAME</td>
@@ -69,7 +69,7 @@
               <!-- date: paidOn -->
               <td>
                 <div *ngIf="project.payment.paidOn; else pay">
-                  {{ project.payment.paidOn | date:'dd-mm-yyyy' }}
+                  {{ project.payment.paidOn | date: "dd-MM-yyyy" }}
                 </div>
                 <ng-template #pay>
                   -

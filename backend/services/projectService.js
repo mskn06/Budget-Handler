@@ -23,7 +23,7 @@ class ProjectService extends Service {
     };
 
     // add staff details
-    if (body.staff) {
+    if (body.staff && body.staff.staffName != "") {
       body.staff.forEach((element) => {
         // add staff
         item.staffs.push({
@@ -38,7 +38,7 @@ class ProjectService extends Service {
         // add amtToBePaid
         item.payment.amtToBePaid += element.amtToBePaid;
       });
-    }
+    } else delete item.staffs;
 
     // item to be stored
     // console.log("project item", item.staffs);
@@ -46,6 +46,7 @@ class ProjectService extends Service {
     try {
       // store the obj to Project
       let response = await this.model.create(item);
+
       if (response)
         return {
           error: false,

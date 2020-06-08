@@ -16,10 +16,7 @@ export class ProjectService {
   }
 
   postProject(project) {
-    return this.http.post<any>(CONSTANTS.ADDPROJECT, project).pipe(
-      map((projectData) => {
-        return projectData;
-      })
-    );
+    console.log("project", project);
+    return this.http.post<any>(CONSTANTS.ADDPROJECT, project);
   }
 }
