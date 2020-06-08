@@ -12,12 +12,12 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   getUser(currentUser): Observable<any> {
-    return this.http.get(CONSTANTS.GETUSER + currentUser._id);
+    return this.http.get(CONSTANTS.GETUSER(currentUser._id));
   }
 
   updateUser(user, currentUser) {
     return this.http
-      .post<any>(CONSTANTS.UPDATEUSER + currentUser._id, user)
+      .post<any>(CONSTANTS.UPDATEUSER(currentUser._id), user)
       .pipe(
         map((userData) => {
           if (userData) {

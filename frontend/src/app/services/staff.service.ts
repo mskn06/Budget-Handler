@@ -10,11 +10,11 @@ import { Observable } from "rxjs";
 export class StaffService {
   constructor(private http: HttpClient) {}
 
-  getStaffs(): Observable<any> {
-    return this.http.get(CONSTANTS.GETSTAFFS);
+  getStaffs(userId): Observable<any> {
+    return this.http.get(CONSTANTS.GETSTAFFS(userId));
   }
 
-  postStaff(staff) {
-    return this.http.post(CONSTANTS.ADDSTAFF, staff);
+  postStaff(userId, staff) {
+    return this.http.post(CONSTANTS.ADDSTAFF(userId), staff);
   }
 }

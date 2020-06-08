@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Project } from "../../models/project-interface";
 import { ProjectService } from "../../services/projects.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-projects",
@@ -10,9 +11,16 @@ import { ProjectService } from "../../services/projects.service";
 export class ProjectsPage implements OnInit {
   projects: Project[];
 
-  constructor(private projectService: ProjectService) {}
+  constructor(
+    private projectService: ProjectService,
+    private route: ActivatedRoute
+  ) {}
+  private userId;
   ngOnInit() {
-    this.projectService.getProjects().subscribe((projects) => {
+    this.route.params.subscribe((params) => {
+      this.userId = params.userId;
+    });
+    this.projectService.getProjects(this.userId).subscribe((projects) => {
       this.projects = projects.data;
       console.log("projects", this.projects);
     });

@@ -3,7 +3,6 @@ import { HttpClient } from "@angular/common/http";
 
 import { CONSTANTS } from "../../../apiConstants";
 import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root",
@@ -11,12 +10,12 @@ import { map } from "rxjs/operators";
 export class ProjectService {
   constructor(private http: HttpClient) {}
 
-  getProjects(): Observable<any> {
-    return this.http.get(CONSTANTS.GETPROJECTS);
+  getProjects(userId): Observable<any> {
+    return this.http.get(CONSTANTS.GETPROJECTS(userId));
   }
 
-  postProject(project) {
+  postProject(userId, project) {
     console.log("project", project);
-    return this.http.post<any>(CONSTANTS.ADDPROJECT, project);
+    return this.http.post<any>(CONSTANTS.ADDPROJECT(userId), project);
   }
 }

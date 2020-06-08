@@ -9,7 +9,7 @@ import { LoginService } from "src/app/services/login.service";
 })
 export class SidebarLeftComponent implements OnInit {
   @Input() pageName;
-  private id;
+  private userId;
 
   // icons
   icon = "../../../../assets/icon/";
@@ -32,9 +32,9 @@ export class SidebarLeftComponent implements OnInit {
 
   gotofunc(routeAddress: string) {
     this.route.params.subscribe((params) => {
-      this.id = params.userId;
+      this.userId = params.userId;
     });
-    let r = "/user/" + this.id + "/" + routeAddress;
+    let r = "/user/" + this.userId + "/" + routeAddress;
     // console.log(r);
     this.router.navigate([r]);
   }

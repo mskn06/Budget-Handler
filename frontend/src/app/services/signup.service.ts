@@ -13,6 +13,6 @@ export class SignupService {
 
   postUser(user) {
     console.log("user", user);
-    return this.http.post(CONSTANTS.SIGNUP, user);
+    return this.http.post(CONSTANTS.SIGNUP(), user);
   }
 }

@@ -11,7 +11,7 @@ export class LoginService {
   constructor(private http: HttpClient) {}
 
   login(user) {
-    return this.http.post<any>(CONSTANTS.LOGIN, user).pipe(
+    return this.http.post<any>(CONSTANTS.LOGIN(), user).pipe(
       map((userData) => {
         if (userData) {
           // console.log(userData);

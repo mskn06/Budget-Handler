@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ProjectService } from "src/app/services/projects.service";
 import { FormBuilder, FormGroup, Validators, FormArray } from "@angular/forms";
-import { first } from "rxjs/operators";
 import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
@@ -69,16 +68,18 @@ export class AddNewProjectPage implements OnInit {
     await this.checkerror(this.projectForm);
 
     if (this.projectForm.value) {
-      await this.projectService.postProject(this.projectForm.value).subscribe(
-        (data) => {
-          console.log("project", data);
+      await this.projectService
+        .postProject(this.userId, this.projectForm.value)
+        .subscribe(
+          (data) => {
+            console.log("project", data);
 
-          this.router.navigate(["/user/" + this.userId + "/projects"]);
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
+            this.router.navigate(["/user/" + this.userId + "/projects"]);
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
 
       // console.log("user after update", this.project);
     }
