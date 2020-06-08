@@ -8,6 +8,7 @@ class ProjectService extends Service {
     this.insert = this.insert.bind(this);
   }
 
+  // IMPORTANT
   async addProject(body) {
     // create an obj to store
     let item = {

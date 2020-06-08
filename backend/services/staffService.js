@@ -14,16 +14,16 @@ class StaffService extends Service {
       let data = {
         profile: body,
       };
-      let existingItem = await this.model.find({
-        "profile.staffName": body.staffName,
-      });
-      // console.log(existingItem.length)
-      if (existingItem.length)
-        return {
-          error: true,
-          statusCode: 409,
-          item: existingItem,
-        };
+      // let existingItem = await this.model.find({
+      //   "profile.staffName": body.staffName,
+      // });
+      // // console.log(existingItem.length)
+      // if (existingItem.length)
+      //   return {
+      //     error: true,
+      //     statusCode: 409,
+      //     item: existingItem,
+      //   };
 
       let item = await this.model.create(data);
       if (item)
@@ -42,45 +42,46 @@ class StaffService extends Service {
     }
   }
 
-  async getAll(query) {
-    let { skip, limit } = query;
+  // IMPORTANT
+  // async getAll(query) {
+  //   let { skip, limit } = query;
 
-    skip = skip ? Number(skip) : 0;
-    limit = limit ? Number(limit) : 10;
+  //   skip = skip ? Number(skip) : 0;
+  //   limit = limit ? Number(limit) : 10;
 
-    delete query.skip;
-    delete query.limit;
+  //   delete query.skip;
+  //   delete query.limit;
 
-    if (query._id) {
-      try {
-        query._id = new mongoose.mongo.ObjectId(query._id);
-      } catch (error) {
-        console.log("not able to generate mongoose id with content", query._id);
-      }
-    }
+  //   if (query._id) {
+  //     try {
+  //       query._id = new mongoose.mongo.ObjectId(query._id);
+  //     } catch (error) {
+  //       console.log("not able to generate mongoose id with content", query._id);
+  //     }
+  //   }
 
-    try {
-      let items = await this.model
-        .find(query)
-        .populate("projects")
-        .skip(skip)
-        .limit(limit);
-      let total = await this.model.countDocuments();
+  //   try {
+  //     let items = await this.model
+  //       .find(query)
+  //       .populate("projects")
+  //       .skip(skip)
+  //       .limit(limit);
+  //     let total = await this.model.countDocuments();
 
-      return {
-        error: false,
-        statusCode: 200,
-        data: items,
-        total,
-      };
-    } catch (errors) {
-      return {
-        error: true,
-        statusCode: 500,
-        errors,
-      };
-    }
-  }
+  //     return {
+  //       error: false,
+  //       statusCode: 200,
+  //       data: items,
+  //       total,
+  //     };
+  //   } catch (errors) {
+  //     return {
+  //       error: true,
+  //       statusCode: 500,
+  //       errors,
+  //     };
+  //   }
+  // }
 
   async getProjectDetails(req) {
     try {
@@ -105,6 +106,7 @@ class StaffService extends Service {
     return staffIds;
   }
 
+  // IMPORTANT
   async addProject(body) {
     let staffInfo = [];
 

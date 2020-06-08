@@ -8,6 +8,8 @@ class UserController extends Controller {
   constructor(service) {
     super(service);
     this.getUser = this.getUser.bind(this);
+    this.getStaff = this.getStaff.bind(this);
+    this.getProjects = this.getProjects.bind(this);
   }
 
   // IMPORTANT
@@ -41,14 +43,32 @@ class UserController extends Controller {
     return res.status(response.statusCode).send(response);
   }
 
-  async addProject(body, project) {
-    let response = await this.service.addProject(body, project);
+  // IMPORTANT
+  async addProject(req, project) {
+    let response = await this.service.addProject(req, project);
     return response;
   }
 
-  async addStaff(staff) {
-    let response = await this.service.addStaff(staff);
+  // IMPORTANT
+  async addStaff(userId, staff) {
+    let response = await this.service.addStaff(userId, staff);
     return response;
+  }
+
+  // IMPORTANT
+  async getStaff(req, res) {
+    // console.log("response", req.params);
+    let response = await this.service.getStaff(req.params.userId);
+    // console.log("response", response);
+    return res.status(response.statusCode).send(response.data.staffs);
+  }
+
+  // IMPORTANT
+  async getProjects(req, res) {
+    // console.log("response", req.params);
+    let response = await this.service.getProjects(req.params.userId);
+    // console.log("response", response);
+    return res.status(response.statusCode).send(response.data.projects);
   }
 }
 

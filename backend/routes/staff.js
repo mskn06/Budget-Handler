@@ -1,11 +1,12 @@
 import StaffController from "../controller/staffController";
+import UserController from "../controller/userController";
 
 export default (server) => {
   // ADD STAFF
-  server.post("/staff", StaffController.insert);
+  server.post("/user/:userId/staff", StaffController.insert);
 
   // GET STAFF
-  server.get("/staff", StaffController.getAll);
+  server.get("/user/:userId/staff", UserController.getStaff);
 
   // GET STAFF NAMES LIST
   // server.get("/staff", StaffController.getNames);

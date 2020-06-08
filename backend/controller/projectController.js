@@ -39,10 +39,7 @@ class ProjectController extends Controller {
       }
 
       // call USER update service
-      let userResponse = await UserController.addProject(
-        req.body,
-        projectResponse
-      );
+      let userResponse = await UserController.addProject(req, projectResponse);
       console.log("userResponse", userResponse);
 
       // return response if error found
@@ -54,9 +51,9 @@ class ProjectController extends Controller {
     }
   }
 
-  async getAll(req, res) {
-    return res.status(200).send(await this.service.getAll(req.query));
-  }
+  // async getAll(req, res) {
+  //   return res.status(200).send(await this.service.getAll(req.query));
+  // }
 
   async getStaff(req, res) {
     try {

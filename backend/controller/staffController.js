@@ -20,9 +20,10 @@ class StaffController extends Controller {
     return response;
   }
 
-  async getAll(req, res) {
-    return res.status(200).send(await this.service.getAll(req.query));
-  }
+  // // IMPORTANT
+  // async getAll(req, res) {
+  //   return res.status(200).send(await this.service.getAll(req.query));
+  // }
 
   async getProject(req, res) {
     try {
@@ -36,13 +37,17 @@ class StaffController extends Controller {
     }
   }
 
+  // IMPORTANT
   async insert(req, res) {
     // add staffName to staff model
     let response = await this.service.insert(req.body);
     if (response.error) return res.status(response.statusCode).send(response);
 
     // add staffName to user model
-    let userResponse = UserController.addStaff(response.item);
+    let userResponse = UserController.addStaff(
+      req.params.userId,
+      response.item
+    );
     if (userResponse.error)
       return res.status(userResponse.statusCode).send(userResponse);
 

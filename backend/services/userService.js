@@ -11,7 +11,7 @@ class UserService extends Service {
     // if delivery date + clearance time  >= today's date
     // update amtCleared = projectAmount(from body)
   }
-
+  // IMPORTANT
   async insert(body) {
     try {
       console.log("body", body);
@@ -45,10 +45,69 @@ class UserService extends Service {
     }
   }
 
-  async addStaff(staff) {
+  // IMPORTANT
+  async getUser(req) {
     try {
-      let item = await this.model.findOneAndUpdate(
-        { "profile.email": "muskaan@gmail.com" },
+      let item = await this.model.findById(req.params.id);
+      return {
+        error: false,
+        statusCode: 200,
+        data: item,
+      };
+    } catch (errors) {
+      return {
+        error: true,
+        statusCode: 500,
+        errors,
+      };
+    }
+  }
+  // IMPORTANT
+  async getOne(body) {
+    try {
+      let item = await this.model.findOne({ "profile.email": body.email });
+
+      return {
+        error: false,
+        statusCode: 200,
+        data: item,
+      };
+    } catch (errors) {
+      return {
+        error: true,
+        statusCode: 500,
+        errors,
+      };
+    }
+  }
+  // IMPORTANT
+  async update(id, data) {
+    try {
+      let item = {
+        profile: data,
+      };
+      let response = await this.model.findByIdAndUpdate(id, item, {
+        new: true,
+      });
+      return {
+        error: false,
+        statusCode: 202,
+        item: response,
+      };
+    } catch (error) {
+      return {
+        error: true,
+        statusCode: 500,
+        error,
+      };
+    }
+  }
+
+  // IMPORTANT
+  async addStaff(userId, staff) {
+    try {
+      let item = await this.model.findByIdAndUpdate(
+        userId,
         { $push: { staffs: staff._id } },
         { new: true }
       );
@@ -66,8 +125,10 @@ class UserService extends Service {
     }
   }
 
-  async addProject(body, project) {
+  // IMPORTANT
+  async addProject(req, project) {
     try {
+      let body = req.body;
       let amtToBePaid = 0;
       if (body.staff) {
         body.staff.forEach((staff) => {
@@ -76,8 +137,8 @@ class UserService extends Service {
       }
 
       // have to update session email
-      let response = await this.model.findOneAndUpdate(
-        { "profile.email": "mj@gmail.com" },
+      let response = await this.model.findByIdAndUpdate(
+        req.params.userId,
         {
           $inc: {
             "payment.projectCount": 1,
@@ -102,26 +163,10 @@ class UserService extends Service {
     }
   }
 
-  async getUser(req) {
+  // IMPORTANT
+  async getStaff(userId) {
     try {
-      let item = await this.model.findById(req.params.id);
-      return {
-        error: false,
-        statusCode: 200,
-        data: item,
-      };
-    } catch (errors) {
-      return {
-        error: true,
-        statusCode: 500,
-        errors,
-      };
-    }
-  }
-  async getOne(body) {
-    try {
-      let item = await this.model.findOne({ "profile.email": body.email });
-
+      let item = await this.model.findById(userId).populate("staffs");
       return {
         error: false,
         statusCode: 200,
@@ -136,24 +181,20 @@ class UserService extends Service {
     }
   }
 
-  async update(id, data) {
+  // IMPORTANT
+  async getProjects(userId) {
     try {
-      let item = {
-        profile: data,
-      };
-      let response = await this.model.findByIdAndUpdate(id, item, {
-        new: true,
-      });
+      let item = await this.model.findById(userId).populate("projects");
       return {
         error: false,
-        statusCode: 202,
-        item: response,
+        statusCode: 200,
+        data: item,
       };
-    } catch (error) {
+    } catch (errors) {
       return {
         error: true,
         statusCode: 500,
-        error,
+        errors,
       };
     }
   }
