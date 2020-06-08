@@ -27,6 +27,7 @@ export class StaffPage implements OnInit {
 
   async postStaff() {
     if (this.staffForm.invalid) {
+      console.log("fill staff name!");
       return;
     }
 

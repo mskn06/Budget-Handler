@@ -6,7 +6,7 @@
   <div class="body">
     <h2>PROJECTS</h2>
 
-    <div class="header">
+    <div class="header grid">
       <div>PROJECT NAME</div>
       <div>DELIVERY DATE</div>
       <div>EARNING</div>
@@ -19,6 +19,11 @@
         <group [project]="project">
           <!-- collapsible: SUB-CONTENT -->
           <table class="mytable">
+            <tr class="header">
+              <td>STAFF NAME</td>
+              <td>AMOUNT</td>
+              <td>PAID ON</td>
+            </tr>
             <tr *ngFor="let staff of project.staffs">
               <!-- staff name -->
               <td>{{ staff.profile.staffName }}</td>

@@ -6,8 +6,8 @@
   <div class="body">
     <h2>STAFF MEMBERS</h2>
 
-    <div>
-      <form [formGroup]="staffForm">
+    <form [formGroup]="staffForm">
+      <div class="form">
         <div class="form-field">
           <p>
             STAFF NAME
@@ -15,7 +15,7 @@
           <ion-input placeholder="John Doe" formControlName="staffName">
           </ion-input>
         </div>
-        <div class="submit-btn">
+        <div>
           <app-button
             [routerLink]="['/staff']"
             [btnType]="'btn-primary btn-raised'"
@@ -24,10 +24,10 @@
             ADD STAFF
           </app-button>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
 
-    <div class="header">
+    <div class="grid header">
       <div>STAFF NAME</div>
       <div>PAID</div>
       <div>PROJECT %</div>
@@ -40,6 +40,15 @@
         <group [staff]="staff">
           <!-- collapsible: SUB-CONTENT -->
           <table class="mytable">
+            <!-- heading -->
+            <tr class="header">
+              <td>PROJECT NAME</td>
+              <td>AMOUNT</td>
+              <td>PROJECT %</td>
+              <td>PAID ON</td>
+            </tr>
+
+            <!-- info -->
             <tr *ngFor="let project of staff.projects">
               <!-- project name -->
               <td>{{ project.profile.projectName }}</td>
