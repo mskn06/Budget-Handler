@@ -10,12 +10,15 @@ class UserController extends Controller {
     this.getUser = this.getUser.bind(this);
   }
 
+  // IMPORTANT
   async insert(req, res) {
+    console.log("req", req.body);
     let response = await this.service.insert(req.body);
     if (response.error) return res.status(response.statusCode).send(response);
     return res.status(201).send(response);
   }
 
+  // IMPORTANT
   async getUser(req, res) {
     try {
       return res.status(200).send(await this.service.getUser(req));
@@ -24,10 +27,12 @@ class UserController extends Controller {
     }
   }
 
+  // IMPORTANT
   async getOne(req, res) {
     return res.status(200).send(await this.service.getOne(req.body));
   }
 
+  // IMPORTANT
   async update(req, res) {
     const { id } = req.params;
 

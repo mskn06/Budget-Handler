@@ -24,12 +24,15 @@
   <!-- signup form -->
   <div class="body">
     <div>
-      <form>
-        <!-- [formGroup]="userForm" -->
+      <form [formGroup]="userForm">
         <div class="form-fields">
           <p>NAME</p>
-          <ion-input type="text" placeholder="John Doe" required></ion-input>
-          <!-- formControlName="email" -->
+          <ion-input
+            type="text"
+            placeholder="John Doe"
+            formControlName="userName"
+          ></ion-input>
+          <!--  -->
         </div>
 
         <div class="form-fields">
@@ -37,24 +40,24 @@
           <ion-input
             type="email"
             placeholder="johndoe123@gmail.com"
-            required
+            formControlName="email"
           ></ion-input>
-          <!-- formControlName="email" -->
         </div>
 
         <div class="form-fields">
           <p>PASSWORD</p>
-          <ion-input type="password" placeholder="John@123" required>
+          <ion-input
+            type="password"
+            placeholder="John@123"
+            formControlName="password"
+          >
           </ion-input>
-
-          <!-- formControlName="password" -->
         </div>
 
         <div class="btn-primary">
-          <app-button [routerLink]="['/login']" [btnType]="'btn-primary'">
+          <app-button [btnType]="'btn-primary'" (click)="signup()">
             SIGN UP
           </app-button>
-          <!-- [disabled]="!userForm.valid" (click)="loginForm()"-->
         </div>
       </form>
     </div>

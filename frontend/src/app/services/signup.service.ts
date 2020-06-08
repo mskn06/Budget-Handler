@@ -11,7 +11,8 @@ import { User } from "../models/user-interface";
 export class SignupService {
   constructor(private http: HttpClient) {}
 
-  postUser() {
-    return this.http.post(CONSTANTS.SIGNUP, "");
+  postUser(user) {
+    console.log("user", user);
+    return this.http.post(CONSTANTS.SIGNUP, user);
   }
 }

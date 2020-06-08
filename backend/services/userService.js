@@ -14,6 +14,7 @@ class UserService extends Service {
 
   async insert(body) {
     try {
+      console.log("body", body);
       let data = {
         profile: body,
       };
@@ -27,6 +28,7 @@ class UserService extends Service {
         };
 
       let item = await this.model.create(data);
+      console.log("item", item);
       if (item)
         return {
           error: false,
