@@ -6,6 +6,7 @@ class ProjectService extends Service {
     this.getStaffDetails = this.getStaffDetails.bind(this);
     this.updateProject = this.updateProject.bind(this);
     this.insert = this.insert.bind(this);
+    this.payStaff = this.payStaff.bind(this);
   }
 
   // IMPORTANT
@@ -60,6 +61,15 @@ class ProjectService extends Service {
         statusCode: 500,
         message: error.errmsg || "Not able to create project",
       };
+    }
+  }
+
+  async payStaff(req, res) {
+    try {
+      return req.body;
+    } catch (error) {
+      console.log("err", error);
+      return false;
     }
   }
 

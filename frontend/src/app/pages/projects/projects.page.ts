@@ -25,4 +25,11 @@ export class ProjectsPage implements OnInit {
       console.log("projects", this.projects);
     });
   }
+
+  payStaff(project, staff) {
+    console.log("project", project);
+    console.log("staff", staff);
+
+    // call service and pass userId too
+  }
 }

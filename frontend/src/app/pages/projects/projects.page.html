@@ -50,7 +50,9 @@
                   <button class="paid">PAID</button>
                 </div>
                 <ng-template #pay>
-                  <button class="pay">PAY</button>
+                  <button (click)="payStaff(project, staff)" class="pay">
+                    PAY
+                  </button>
                 </ng-template>
               </td>
             </tr>

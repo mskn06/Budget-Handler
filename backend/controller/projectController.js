@@ -12,6 +12,7 @@ class ProjectController extends Controller {
     this.getStaff = this.getStaff.bind(this);
     this.insert = this.insert.bind(this);
     this.updatePaymentDate = this.updatePaymentDate.bind(this);
+    this.payStaff = this.payStaff.bind(this);
   }
 
   async insert(req, res) {
@@ -73,6 +74,11 @@ class ProjectController extends Controller {
       // console.log(error);
       res.send(error);
     }
+  }
+
+  async payStaff(req, res) {
+    let response = this.service.payStaff(req, res);
+    return res.status(204).send(response);
   }
 }
 

@@ -18,4 +18,8 @@ export class ProjectService {
     console.log("project", project);
     return this.http.post<any>(CONSTANTS.ADDPROJECT(userId), project);
   }
+
+  payStaff(userId, project, staff) {
+    return this.http.post<any>(CONSTANTS.PAYSTAFF(userId), { project, staff });
+  }
 }

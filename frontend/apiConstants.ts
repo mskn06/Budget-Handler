@@ -28,4 +28,7 @@ export const CONSTANTS = {
   GETSTAFFLIST(userId) {
     return `${api}/user/${userId}/staffList`;
   },
+  PAYSTAFF(userId) {
+    return `${api}/user/${userId}/payStaff`;
+  },
 };
