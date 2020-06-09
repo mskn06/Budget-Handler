@@ -42,22 +42,21 @@
           </ion-input>
         </div>
 
-        <h2 class="clear-float p-t-40">ADD STAFF</h2>
+        <h2 *ngIf="staffList" class="clear-float p-t-40">ADD STAFF</h2>
 
         <!-- add staff -->
-        <div formArrayName="staff">
+        <div formArrayName="staff" *ngIf="staffList">
           <div *ngFor="let staff of getStaff(projectForm); let i=index">
             <div [formGroupName]="i">
               <div class="form-fields">
                 <p>
                   STAFF NAME
                 </p>
-                <ion-input
-                  type="text"
-                  placeholder="John Doe"
-                  formControlName="staffName"
-                >
-                </ion-input>
+                <select placeholder="John Doe" formControlName="staffName">
+                  <option *ngFor="let staff of staffList.data">
+                    {{staff}}
+                  </option>
+                </select>
               </div>
 
               <div class="form-fields">

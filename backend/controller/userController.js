@@ -10,6 +10,7 @@ class UserController extends Controller {
     this.getUser = this.getUser.bind(this);
     this.getStaff = this.getStaff.bind(this);
     this.getProjects = this.getProjects.bind(this);
+    this.getStaffNames = this.getStaffNames.bind(this);
   }
 
   // IMPORTANT
@@ -44,12 +45,6 @@ class UserController extends Controller {
   }
 
   // IMPORTANT
-  async addProject(req, project) {
-    let response = await this.service.addProject(req, project);
-    return response;
-  }
-
-  // IMPORTANT
   async addStaff(userId, staff) {
     let response = await this.service.addStaff(userId, staff);
     return response;
@@ -63,6 +58,22 @@ class UserController extends Controller {
     return res.status(response.statusCode).send(response.data.staffs);
   }
 
+  // IMPORTANT
+  async getStaffNames(req, res) {
+    try {
+      return res
+        .status(200)
+        .send(await this.service.getStaffNames(req.params.userId));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // IMPORTANT
+  async addProject(req, project) {
+    let response = await this.service.addProject(req, project);
+    return response;
+  }
   // IMPORTANT
   async getProjects(req, res) {
     // console.log("response", req.params);

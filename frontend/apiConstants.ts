@@ -13,16 +13,19 @@ export const CONSTANTS = {
   UPDATEUSER(userId) {
     return `${api}/user/${userId}`;
   },
+  ADDPROJECT(userId) {
+    return `${api}/user/${userId}/project/`;
+  },
+  GETPROJECTS(userId) {
+    return `${api}/user/${userId}/project/`;
+  },
   ADDSTAFF(userId) {
     return `${api}/user/${userId}/staff`;
   },
   GETSTAFFS(userId) {
     return `${api}/user/${userId}/staff`;
   },
-  ADDPROJECT(userId) {
-    return `${api}/user/${userId}/project/`;
-  },
-  GETPROJECTS(userId) {
-    return `${api}/user/${userId}/project/`;
+  GETSTAFFLIST(userId) {
+    return `${api}/user/${userId}/staffList`;
   },
 };

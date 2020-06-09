@@ -15,6 +15,10 @@ export class UserService {
     return this.http.get(CONSTANTS.GETUSER(currentUser._id));
   }
 
+  getStaffList(userId) {
+    return this.http.get(CONSTANTS.GETSTAFFLIST(userId));
+  }
+
   updateUser(user, currentUser) {
     return this.http
       .post<any>(CONSTANTS.UPDATEUSER(currentUser._id), user)

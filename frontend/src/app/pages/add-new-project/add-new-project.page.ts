@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ProjectService } from "src/app/services/projects.service";
 import { FormBuilder, FormGroup, Validators, FormArray } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
+import { UserService } from "src/app/services/user.service";
 
 @Component({
   selector: "app-add-new-project",
@@ -14,12 +15,14 @@ export class AddNewProjectPage implements OnInit {
   count = 0;
   projectForm: FormGroup;
   private userId;
+  staffList;
 
   constructor(
     private projectService: ProjectService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private userService: UserService
   ) {}
 
   ngOnInit() {
@@ -32,6 +35,11 @@ export class AddNewProjectPage implements OnInit {
 
     this.route.params.subscribe((params) => {
       this.userId = params.userId;
+    });
+
+    this.userService.getStaffList(this.userId).subscribe((data) => {
+      this.staffList = data;
+      console.log("data stafflist", this.staffList);
     });
   }
 
@@ -54,19 +62,20 @@ export class AddNewProjectPage implements OnInit {
   checkerror(projectForm) {
     if (projectForm.invalid) {
       console.log("Fill valid details!");
-      return;
+      return true;
     }
 
     projectForm.value.staff.forEach((element) => {
       if (element.staffName == "" || element.amtToBePaid == "")
         delete projectForm.value.staff;
+      return false;
     });
   }
 
   async submit() {
     console.log(this.projectForm.value);
-    await this.checkerror(this.projectForm);
-
+    let res = await this.checkerror(this.projectForm);
+    if (res) return;
     if (this.projectForm.value) {
       await this.projectService
         .postProject(this.userId, this.projectForm.value)

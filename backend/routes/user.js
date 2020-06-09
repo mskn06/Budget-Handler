@@ -10,4 +10,5 @@ export default (server) => {
   // update
   server.get("/user/:id", UserController.getUser);
   server.post("/user/:id", UserController.update);
+  server.get("/user/:userId/staffList", UserController.getStaffNames);
 };

@@ -4,6 +4,7 @@ class UserService extends Service {
   constructor(model) {
     super(model);
     this.getUser = this.getUser.bind(this);
+    this.getStaffNames = this.getStaffNames.bind(this);
 
     // IF DELIVERY DATE >= TODAY DATE
     // update amtInClearance
@@ -193,6 +194,33 @@ class UserService extends Service {
         error: false,
         statusCode: 200,
         data: item,
+      };
+    } catch (errors) {
+      return {
+        error: true,
+        statusCode: 500,
+        errors,
+      };
+    }
+  }
+
+  // IMPORTANT
+  async getStaffNames(userId) {
+    try {
+      // console.log(userId);
+      let item = await this.model
+        .findById(userId)
+        .populate({ path: "staffs", options: { sort: { createdAt: -1 } } });
+
+      let data = [];
+      item.staffs.forEach((element) => {
+        data.unshift(element.profile.staffName);
+      });
+      // console.log("data", data);
+      return {
+        error: false,
+        statusCode: 200,
+        data: data,
       };
     } catch (errors) {
       return {

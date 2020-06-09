@@ -54,7 +54,8 @@
   background-color: #8a4b00;
 }
 
-ion-input {
+ion-input,
+select {
   height: 50px;
 
   --padding-start: 24px;
@@ -65,4 +66,22 @@ ion-input {
   box-shadow: inset -7px -5px 8px rgba(255, 255, 255, 0.5),
     inset 5px 5px 16px rgba(0, 0, 0, 0.08);
   border-radius: 10px;
+}
+
+select {
+  border: none;
+  width: 100%;
+  padding-left: 24px;
+}
+
+select:focus {
+  outline: none;
+}
+
+select option {
+  border: none;
+}
+
+option:hover {
+  background-color: linear-gradient(90deg, #fff2d9 -1.28%, #fff9e4 103.08%);
 }
