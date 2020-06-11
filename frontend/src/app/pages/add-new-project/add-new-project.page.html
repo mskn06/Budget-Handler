@@ -52,11 +52,16 @@
                 <p>
                   STAFF NAME
                 </p>
-                <select placeholder="John Doe" formControlName="staffName">
+                <input
+                  placeholder="John Doe"
+                  list="staffList.data"
+                  formControlName="staffName"
+                />
+                <datalist id="staffList.data">
                   <option *ngFor="let staff of staffList.data">
                     {{staff}}
                   </option>
-                </select>
+                </datalist>
               </div>
 
               <div class="form-fields">
