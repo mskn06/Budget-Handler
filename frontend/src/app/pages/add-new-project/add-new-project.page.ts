@@ -59,23 +59,36 @@ export class AddNewProjectPage implements OnInit {
     return form.controls.staff.controls;
   }
 
-  checkerror(projectForm) {
-    if (projectForm.invalid) {
-      console.log("Fill valid details!");
-      return true;
-    }
+  // checkerror(projectForm) {
+  //   if (projectForm.invalid) {
+  //     console.log("Fill valid details!");
+  //     return true;
+  //   }
 
-    projectForm.value.staff.forEach((element) => {
-      if (element.staffName == "" || element.amtToBePaid == "")
-        delete projectForm.value.staff;
-      return false;
-    });
-  }
+  //   projectForm.value.staff.forEach((element) => {
+  //     if (element.staffName == "" || element.amtToBePaid == "") {
+  //       console.log("Fill valid details!");
+  //       return true;
+  //     }
+  //   });
+
+  //   return false;
+  // }
 
   async submit() {
     console.log(this.projectForm.value);
-    let res = await this.checkerror(this.projectForm);
-    if (res) return;
+    if (this.projectForm.invalid) {
+      console.log("Fill valid details!");
+      return;
+    }
+
+    await this.projectForm.value.staff.forEach((element) => {
+      if (element.staffName == "" || element.amtToBePaid == "") {
+        console.log("Fill valid details!");
+        return;
+      }
+    });
+
     if (this.projectForm.value) {
       await this.projectService
         .postProject(this.userId, this.projectForm.value)

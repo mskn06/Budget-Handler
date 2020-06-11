@@ -8,7 +8,9 @@ import { Observable } from "rxjs";
   providedIn: "root",
 })
 export class StaffService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    // this.getStaffs(userId)
+  }
 
   getStaffs(userId): Observable<any> {
     return this.http.get(CONSTANTS.GETSTAFFS(userId));

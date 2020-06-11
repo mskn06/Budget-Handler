@@ -1,4 +1,4 @@
-<ion-content color="primary">
+<ion-content color="primary" *ngIf="projects">
   <div>
     <app-sidebar-left [pageName]="'projects'"></app-sidebar-left>
   </div>
@@ -31,10 +31,10 @@
               <!-- amount -->
               <td>
                 <div *ngIf="staff.payment.amtToBePaid">
-                  {{ staff.payment.amtToBePaid }}
+                  ${{ staff.payment.amtToBePaid }}
                 </div>
                 <div *ngIf="staff.payment.amtPaid">
-                  {{ staff.payment.amtPaid }}
+                  ${{ staff.payment.amtPaid }}
                 </div>
               </td>
               <td>

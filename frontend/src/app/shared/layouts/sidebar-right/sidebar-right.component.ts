@@ -10,7 +10,7 @@ export class SidebarRightComponent implements OnInit {
   currentUser;
   user;
   constructor(private userService: UserService) {
-    this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    this.currentUser = localStorage.getItem("currentUser");
   }
 
   ngOnInit() {

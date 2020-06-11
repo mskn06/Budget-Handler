@@ -15,7 +15,7 @@ export class LoginService {
       map((userData) => {
         if (userData) {
           // console.log(userData);
-          localStorage.setItem("currentUser", JSON.stringify(userData.data));
+          localStorage.setItem("currentUser", userData.data._id);
         }
         return userData.data;
       })

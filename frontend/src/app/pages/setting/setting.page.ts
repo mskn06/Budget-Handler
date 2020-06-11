@@ -19,7 +19,7 @@ export class SettingPage implements OnInit {
     private formBuilder: FormBuilder
   ) {
     // logged in user
-    this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    this.currentUser = localStorage.getItem("currentUser");
 
     this.userForm = this.formBuilder.group({
       userName: ["", Validators.required],
@@ -31,8 +31,8 @@ export class SettingPage implements OnInit {
 
   ngOnInit() {
     this.userService.getUser(this.currentUser).subscribe((userItem) => {
+      console.log("useritem", userItem);
       this.user = userItem.data.profile;
-      console.log("user", userItem.data.profile);
     });
   }
 

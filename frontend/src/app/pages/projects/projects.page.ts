@@ -26,10 +26,14 @@ export class ProjectsPage implements OnInit {
     });
   }
 
-  payStaff(project, staff) {
+  async payStaff(project, staff) {
     console.log("project", project);
     console.log("staff", staff);
-
+    await this.projectService
+      .payStaff(this.userId, project, staff)
+      .subscribe((data) => {
+        console.log("paid staff", data);
+      });
     // call service and pass userId too
   }
 }

@@ -53,16 +53,9 @@ table.mytable tr td {
   padding: 10px;
 }
 
-//   section span {
-//     color: #c7a277;
-//     padding-right: 56px;
-//     padding-left: 32px;
-
-//     font-family: Poppins;
-//     font-size: 12px;
-//     font-weight: 700;
-//     letter-spacing: 1px;
-//   }
+button:focus {
+  outline: none;
+}
 
 .scroll-box::-webkit-scrollbar {
   width: 5px;
