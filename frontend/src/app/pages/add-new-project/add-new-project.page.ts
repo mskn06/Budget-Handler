@@ -12,7 +12,6 @@ import { UserService } from "src/app/services/user.service";
 export class AddNewProjectPage implements OnInit {
   icon = "../../../../assets/icon/";
   addProjectIcon = this.icon + "add_project.png";
-  count = 0;
   projectForm: FormGroup;
   private userId;
   staffList;
@@ -39,7 +38,7 @@ export class AddNewProjectPage implements OnInit {
 
     this.userService.getStaffList(this.userId).subscribe((data) => {
       this.staffList = data;
-      console.log("data stafflist", this.staffList);
+      // console.log("data stafflist", this.staffList);
     });
   }
 
@@ -58,22 +57,6 @@ export class AddNewProjectPage implements OnInit {
   getStaff(form) {
     return form.controls.staff.controls;
   }
-
-  // checkerror(projectForm) {
-  //   if (projectForm.invalid) {
-  //     console.log("Fill valid details!");
-  //     return true;
-  //   }
-
-  //   projectForm.value.staff.forEach((element) => {
-  //     if (element.staffName == "" || element.amtToBePaid == "") {
-  //       console.log("Fill valid details!");
-  //       return true;
-  //     }
-  //   });
-
-  //   return false;
-  // }
 
   async submit() {
     console.log(this.projectForm.value);
@@ -95,15 +78,13 @@ export class AddNewProjectPage implements OnInit {
         .subscribe(
           (data) => {
             console.log("project", data);
-
+            this.projectForm.reset();
             this.router.navigate(["/user/" + this.userId + "/projects"]);
           },
           (err) => {
             console.log(err);
           }
         );
-
-      // console.log("user after update", this.project);
     }
   }
 }
