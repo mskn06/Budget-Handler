@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Component, OnInit, OnDestroy, HostListener } from "@angular/core";
 import { Project } from "../../models/project-interface";
 import { ProjectService } from "../../services/projects.service";
 import {
@@ -40,8 +40,9 @@ export class ProjectsPage implements OnInit, OnDestroy {
       });
   }
 
-  ngOnDestroy(): void {
-    // console.log("done with");
+  @HostListener("window:beforeunload")
+  ngOnDestroy() {
+    console.log("done with");
     this.destroyed$.next();
     this.destroyed$.complete();
   }
@@ -49,17 +50,17 @@ export class ProjectsPage implements OnInit, OnDestroy {
   getProjects() {
     this.projectService.getProjects(this.userId).subscribe((projects) => {
       this.projects = projects;
-      console.log("projects", this.projects);
+      // console.log("projects", this.projects);
     });
   }
 
   async payStaff(project, staff) {
-    console.log("project", project);
-    console.log("staff", staff);
+    // console.log("project", project);
+    // console.log("staff", staff);
     await this.projectService
       .payStaff(this.userId, project, staff)
       .subscribe((data) => {
-        console.log("paid staff", data);
+        // console.log("paid staff", data);
         this.getProjects();
       });
   }
