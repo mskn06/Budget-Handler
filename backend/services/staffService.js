@@ -114,7 +114,7 @@ class StaffService extends Service {
     body.staff.forEach((staff) => {
       let projectPercentage =
         Math.round((staff.amtToBePaid / body.totalAmount) * 10000) / 100;
-      // console.log("st", staffInfo);
+      console.log("st", staffInfo);
       staffInfo.push({
         updateOne: {
           filter: { "profile.staffName": staff.staffName },
@@ -139,11 +139,11 @@ class StaffService extends Service {
     });
 
     // final staff objects to be updated
-    // console.log("staff objects in add order", staffInfo);
+    console.log("staff objects in add order", staffInfo);
 
     try {
       let response = await this.model.bulkWrite(staffInfo);
-      // console.log(response);
+      console.log(response);
 
       return {
         error: false,
@@ -177,6 +177,68 @@ class StaffService extends Service {
         error: true,
         statusCode: 500,
         error,
+      };
+    }
+  }
+
+  async payStaff(date, body) {
+    // STAFF info
+    // 1 PAYMENT: paid, tobepaid
+    // 2 PROJECTS: PAYEMNT: paid, tobepaid, paidOn
+
+    try {
+      let staff = body.staff;
+      let project = body.project;
+      let staffId = staff._id;
+      let projectName = project.profile.projectName;
+      let amountPaid = staff.payment.amtToBePaid;
+
+      let staffProject = {
+        profile: {
+          projectName: project.profile.projectName,
+        },
+      };
+
+      // console.log(staffProject);
+      // console.log("here", staffId);
+
+      let response = await this.model.updateOne(
+        { "profile.staffName": staff.profile.staffName },
+        {
+          $inc: {
+            "payment.amtToBePaid": -amountPaid,
+            "payment.amtPaid": amountPaid,
+            "projects.$[i].payment.amtPaid": amountPaid,
+          },
+          $set: {
+            "projects.$[i].payment.amtToBePaid": 0,
+            "projects.$[i].payment.paidOn": date,
+          },
+        },
+        {
+          new: true,
+          upsert: true,
+          arrayFilters: [{ "i.profile.projectName": projectName }],
+        }
+      );
+      // console.log("here");
+      let updatedResponse = await this.model
+        .find({ "profile.staffName": staff.profile.staffName })
+        .populate("projects");
+      console.log("res pp", updatedResponse[0].projects);
+      if (response)
+        return {
+          error: false,
+          statusCode: 200,
+          response: updatedResponse[0],
+        };
+    } catch (error) {
+      // console.log("err", error);
+      return {
+        error: true,
+        statusCode: 500,
+        message: error.errmsg || "Not able to update staff Payment",
+        errors: error.errors,
       };
     }
   }

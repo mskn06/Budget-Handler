@@ -67,6 +67,11 @@ class StaffController extends Controller {
     let staffIds = await this.service.getIds(projectId);
     return staffIds;
   }
+
+  async payStaff(date, body) {
+    let response = await this.service.payStaff(date, body);
+    return response;
+  }
 }
 
 export default new StaffController(staffService);

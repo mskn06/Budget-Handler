@@ -5,7 +5,7 @@ export default (server) => {
   // add project
   server.post("/user/:userId/project", ProjectController.insert);
   server.get("/user/:userId/project", UserController.getProjects);
-  server.get("/user/:userId/payStaff", ProjectController.payStaff);
+  server.post("/user/:userId/payStaff", ProjectController.payStaff);
 
   // server.get("/project/date", ProjectController.updatePaymentDate);
   // server.get("/project/:id", ProjectController.getStaff);

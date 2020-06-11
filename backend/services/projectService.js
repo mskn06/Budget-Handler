@@ -64,12 +64,48 @@ class ProjectService extends Service {
     }
   }
 
-  async payStaff(req, res) {
+  async payStaff(date, body) {
     try {
-      return req.body;
+      let project = body.project;
+      let staff = body.staff;
+      // paid to staff
+      let amountPaid = staff.payment.amtToBePaid;
+      let projectId = project._id;
+
+      let response = await this.model.updateOne(
+        { _id: projectId, "staffs._id": staff._id },
+        {
+          $inc: {
+            "payment.amtToBePaid": -amountPaid,
+            "payment.amtPaid": amountPaid,
+          },
+          $set: {
+            "staffs.$.payment.amtToBePaid": 0,
+            "staffs.$.payment.amtPaid": amountPaid,
+            "staffs.$.payment.paidOn": date,
+          },
+        },
+        { new: true, upsert: true }
+      );
+
+      let updatedResponse = await this.model
+        .findById(projectId)
+        .populate("staffs");
+      // console.log("res", updatedResponse);
+      if (response)
+        return {
+          error: false,
+          statusCode: 200,
+          response: updatedResponse,
+        };
     } catch (error) {
-      console.log("err", error);
-      return false;
+      // console.log("err", error);
+      return {
+        error: true,
+        statusCode: 500,
+        message: error.errmsg || "Not able to update staff Payment",
+        errors: error.errors,
+      };
     }
   }
 

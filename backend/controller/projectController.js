@@ -16,6 +16,7 @@ class ProjectController extends Controller {
   }
 
   async insert(req, res) {
+    console.log(req.body);
     try {
       // call PROJECT insert service
       let projectResponse = await this.service.addProject(req.body);
@@ -27,6 +28,7 @@ class ProjectController extends Controller {
           .status(projectResponse.statusCode)
           .send(projectResponse.message);
 
+      console.log(req.body);
       // call STAFF update service
       if (req.body.staff) {
         let staffResponse = await StaffController.addProject(req.body);
@@ -77,8 +79,39 @@ class ProjectController extends Controller {
   }
 
   async payStaff(req, res) {
-    let response = this.service.payStaff(req, res);
-    return res.status(204).send(response);
+    // TAKE CURRENT DATE
+    try {
+      var date = new Date();
+      // update PROJECT info
+      // 1 PAYMENT: paid, tobepaid,
+      // 2 STAFFS: amttobepaid -> amt paid,  paid on
+      let projectResponse = await this.service.payStaff(date, req.body);
+      // console.log("project", projectResponse);
+      if (projectResponse.error)
+        return res
+          .status(projectResponse.statusCode)
+          .send(projectResponse.message);
+
+      // STAFF info
+      // 1 PAYMENT: paid, tobepaid
+      // 2 PROJECTS: PAYEMNT: paid, tobepaid, paidOn
+      let staffResponse = await StaffController.payStaff(date, req.body);
+      console.log("staff", staffResponse);
+
+      if (staffResponse.error)
+        return res.status(staffResponse.statusCode).send(staffResponse.message);
+
+      // USER info
+      // PAYMENT: paid, tobepaid
+      let userResponse = await UserController.payStaff(date, req);
+      if (userResponse.error)
+        return res.status(userResponse.statusCode).send(userResponse.message);
+
+      return res.status(projectResponse.statusCode).send(projectResponse);
+    } catch (err) {
+      console.log("err", err);
+      res.status(500).send(err);
+    }
   }
 }
 

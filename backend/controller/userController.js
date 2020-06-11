@@ -81,6 +81,11 @@ class UserController extends Controller {
     // console.log("response", response);
     return res.status(response.statusCode).send(response.data.projects);
   }
+
+  async payStaff(date, req) {
+    let response = await this.service.payStaff(date, req);
+    return response;
+  }
 }
 
 export default new UserController(userService);

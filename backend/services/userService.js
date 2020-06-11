@@ -230,6 +230,47 @@ class UserService extends Service {
       };
     }
   }
+
+  async payStaff(date, req) {
+    // USER info
+    // PAYMENT: paid, tobepaid
+
+    try {
+      let userId = req.params.userId;
+      let amountPaid = req.body.staff.payment.amtToBePaid;
+
+      let response = await this.model.updateOne(
+        { _id: userId },
+        {
+          $inc: {
+            "payment.amtToBePaid": -amountPaid,
+            "payment.amtPaid": amountPaid,
+          },
+        },
+        {
+          new: true,
+          upsert: true,
+        }
+      );
+      let updatedResponse = await this.model.findById(userId);
+
+      // console.log("res", updatedResponse);
+      if (response)
+        return {
+          error: false,
+          statusCode: 200,
+          response: updatedResponse,
+        };
+    } catch (error) {
+      // console.log("err", error);
+      return {
+        error: true,
+        statusCode: 500,
+        message: error.errmsg || "Not able to update staff Payment in user",
+        errors: error.errors,
+      };
+    }
+  }
 }
 
 export default UserService;

@@ -39,6 +39,7 @@ class Staff {
               amtToBePaid: Number,
               amtPaid: Number,
               projectPercentage: Number,
+              paidOn: Date,
             },
           },
         ],
