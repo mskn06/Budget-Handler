@@ -29,7 +29,10 @@ export class StaffPage implements OnInit {
     this.route.params.subscribe((params) => {
       this.userId = params.userId;
     });
+    this.getStaff();
+  }
 
+  getStaff() {
     this.staffService.getStaffs(this.userId).subscribe((staffs) => {
       this.staffs = staffs;
       console.log("staffs", this.staffs);
@@ -45,8 +48,9 @@ export class StaffPage implements OnInit {
     await this.staffService
       .postStaff(this.userId, this.staffForm.value)
       .subscribe((data) => {
-        console.log(data);
-        this.router.navigate(["/user/" + this.userId + "/staff"]);
+        console.log("data", data);
+        this.getStaff();
+        this.staffForm.reset();
       });
   }
 }
