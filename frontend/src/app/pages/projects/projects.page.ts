@@ -10,16 +10,23 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class ProjectsPage implements OnInit {
   projects: Project[];
+  private userId;
 
   constructor(
     private projectService: ProjectService,
     private route: ActivatedRoute
-  ) {}
-  private userId;
+  ) {
+    this.getProjects();
+  }
+
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.userId = params.userId;
     });
+    this.getProjects();
+  }
+
+  getProjects() {
     this.projectService.getProjects(this.userId).subscribe((projects) => {
       this.projects = projects;
       console.log("projects", this.projects);
@@ -33,7 +40,7 @@ export class ProjectsPage implements OnInit {
       .payStaff(this.userId, project, staff)
       .subscribe((data) => {
         console.log("paid staff", data);
+        this.getProjects();
       });
-    // call service and pass userId too
   }
 }
