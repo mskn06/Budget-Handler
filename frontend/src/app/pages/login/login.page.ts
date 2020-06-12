@@ -39,19 +39,16 @@ export class LoginPage implements OnInit {
     if (this.user.value) {
       this.loading = true;
 
-      this.userData = await this.loginService
-        .login(this.user.value)
-        .pipe(first())
-        .subscribe(
-          (data) => {
-            console.log("user", data);
-            if (data) this.router.navigate(["/user/" + data._id + "/projects"]);
-          },
-          (err) => {
-            console.log(err);
-            this.loading = false;
-          }
-        );
+      this.userData = await this.loginService.login(this.user.value).subscribe(
+        (data) => {
+          console.log("user", data);
+          if (data) this.router.navigate(["/user/" + data._id + "/projects"]);
+        },
+        (err) => {
+          console.log(err);
+          this.loading = false;
+        }
+      );
     }
   }
 }

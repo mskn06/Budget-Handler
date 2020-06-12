@@ -14,7 +14,7 @@ export class LoginService {
     return this.http.post<any>(CONSTANTS.LOGIN(), user).pipe(
       map((userData) => {
         if (userData) {
-          // console.log(userData);
+          console.log(userData);
           localStorage.setItem("currentUser", userData.data._id);
         }
         return userData.data;

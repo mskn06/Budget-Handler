@@ -1,7 +1,8 @@
 const Service = require("./service");
+const model = require("../models/staff");
 
 class StaffService extends Service {
-  constructor(model) {
+  constructor() {
     super(model);
 
     this.getProjectDetails = this.getProjectDetails.bind(this);
@@ -244,4 +245,4 @@ class StaffService extends Service {
   }
 }
 
-module.exports = StaffService;
+module.exports = new StaffService();

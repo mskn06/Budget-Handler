@@ -1,7 +1,8 @@
 const Service = require("./service");
+const model = require("../models/user");
 
 class UserService extends Service {
-  constructor(model) {
+  constructor() {
     super(model);
     this.getUser = this.getUser.bind(this);
     this.getStaffNames = this.getStaffNames.bind(this);
@@ -273,4 +274,4 @@ class UserService extends Service {
   }
 }
 
-module.exports = UserService;
+module.exports = new UserService();

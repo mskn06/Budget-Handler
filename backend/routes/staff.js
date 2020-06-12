@@ -1,18 +1,23 @@
+const { Router } = require("express");
 const StaffController = require("../controller/staffController");
 const UserController = require("../controller/userController");
+const router = Router();
 
-module.exports = (server) => {
-  // ADD STAFF
-  server.post("/user/:userId/staff", StaffController.insert);
+// ADD STAFF
+router.post("/user/:userId/staff", StaffController.insert);
 
-  // GET STAFF
-  server.get("/user/:userId/staff", UserController.getStaff);
+// GET STAFF
+router.get("/user/:userId/staff", UserController.getStaff);
 
-  // GET STAFF NAMES LIST
-  // server.get("/staff", StaffController.getNames);
+// GET STAFF NAMES LIST
+// router.get("/staff", StaffController.getNames);
 
-  // server.get("/staff/:id", StaffController.getProject);
+// router.get("/staff/:id", StaffController.getProject);
 
-  // server.put("/staff/:id", StaffController.update);
-  // server.delete("/staff/:id", StaffController.delete);
+// router.put("/staff/:id", StaffController.update);
+// router.delete("/staff/:id", StaffController.delete);
+module.exports = (app) => {
+  app.use(`/`, router);
 };
+
+// exports.staffRoutes = staffRoutes;

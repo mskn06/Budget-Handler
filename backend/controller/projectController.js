@@ -1,13 +1,10 @@
 const Controller = require("./controller");
-const ProjectService = require("../services/projectService");
-const Project = require("../models/project");
+const service = require("../services/projectService");
 const StaffController = require("./staffController");
 const UserController = require("./userController");
 
-const projectService = new ProjectService(new Project().getInstance());
-
 class ProjectController extends Controller {
-  constructor(service) {
+  constructor() {
     super(service);
     this.getStaff = this.getStaff.bind(this);
     this.insert = this.insert.bind(this);
@@ -115,4 +112,4 @@ class ProjectController extends Controller {
   }
 }
 
-module.exports = new ProjectController(projectService);
+module.exports = new ProjectController();

@@ -1,7 +1,8 @@
 const Service = require("./service");
+const model = require("../models/project");
 
 class ProjectService extends Service {
-  constructor(model) {
+  constructor() {
     super(model);
     this.getStaffDetails = this.getStaffDetails.bind(this);
     this.updateProject = this.updateProject.bind(this);
@@ -249,4 +250,4 @@ class ProjectService extends Service {
   }
 }
 
-module.exports = ProjectService;
+module.exports = new ProjectService();

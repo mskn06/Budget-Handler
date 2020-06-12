@@ -1,11 +1,8 @@
 const Controller = require("./controller");
-const UserService = require("../services/userService");
-const User = require("../models/user");
-
-const userService = new UserService(new User().getInstance());
+const service = require("../services/userService");
 
 class UserController extends Controller {
-  constructor(service) {
+  constructor() {
     super(service);
     this.getUser = this.getUser.bind(this);
     this.getStaff = this.getStaff.bind(this);
@@ -88,4 +85,4 @@ class UserController extends Controller {
   }
 }
 
-module.exports = new UserController(userService);
+module.exports = new UserController();
