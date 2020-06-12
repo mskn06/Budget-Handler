@@ -71,6 +71,7 @@ class ProjectService extends Service {
       // paid to staff
       let amountPaid = staff.payment.amtToBePaid;
       let projectId = project._id;
+      let newResponse;
 
       let response = await this.model.updateOne(
         { _id: projectId, "staffs._id": staff._id },
@@ -91,7 +92,35 @@ class ProjectService extends Service {
       let updatedResponse = await this.model
         .findById(projectId)
         .populate("staffs");
-      // console.log("res", updatedResponse);
+      console.log("res", updatedResponse);
+
+      if (updatedResponse.staffs.length == 1) {
+        newResponse = await this.model.findOneAndUpdate(
+          { _id: projectId },
+          {
+            $set: { "profile.status": "COMPLETE" },
+          }
+        );
+      } else {
+        let flag = 0;
+        updatedResponse.staffs.forEach((element) => {
+          if (element.payment.amtToBePaid != 0) {
+            flag = 1;
+          }
+        });
+
+        if (flag == 0) {
+          await this.model.findOneAndUpdate(
+            { _id: projectId },
+            {
+              $set: { "profile.status": "COMPLETE" },
+            }
+          );
+
+          newResponse = await this.model.findById(projectId);
+          console.log("newResponse", newResponse);
+        }
+      }
       if (response)
         return {
           error: false,
