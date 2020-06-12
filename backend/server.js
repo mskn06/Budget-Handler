@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+var logger = require("morgan");
 import path from "path";
 import "./database/database";
 
@@ -11,6 +12,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
+app.use(logger("dev"));
 // app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "../frontend/www")));
 
