@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
   styleUrls: ["./setting.page.scss"],
 })
 export class SettingPage implements OnInit {
-  user: User;
+  user;
   currentUser;
   userForm: FormGroup;
 

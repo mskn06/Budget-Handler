@@ -10,7 +10,7 @@ import { first } from "rxjs/operators";
   styleUrls: ["./login.page.scss"],
 })
 export class LoginPage implements OnInit {
-  private user: FormGroup;
+  user: FormGroup;
   userData;
   loading = false;
   submitted = false;
