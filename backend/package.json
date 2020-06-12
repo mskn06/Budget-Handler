@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
+    "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -21,7 +22,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "babel-node server.js",
+    "start": "./node_modules/.bin/babel-node server.js",
     "dev:start": "clear; nodemon --exec babel-node server.js"
   },
   "engines": {
