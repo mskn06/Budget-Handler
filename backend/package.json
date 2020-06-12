@@ -5,7 +5,6 @@
   "main": "server.js",
   "dependencies": {
     "babel": "^6.23.0",
-    "babel-cli": "^6.26.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
@@ -17,12 +16,14 @@
     "@babel/core": "^7.10.1",
     "@babel/node": "^7.10.1",
     "@babel/preset-env": "^7.10.1",
+    "babel-cli": "^6.26.0",
     "babel-loader": "^8.1.0",
     "nodemon": "^2.0.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/babel-node server.js"
+    "start": "babel-node server.js",
+    "dev:start": "clear; nodemon --exec babel-node server.js"
   },
   "engines": {
     "node": "14.2.0"
