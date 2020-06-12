@@ -1,9 +1,9 @@
-import express from "express";
-import bodyParser from "body-parser";
-import cors from "cors";
-var logger = require("morgan");
-import path from "path";
-import "./database/database";
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const logger = require("morgan");
+const path = require("path");
+require("./database/database");
 
 var app = express();
 const PORT = process.env.PORT || 3000;
@@ -16,9 +16,9 @@ app.use(logger("dev"));
 // app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "../frontend/www")));
 
-import userRoutes from "./routes/user";
-import projectRoutes from "./routes/project";
-import staffRoutes from "./routes/staff";
+const userRoutes = require("./routes/user");
+const projectRoutes = require("./routes/project");
+const staffRoutes = require("./routes/staff");
 userRoutes(app);
 projectRoutes(app);
 staffRoutes(app);

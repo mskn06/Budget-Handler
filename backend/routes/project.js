@@ -1,7 +1,7 @@
-import ProjectController from "../controller/projectController";
-import UserController from "../controller/userController";
+const ProjectController = require("../controller/projectController");
+const UserController = require("../controller/userController");
 
-export default (server) => {
+module.exports = (server) => {
   // add project
   server.post("/user/:userId/project", ProjectController.insert);
   server.get("/user/:userId/project", UserController.getProjects);

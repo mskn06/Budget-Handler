@@ -1,9 +1,10 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 class Connection {
   constructor() {
     const url =
-      process.env.MONGODB_URI ||  `mongodb+srv://${"budgethandler"}:${"MD5qmOlqAXFWKfWe"}@project-ppgo7.mongodb.net/${"Budget"}?retryWrites=true&w=majority`;
+      process.env.MONGODB_URI ||
+      `mongodb+srv://${"budgethandler"}:${"MD5qmOlqAXFWKfWe"}@project-ppgo7.mongodb.net/${"Budget"}?retryWrites=true&w=majority`;
     console.log("Established new db connection");
     mongoose.Promise = global.Promise;
     mongoose.set("useNewUrlParser", true);
@@ -14,4 +15,4 @@ class Connection {
   }
 }
 
-export default new Connection();
+module.exports = new Connection();

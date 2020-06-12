@@ -1,9 +1,8 @@
-import Controller from "./controller";
-import StaffService from "../services/staffService";
-import Staff from "./../models/staff";
+const Controller = require("./controller");
+const StaffService = require("../services/staffService");
+const Staff = require("./../models/staff");
 
-import UserController from "./userController";
-
+const UserController = require("./userController");
 const staffService = new StaffService(new Staff().getInstance());
 
 class StaffController extends Controller {
@@ -74,4 +73,4 @@ class StaffController extends Controller {
   }
 }
 
-export default new StaffController(staffService);
+module.exports = new StaffController(staffService);

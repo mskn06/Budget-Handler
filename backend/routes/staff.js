@@ -1,7 +1,7 @@
-import StaffController from "../controller/staffController";
-import UserController from "../controller/userController";
+const StaffController = require("../controller/staffController");
+const UserController = require("../controller/userController");
 
-export default (server) => {
+module.exports = (server) => {
   // ADD STAFF
   server.post("/user/:userId/staff", StaffController.insert);
 

@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 class Service {
   constructor(model) {
@@ -140,4 +140,4 @@ class Service {
   }
 }
 
-export default Service;
+module.exports = Service;

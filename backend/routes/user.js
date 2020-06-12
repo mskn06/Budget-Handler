@@ -1,6 +1,6 @@
-import UserController from "../controller/userController";
+const UserController = require("../controller/userController");
 
-export default (server) => {
+module.exports = (server) => {
   // signup
   server.post("/signup", UserController.insert);
 

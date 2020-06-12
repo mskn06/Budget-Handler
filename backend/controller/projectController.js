@@ -1,8 +1,8 @@
-import Controller from "./controller";
-import ProjectService from "../services/projectService";
-import Project from "../models/project";
-import StaffController from "./staffController";
-import UserController from "./userController";
+const Controller = require("./controller");
+const ProjectService = require("../services/projectService");
+const Project = require("../models/project");
+const StaffController = require("./staffController");
+const UserController = require("./userController");
 
 const projectService = new ProjectService(new Project().getInstance());
 
@@ -115,4 +115,4 @@ class ProjectController extends Controller {
   }
 }
 
-export default new ProjectController(projectService);
+module.exports = new ProjectController(projectService);

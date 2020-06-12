@@ -1,5 +1,6 @@
-import mongoose, { Schema } from "mongoose";
-import uniqueValidator from "mongoose-unique-validator";
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+const uniqueValidator = require("mongoose-unique-validator");
 
 class Project {
   initSchema() {
@@ -76,4 +77,4 @@ class Project {
   }
 }
 
-export default Project;
+module.exports = Project;
