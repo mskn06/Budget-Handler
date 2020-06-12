@@ -23,6 +23,9 @@
     "start": "babel-node server.js",
     "dev:start": "clear; nodemon --exec babel-node server.js"
   },
+  "engines": {
+    "node": "14.2.0"
+  },
   "author": "Muskaan Jain",
   "license": "ISC"
 }
