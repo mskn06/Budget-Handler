@@ -22,8 +22,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/babel-node server.js",
-    "dev:start": "clear; nodemon --exec babel-node server.js"
+    "start": "./node_modules/.bin/babel-node server.js"
   },
   "engines": {
     "node": "14.2.0"
