@@ -7,9 +7,12 @@
   }
 
   .grid {
-    display: grid;
-    grid-auto-flow: column;
-    padding-top: 40px;
+    display: flex;
+    padding: 40px 44px 4px 4px;
+
+    .col {
+      width: 20%;
+    }
   }
   .header {
     font-family: Poppins;

@@ -2,8 +2,7 @@
   color: #222;
 
   .row {
-    display: grid;
-    grid-auto-flow: column;
+    display: flex;
 
     width: 100%;
     padding: 4px;
@@ -14,6 +13,10 @@
     box-shadow: -4px -4px 8px rgba(255, 255, 255, 0.5),
       2px 2px 10px rgba(0, 0, 0, 0.08);
     border-radius: 10px;
+
+    .col {
+      width: 20%;
+    }
   }
 
   // .row:first-of-type{

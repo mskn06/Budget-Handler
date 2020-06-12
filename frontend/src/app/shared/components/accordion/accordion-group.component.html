@@ -2,21 +2,23 @@
   <div>
     <!-- project page: MAIN CONTENT -->
     <div *ngIf="project" class="row" (click)="toggle.emit()">
-      <div>{{ project.profile.projectName }}</div>
-      <div>{{ project.profile.delivery | date: "dd-MM-yyyy" }}</div>
-      <div>${{ project.payment.amtEarned }}</div>
-      <div>${{ project.payment.amtToBePaid + project.payment.amtPaid }}</div>
-      <div>{{ project.profile.status }}</div>
+      <div class="col">{{ project.profile.projectName }}</div>
+      <div class="col">{{ project.profile.delivery | date: "dd-MM-yyyy" }}</div>
+      <div class="col">${{ project.payment.amtEarned }}</div>
+      <div class="col">
+        ${{ project.payment.amtToBePaid + project.payment.amtPaid }}
+      </div>
+      <div class="col">{{ project.profile.status }}</div>
       <!-- <div><img src="../../../../assets/icon/chevron_closed.png"></div> -->
     </div>
 
     <!-- staff page: MAIN CONTENT -->
     <div *ngIf="staff" class="row" (click)="toggle.emit()">
-      <div>{{ staff.profile.staffName }}</div>
-      <div>${{ staff.payment.amtPaid }}</div>
-      <div>{{ staff.payment.projectPercentage }}%</div>
-      <div>{{ staff.profile.projectCount }}</div>
-      <div>${{ staff.payment.amtToBePaid }}</div>
+      <div class="col">{{ staff.profile.staffName }}</div>
+      <div class="col">${{ staff.payment.amtPaid }}</div>
+      <div class="col">{{ staff.payment.projectPercentage }}%</div>
+      <div class="col">{{ staff.profile.projectCount }}</div>
+      <div class="col">${{ staff.payment.amtToBePaid }}</div>
       <!-- <div><img src="../../../../assets/icon/chevron_closed.png"></div> -->
     </div>
 
