@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+import path from "path";
 import "./database/database";
 
 var app = express();
@@ -11,7 +12,7 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 // app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, "build")));
+app.use(express.static(path.join(__dirname, "../frontend/www")));
 
 import userRoutes from "./routes/user";
 import projectRoutes from "./routes/project";
