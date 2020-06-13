@@ -12,8 +12,7 @@
     "morgan": "^1.10.0"
   },
   "scripts": {
-    "start": "node ./backend/server.js",
-    "build": "webpack"
+    "start": "node ./backend/server.js"
   },
   "engines": {
     "node": "14.2.0"
