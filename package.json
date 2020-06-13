@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "./backend/server.js",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -12,7 +12,7 @@
     "morgan": "^1.10.0"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "node ./backend/server.js",
     "build": "webpack"
   },
   "engines": {
