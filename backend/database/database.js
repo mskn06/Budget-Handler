@@ -15,4 +15,4 @@ class Connection {
   }
 }
 
-module.exports = new Connection();
+exports.Connection = new Connection();
