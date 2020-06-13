@@ -12,10 +12,13 @@
     "morgan": "^1.10.0"
   },
   "scripts": {
-    "start": "node server.js"
+    "heroku-postbuild": "cd ./frontend && ng build",
+    "start": "node server.js && cd ./frontend && npm start",
+    "postinstall": "cd ./frontend && ng build --aot -prod"
   },
   "engines": {
-    "node": "14.2.0"
+    "node": "14.2.0",
+    "npm": "6.14.4"
   },
   "author": "Muskaan Jain",
   "license": "ISC"
