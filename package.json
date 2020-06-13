@@ -55,7 +55,7 @@
     "typescript": "~3.4.3"
   },
   "scripts": {
-    "ng": "ng",
+    "ng": "cd ./frontend && ng",
     "build": " cd ./frontend && ng build",
     "heroku-postbuild": "cd ./frontend && ng build",
     "start": "node server.js && cd ./frontend && ng serve"
