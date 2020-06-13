@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const uniqueValidator = require("mongoose-unique-validator");
 
 class Staff {
-  initSchema() {
+  static initSchema() {
     const schema = new Schema(
       {
         profile: {
@@ -54,10 +54,10 @@ class Staff {
     mongoose.model("Staff", schema);
   }
 
-  getInstance() {
+  static getInstance() {
     this.initSchema();
     return mongoose.model("Staff");
   }
 }
 
-module.exports = Staff;
+module.exports = Staff.getInstance();
