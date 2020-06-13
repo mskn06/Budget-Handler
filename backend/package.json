@@ -12,7 +12,8 @@
     "morgan": "^1.10.0"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "webpack"
   },
   "engines": {
     "node": "14.2.0"
