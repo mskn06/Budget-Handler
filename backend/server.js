@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const logger = require("morgan");
 const path = require("path");
-const staticFilePath = path.join(__dirname, "../frontend/www");
+const staticFilePath = path.join(__dirname, "../frontend/www/");
 
 const PORT = process.env.PORT || 3000;
 const app = express();
