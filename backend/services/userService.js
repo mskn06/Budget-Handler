@@ -75,6 +75,7 @@ class UserService extends Service {
         data: item,
       };
     } catch (errors) {
+      console.error("login error", errors);
       return {
         error: true,
         statusCode: 500,
