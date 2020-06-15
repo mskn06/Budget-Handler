@@ -2,11 +2,12 @@
 
 Manages Budget distribution | Customised for Collaborations
 
-Command to run frontend
-ionic serve
+## How to collab?
 
-Command to run server(Backend APIs):
+1. Clone this repository
+2. Open command prompt & Change directory to Budget-Handler
+3. Run "npm install" to install all requirements
+4. Run "npm start" to start the server(if error occurs, download the reqd. packages)
+5. Open "http://localhost:3000" to see the project.
 
-npm run start
-npm start
-npm run dev:start
+Make your changes and push to this repo! :D
