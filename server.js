@@ -5,8 +5,12 @@ const logger = require("morgan");
 const path = require("path");
 const staticFilePath = path.join(__dirname, "frontend/www/");
 
+const HOST = process.env.HOST || "0.0.0.0";
 const PORT = process.env.PORT || 3000;
 const app = express();
+
+app.set("port", PORT);
+app.set("host", HOST);
 
 require("./database/database");
 
