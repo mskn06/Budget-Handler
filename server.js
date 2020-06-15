@@ -39,7 +39,7 @@ process
   .on("uncaughtException", shutdown("uncaughtException"));
 
 // setInterval(console.log.bind(console, "tick"), 1000);
-app.listen(process.env.PORT || 3000, () => console.log("Listening @" + 3000));
+app.listen(PORT, () => console.log("Listening @" + PORT));
 
 function shutdown(signal) {
   return (err) => {
