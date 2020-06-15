@@ -8,7 +8,19 @@
       <div class="col">
         ${{ project.payment.amtToBePaid + project.payment.amtPaid }}
       </div>
-      <div class="col">{{ project.profile.status }}</div>
+      <div
+        *ngIf="project.profile.status === 'PENDING'; else complete"
+        class="col pending"
+      >
+        <!-- <img src="../../../../assets/icon/pending.png" /> -->
+        {{ project.profile.status }}
+      </div>
+      <ng-template #complete>
+        <div class="col complete">
+          <!-- <img src="../../../../assets/icon/complete.png" /> -->
+          {{ project.profile.status }}
+        </div>
+      </ng-template>
       <!-- <div><img src="../../../../assets/icon/chevron_closed.png"></div> -->
     </div>
 

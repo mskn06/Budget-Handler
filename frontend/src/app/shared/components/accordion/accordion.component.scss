@@ -17,11 +17,15 @@
     .col {
       width: 20%;
     }
-  }
 
-  // .row:first-of-type{
-  //   margin: 0;
-  // }
+    .pending {
+      color: #da36ac;
+    }
+
+    .complete {
+      color: #039011;
+    }
+  }
 
   .row div {
     padding: 10px;
