@@ -1,34 +1,32 @@
-const api = "http://localhost:3000";
-
 export const CONSTANTS = {
   SIGNUP() {
-    return `${api}/signup`;
+    return `/signup`;
   },
   LOGIN() {
-    return `${api}/login`;
+    return `/login`;
   },
   GETUSER(userId) {
-    return `${api}/user/${userId}`;
+    return `/user/${userId}`;
   },
   UPDATEUSER(userId) {
-    return `${api}/user/${userId}`;
+    return `/user/${userId}`;
   },
   ADDPROJECT(userId) {
-    return `${api}/user/${userId}/project/`;
+    return `/user/${userId}/project/`;
   },
   GETPROJECTS(userId) {
-    return `${api}/user/${userId}/project/`;
+    return `/user/${userId}/project/`;
   },
   ADDSTAFF(userId) {
-    return `${api}/user/${userId}/staff`;
+    return `/user/${userId}/staff`;
   },
   GETSTAFFS(userId) {
-    return `${api}/user/${userId}/staff`;
+    return `/user/${userId}/staff`;
   },
   GETSTAFFLIST(userId) {
-    return `${api}/user/${userId}/staffList`;
+    return `/user/${userId}/staffList`;
   },
   PAYSTAFF(userId) {
-    return `${api}/user/${userId}/payStaff`;
+    return `/user/${userId}/payStaff`;
   },
 };
