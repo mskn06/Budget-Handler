@@ -1,10 +1,16 @@
-<div class="sidebar-right">
+<div class="sidebar-right" *ngIf="user">
   <app-profile-outline></app-profile-outline>
+  <div class="profile">
+    <span class="hey">
+      Hey,
+    </span>
+    <span class="name"> {{ user.profile.userName }} </span>!
+  </div>
   <!-- <div>
     <p>Hey, <span>John</span>!</p>
   </div> -->
 
-  <div class="key-params" *ngIf="user">
+  <div class="key-params">
     <div class="key-param">
       <p class="key">PROJECTS</p>
       <p class="value">{{ user.payment.projectCount }}</p>
@@ -29,12 +35,11 @@
       <p class="key">PAID</p>
       <p class="value">${{ user.payment.amtPaid }}</p>
     </div>
-
-    <div class="activity">
-      <h1>ACTIVITY</h1>
-      <p>$50 paid to John on 12-05-2020</p>
-      <p>$50 paid to John on 12-05-2020</p>
-      <p>$50 paid to John on 12-05-2020</p>
-    </div>
+  </div>
+  <div class="activity">
+    <h1>ACTIVITY</h1>
+    <p>$50 paid to John on 12-05-2020</p>
+    <p>$50 paid to John on 12-05-2020</p>
+    <p>$50 paid to John on 12-05-2020</p>
   </div>
 </div>

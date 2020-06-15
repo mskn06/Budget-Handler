@@ -38,8 +38,8 @@ process
   .on("SIGINT", shutdown("SIGINT"))
   .on("uncaughtException", shutdown("uncaughtException"));
 
-setInterval(console.log.bind(console, "tick"), 1000);
-app.listen(process.env.PORT || 3000, () => console.log("Listening"));
+// setInterval(console.log.bind(console, "tick"), 1000);
+app.listen(process.env.PORT || 3000, () => console.log("Listening @" + 3000));
 
 function shutdown(signal) {
   return (err) => {
