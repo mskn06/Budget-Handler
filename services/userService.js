@@ -240,6 +240,16 @@ class UserService extends Service {
     try {
       let userId = req.params.userId;
       let amountPaid = req.body.staff.payment.amtToBePaid;
+      let staff = req.body.staff;
+
+      let day = String(date.getDate()).padStart(2, "0");
+      let month = String(date.getMonth()).padStart(2, "0");
+      let year = date.getFullYear();
+      let output = day + "-" + month + "-" + year;
+      if (month / 10 == 0) month = "0" + month;
+
+      let activity = `$${amountPaid} paid to ${staff.profile.staffName} on ${output}`;
+      // console.log("activity", activity);
 
       let response = await this.model.updateOne(
         { _id: userId },
@@ -247,6 +257,12 @@ class UserService extends Service {
           $inc: {
             "payment.amtToBePaid": -amountPaid,
             "payment.amtPaid": amountPaid,
+          },
+          $push: {
+            activity: {
+              $each: [activity],
+              $position: 0,
+            },
           },
         },
         {
@@ -256,7 +272,7 @@ class UserService extends Service {
       );
       let updatedResponse = await this.model.findById(userId);
 
-      // console.log("res", updatedResponse);
+      console.log("res", updatedResponse);
       if (response)
         return {
           error: false,

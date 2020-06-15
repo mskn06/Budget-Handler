@@ -52,14 +52,26 @@
 
 .activity {
   color: black;
-  padding: 20px 32px;
+  padding: 20px 4px 0 32px;
 
   h1 {
     font-size: 14px;
     color: #c7a277;
   }
-
-  p {
-    font-size: medium;
+  div.scroll-box {
+    overflow-y: scroll;
+    height: 160px;
+    p {
+      font-size: medium;
+    }
   }
+}
+
+.scroll-box::-webkit-scrollbar {
+  width: 5px;
+}
+
+.scroll-box::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #8a4b00;
 }

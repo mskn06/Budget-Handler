@@ -38,8 +38,10 @@
   </div>
   <div class="activity">
     <h1>ACTIVITY</h1>
-    <p>$50 paid to John on 12-05-2020</p>
-    <p>$50 paid to John on 12-05-2020</p>
-    <p>$50 paid to John on 12-05-2020</p>
+    <div class="scroll-box">
+      <p *ngFor="let activity of user.activity">
+        {{ activity }}
+      </p>
+    </div>
   </div>
 </div>

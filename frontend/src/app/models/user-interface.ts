@@ -16,6 +16,7 @@ export interface User {
     amtInClearance?: Number;
     amtEarned?: Number;
   };
+  activity: String[];
   staffs?: Staff[];
   projects?: Project[];
 }

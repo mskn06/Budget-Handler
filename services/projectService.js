@@ -75,7 +75,7 @@ class ProjectService extends Service {
       let newResponse;
 
       let response = await this.model.updateOne(
-        { _id: projectId, "staffs._id": staff._id },
+        { _id: projectId, "staffs.profile.staffName": staff.profile.staffName },
         {
           $inc: {
             "payment.amtToBePaid": -amountPaid,
@@ -93,7 +93,7 @@ class ProjectService extends Service {
       let updatedResponse = await this.model
         .findById(projectId)
         .populate("staffs");
-      console.log("res", updatedResponse);
+      // console.log("res", updatedResponse);
 
       if (updatedResponse.staffs.length == 1) {
         newResponse = await this.model.findOneAndUpdate(

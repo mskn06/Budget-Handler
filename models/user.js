@@ -51,6 +51,10 @@ class User {
           },
         },
 
+        activity: {
+          type: [String],
+        },
+
         projects: [
           {
             type: Schema.Types.ObjectId,

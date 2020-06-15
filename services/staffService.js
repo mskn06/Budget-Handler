@@ -115,7 +115,7 @@ class StaffService extends Service {
     body.staff.forEach((staff) => {
       let projectPercentage =
         Math.round((staff.amtToBePaid / body.totalAmount) * 10000) / 100;
-      console.log("st", staffInfo);
+      // console.log("st", staffInfo);
       staffInfo.push({
         updateOne: {
           filter: { "profile.staffName": staff.staffName },
@@ -140,7 +140,7 @@ class StaffService extends Service {
     });
 
     // final staff objects to be updated
-    console.log("staff objects in add order", staffInfo);
+    // console.log("staff objects in add order", staffInfo);
 
     try {
       let response = await this.model.bulkWrite(staffInfo);
@@ -226,7 +226,7 @@ class StaffService extends Service {
       let updatedResponse = await this.model
         .find({ "profile.staffName": staff.profile.staffName })
         .populate("projects");
-      console.log("res pp", updatedResponse[0].projects);
+      console.log("staff res", updatedResponse[0].projects);
       if (response)
         return {
           error: false,
