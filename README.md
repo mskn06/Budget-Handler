@@ -6,6 +6,9 @@ Manages Budget distribution | Customised for Collaborations
 
 1. Clone this repository
 2. Open command prompt & Change directory to Budget-Handler
+```bash
+cd Budget-Handler
+```
 3. To install all requirements
 ```bash
 npm install
