@@ -33,16 +33,11 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(staticFilePath, "index.html"));
 });
 
-// app.listen(PORT, () => {
-//   console.log(`server started @localhost:${PORT}`);
-// });
-
 process
   .on("SIGTERM", shutdown("SIGTERM"))
   .on("SIGINT", shutdown("SIGINT"))
   .on("uncaughtException", shutdown("uncaughtException"));
 
-// setInterval(console.log.bind(console, "tick"), 1000);
 app.listen(PORT, () => console.log("Listening @" + PORT));
 
 function shutdown(signal) {

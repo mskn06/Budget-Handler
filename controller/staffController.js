@@ -16,11 +16,6 @@ class StaffController extends Controller {
     return response;
   }
 
-  // // IMPORTANT
-  // async getAll(req, res) {
-  //   return res.status(200).send(await this.service.getAll(req.query));
-  // }
-
   async getProject(req, res) {
     try {
       // console.log(req.params);

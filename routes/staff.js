@@ -19,5 +19,3 @@ router.get("/user/:userId/staff", UserController.getStaff);
 module.exports = (app) => {
   app.use(`/`, router);
 };
-
-// exports.staffRoutes = staffRoutes;

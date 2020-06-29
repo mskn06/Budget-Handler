@@ -3,7 +3,6 @@ const ProjectController = require("../controller/projectController");
 const UserController = require("../controller/userController");
 
 const router = Router();
-// add project
 router.post("/user/:userId/project", ProjectController.insert);
 router.get("/user/:userId/project", UserController.getProjects);
 router.post("/user/:userId/payStaff", ProjectController.payStaff);
@@ -16,5 +15,3 @@ router.post("/user/:userId/payStaff", ProjectController.payStaff);
 module.exports = (app) => {
   app.use(`/`, router);
 };
-
-// exports.projectRoutes = projectRoutes;

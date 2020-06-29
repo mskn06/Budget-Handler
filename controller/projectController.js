@@ -51,10 +51,6 @@ class ProjectController extends Controller {
     }
   }
 
-  // async getAll(req, res) {
-  //   return res.status(200).send(await this.service.getAll(req.query));
-  // }
-
   async getStaff(req, res) {
     try {
       let response = await this.service.getStaffDetails(req);
